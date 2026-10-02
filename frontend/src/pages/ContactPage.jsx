@@ -6,6 +6,7 @@ import PageHeader from "../components/PageHeader.jsx";
 import Reveal from "../components/Reveal.jsx";
 import { applyTemplate } from "../utils/template.js";
 import { formatPhone, phoneHref } from "../utils/phone.js";
+import SocialLinks from "../components/SocialLinks.jsx";
 import "./ContactPage.css";
 
 export default function ContactPage() {
@@ -115,6 +116,7 @@ export default function ContactPage() {
                     </div>
                   ) : null}
                 </dl>
+                <SocialLinks contact={contact} className="contact-social" />
               </aside>
             </Reveal>
             <Reveal variant="right" delay={90} className="contact-form-wrap">

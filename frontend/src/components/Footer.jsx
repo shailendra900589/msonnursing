@@ -4,6 +4,7 @@ import { mediaUrl } from "../utils/mediaUrl.js";
 import { formatPhone, phoneHref } from "../utils/phone.js";
 import Reveal from "./Reveal.jsx";
 import AgencyAttribution from "./AgencyAttribution.jsx";
+import SocialLinks from "./SocialLinks.jsx";
 import "./Footer.css";
 
 const FOOTER_LABELS = {
@@ -52,6 +53,7 @@ export default function Footer({ content }) {
               <li>Male & female staff</li>
               <li>{contact?.hours || "Open daily, 8:00 AM – 8:00 PM"}</li>
             </ul>
+            <SocialLinks contact={contact} className="footer-social" />
           </div>
         </Reveal>
         <Reveal variant="up" delay={80}>

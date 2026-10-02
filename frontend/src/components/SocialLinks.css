@@ -1,0 +1,47 @@
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  font-weight: 650;
+}
+
+.footer-social {
+  margin-top: 0.95rem;
+}
+
+.footer-social a {
+  padding: 0.38rem 0.72rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 0.82rem;
+}
+
+.footer-social a:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.contact-social {
+  margin-top: 1rem;
+}
+
+.contact-social a {
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  font-size: 0.88rem;
+}
+
+.contact-social a:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}

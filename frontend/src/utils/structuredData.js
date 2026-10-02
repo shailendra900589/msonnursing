@@ -1,4 +1,5 @@
 import { buildJobPosting } from "./jobPosting.js";
+import { socialProfiles } from "./socialLinks.js";
 
 function abs(siteUrl, path) {
   const base = String(siteUrl || "").replace(/\/$/, "");
@@ -74,6 +75,7 @@ function businessNode(content, meta) {
     hasMap: contact.address
       ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contact.address)}`
       : undefined,
+    sameAs: socialProfiles(contact).map((item) => item.url),
   };
   if (geo) node.geo = { "@type": "GeoCoordinates", ...geo };
   if (hours) node.openingHoursSpecification = hours;

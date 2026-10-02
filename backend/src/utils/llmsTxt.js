@@ -41,6 +41,8 @@ export function buildLlmsTxt(content) {
   if (phones) lines.push(`- Phones: ${phones}`);
   if (contact.whatsapp) lines.push(`- WhatsApp: ${contact.whatsapp}`);
   if (contact.email) lines.push(`- Email: ${contact.email}`);
+  lines.push("- Instagram: https://www.instagram.com/msonnursingservices/");
+  lines.push("- YouTube: https://www.youtube.com/@MsonNursingServices");
   lines.push(`- Website: ${siteUrl}`);
   lines.push("");
   lines.push("## Pages");

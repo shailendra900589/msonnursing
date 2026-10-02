@@ -615,7 +615,19 @@ export default function AdminDashboard() {
                   <Field label="WhatsApp message">
                     <textarea rows={2} value={data.contact.whatsappMessage || ""} onChange={(e) => update("contact.whatsappMessage", e.target.value)} />
                   </Field>
-                  <SmartObjectFields data={data} pathPrefix="contact" onChange={update} skip={["phones", "whatsapp", "whatsappMessage"]} token={token} />
+                  <Field label="Instagram">
+                    <input
+                      value={data.contact.instagram || "https://www.instagram.com/msonnursingservices/"}
+                      onChange={(e) => update("contact.instagram", e.target.value.trim())}
+                    />
+                  </Field>
+                  <Field label="YouTube">
+                    <input
+                      value={data.contact.youtube || "https://www.youtube.com/@MsonNursingServices"}
+                      onChange={(e) => update("contact.youtube", e.target.value.trim())}
+                    />
+                  </Field>
+                  <SmartObjectFields data={data} pathPrefix="contact" onChange={update} skip={["phones", "whatsapp", "whatsappMessage", "instagram", "youtube", "social"]} token={token} />
                 </div>
               </AdminAccordion>
             </div>
