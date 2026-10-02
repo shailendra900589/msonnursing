@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { mediaUrl } from "../utils/mediaUrl.js";
+import { mapEmbedSrc } from "../utils/mapEmbed.js";
 import { formatPhone, phoneHref } from "../utils/phone.js";
 import Reveal from "./Reveal.jsx";
 import AgencyAttribution from "./AgencyAttribution.jsx";
@@ -21,10 +22,36 @@ function footerAnchor(link) {
   return FOOTER_LABELS[link.to] || link.label;
 }
 
+function writtenLocation(address) {
+  const text = String(address || "").replace(/\s+/g, " ").trim();
+  if (!text) return [];
+  const parts = text.split(",").map((part) => part.trim()).filter(Boolean);
+  if (parts.length < 4) return [text];
+  const city = parts[parts.length - 1];
+  const body = parts.slice(0, -1);
+  const lines = [];
+  for (let i = 0; i < body.length; i += 2) {
+    const chunk = body.slice(i, i + 2).map((part) =>
+      part && part[0] === part[0].toLowerCase()
+        ? part.charAt(0).toUpperCase() + part.slice(1)
+        : part
+    );
+    const joined = chunk.join(", ");
+    if (chunk.length === 2 && joined.length > 36) {
+      lines.push(chunk[0], chunk[1]);
+    } else {
+      lines.push(joined);
+    }
+  }
+  lines.push(city);
+  return lines;
+}
+
 export default function Footer({ content }) {
   const { site, contact, footer, navigation } = content;
   const year = new Date().getFullYear();
   const footerLinks = navigation?.footer || navigation?.main || [];
+  const mapSrc = mapEmbedSrc(footer?.mapEmbed);
   const mapsHref = contact?.address
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contact.address)}`
     : "";
@@ -44,10 +71,9 @@ export default function Footer({ content }) {
                 className="footer-logo"
               />
             </span>
-            <h2 className="footer-keyword-title">
-              Mson Nursing Services: home nursing, home care, elder care and GDA male attendants
-            </h2>
-            <h3 className="footer-keyword-sub">Nursing agency in Lucknow for nursing care</h3>
+            <p className="footer-blurb">
+              Home nursing, home care, elder care, and GDA male attendants from a nursing agency in Lucknow.
+            </p>
             <ul className="footer-highlights">
               <li>Since {site.established || "2020"}</li>
               <li>Male & female staff</li>
@@ -81,23 +107,41 @@ export default function Footer({ content }) {
               <Mail size={15} aria-hidden />
               {contact.email}
             </a>
+            {contact?.address ? (
+              <p className="footer-address">
+                <MapPin size={15} aria-hidden />
+                <span>
+                  <span className="footer-address-label">Location</span>
+                  {writtenLocation(contact.address).map((line) => (
+                    <span key={line} className="footer-address-line">
+                      {line}
+                    </span>
+                  ))}
+                </span>
+              </p>
+            ) : null}
           </div>
         </Reveal>
         <Reveal variant="up" delay={180}>
           <div className="footer-col footer-location">
             <strong>{footer?.locationTitle || "Location"}</strong>
-            {contact?.address ? (
-              <address className="footer-address">
-                <MapPin size={15} aria-hidden />
-                <span>{contact.address}</span>
-              </address>
-            ) : null}
-            {mapsHref ? (
+            {mapSrc ? (
+              <iframe
+                className="footer-map"
+                src={mapSrc}
+                title={footer?.locationTitle || "Location"}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            ) : mapsHref ? (
               <a className="footer-map-link" href={mapsHref} target="_blank" rel="noopener noreferrer">
                 <MapPin size={16} aria-hidden />
-                View map
+                Open in Google Maps
               </a>
-            ) : null}
+            ) : (
+              <p className="footer-map-note">Add a map embed from the admin footer settings.</p>
+            )}
           </div>
         </Reveal>
       </div>

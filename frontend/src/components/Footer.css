@@ -44,27 +44,6 @@
   text-wrap: wrap;
 }
 
-.footer-keyword-title,
-.footer-keyword-sub {
-  margin: 0.85rem 0 0;
-  color: #fff;
-  font-weight: 650;
-  line-height: 1.45;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
-.footer-keyword-title {
-  font-size: 1rem;
-}
-
-.footer-keyword-sub {
-  margin-top: 0.3rem;
-  font-size: 0.92rem;
-  font-weight: 600;
-  opacity: 0.92;
-}
-
 .footer-blurb {
   margin: 0.9rem 0 0;
   max-width: 18rem;
@@ -148,7 +127,7 @@
   padding-top: 0.8rem;
   border-top: 1px solid rgba(255, 255, 255, 0.16);
   font-style: normal;
-  max-width: 22rem;
+  max-width: 17.5rem;
   line-height: 1.45;
   opacity: 0.92;
 }
