@@ -97,7 +97,7 @@ function liveHtml(pathname, origin) {
     .replace("<!--ssr-head-->", rendered.head)
     .replace("<!--ssr-html-->", rendered.html)
     .replace("<!--ssr-data-->", `<script src="/ssr-data.js"></script>`)
-    .replace(/(?<![\d+])(9807925369|8894654090)(?!\d)/g, "+91 $1");
+    .replace(/(?<![\d+])(?<!91 )(9807925369|8894654090)(?!\d)/g, "+91 $1");
   if (pageCache.size > 300) pageCache.clear();
   pageCache.set(key, html);
   return html;
