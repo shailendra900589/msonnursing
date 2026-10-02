@@ -5,6 +5,11 @@ import { mergeContent } from "../data/defaults.js";
 import { memory } from "../db/memory.js";
 
 const contentPath = join(dirname(fileURLToPath(import.meta.url)), "..", "data", "content.json");
+let revision = 1;
+
+export function getContentRevision() {
+  return revision;
+}
 
 function readStored() {
   if (memory.enabled && memory.content) return memory.content;
@@ -20,6 +25,7 @@ export function getRawContent() {
 }
 
 export async function saveContent(data) {
+  revision += 1;
   if (memory.enabled) {
     memory.content = data;
     const { persistContent } = await import("../db/index.js");

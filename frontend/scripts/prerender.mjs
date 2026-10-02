@@ -5,7 +5,7 @@ import { build } from "vite";
 
 const frontendRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const distDir = path.join(frontendRoot, "dist");
-const ssrDir = path.join(frontendRoot, ".ssr-build");
+const ssrDir = path.join(distDir, "ssr");
 const templatePath = path.join(distDir, "index.html");
 const contentPath = path.join(frontendRoot, "public", "content-fallback.json");
 
@@ -43,6 +43,7 @@ await build({
 const { render } = await import(pathToFileURL(path.join(ssrDir, "entry-server.js")).href);
 const content = JSON.parse(fs.readFileSync(contentPath, "utf8"));
 const template = fs.readFileSync(templatePath, "utf8");
+fs.copyFileSync(templatePath, path.join(distDir, "shell.html"));
 const data = JSON.stringify(content).replace(/</g, "\\u003c");
 fs.writeFileSync(path.join(distDir, "ssr-data.js"), `window.__SSR_DATA__=${data};\n`);
 
@@ -60,5 +61,4 @@ for (const route of routesFrom(content)) {
   count += 1;
 }
 
-fs.rmSync(ssrDir, { recursive: true, force: true });
 console.log(`[prerender] Wrote ${count} pages`);

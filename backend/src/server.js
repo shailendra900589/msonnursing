@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
 import path from "path";
-import { fileURLToPath } from "url";
-import { copyFileSync, existsSync } from "fs";
+import { fileURLToPath, pathToFileURL } from "url";
+import { copyFileSync, existsSync, readFileSync } from "fs";
 import apiRoutes from "./routes/api.js";
 import adminRoutes from "./routes/admin.js";
 import uploadRoutes from "./routes/upload.js";
@@ -10,6 +10,7 @@ import { ensureUploadDirs, UPLOAD_ROOT } from "./config/uploads.js";
 import { ensureResumeDir } from "./utils/resumeFiles.js";
 import { initDatabase } from "./db/index.js";
 import { memory } from "./db/memory.js";
+import { getContent, getContentRevision } from "./utils/contentStore.js";
 
 ensureUploadDirs();
 ensureResumeDir();
@@ -51,6 +52,47 @@ app.use("/api", apiRoutes);
 app.use("/api/admin/upload", uploadRoutes);
 app.use("/api/admin", adminRoutes);
 
+const shellFile = path.join(frontendDist, "shell.html");
+const ssrEntry = path.join(frontendDist, "ssr", "entry-server.js");
+let renderPage = null;
+const pageCache = new Map();
+let cacheRevision = 0;
+
+function isAssetPath(pathname) {
+  const last = String(pathname || "").split("/").filter(Boolean).pop() || "";
+  return last.includes(".");
+}
+
+function isPublicPage(req) {
+  if (req.method !== "GET" && req.method !== "HEAD") return false;
+  const pathname = req.path || "/";
+  if (pathname.startsWith("/api") || pathname.startsWith("/uploads")) return false;
+  if (pathname.startsWith("/admin") || pathname.startsWith("/preview")) return false;
+  if (pathname.includes("..")) return false;
+  return !isAssetPath(pathname);
+}
+
+function liveHtml(pathname) {
+  if (!renderPage || !existsSync(shellFile)) return null;
+  const revision = getContentRevision();
+  if (revision !== cacheRevision) {
+    pageCache.clear();
+    cacheRevision = revision;
+  }
+  const key = pathname || "/";
+  if (pageCache.has(key)) return pageCache.get(key);
+  const content = getContent();
+  const rendered = renderPage(key, content);
+  const html = readFileSync(shellFile, "utf8")
+    .replace("<!--ssr-css-->", "")
+    .replace("<!--ssr-head-->", rendered.head)
+    .replace("<!--ssr-html-->", rendered.html)
+    .replace("<!--ssr-data-->", `<script src="/ssr-data.js"></script>`);
+  if (pageCache.size > 300) pageCache.clear();
+  pageCache.set(key, html);
+  return html;
+}
+
 function pageFile(requestPath) {
   const pathname = decodeURIComponent(String(requestPath || "/").split("?")[0]);
   if (pathname.includes("..") || pathname.includes("\0")) {
@@ -66,10 +108,33 @@ function pageFile(requestPath) {
 }
 
 if (serveFrontend) {
-  app.use(express.static(frontendDist));
+  app.get("/ssr-data.js", (_req, res) => {
+    const data = JSON.stringify(getContent()).replace(/</g, "\\u003c");
+    res.setHeader("Content-Type", "text/javascript; charset=utf-8");
+    res.setHeader("Cache-Control", "no-store");
+    res.send(`window.__SSR_DATA__=${data};`);
+  });
+  app.get(/^(?!\/api|\/uploads).*/, (req, res, next) => {
+    if (!isPublicPage(req)) return next();
+    try {
+      const html = liveHtml(req.path || "/");
+      if (!html) return next();
+      res.setHeader("Content-Type", "text/html; charset=utf-8");
+      res.setHeader("Cache-Control", "no-cache");
+      if (req.method === "HEAD") return res.end();
+      return res.send(html);
+    } catch (error) {
+      console.error("Page render failed:", error.message);
+      return next();
+    }
+  });
+  app.use(express.static(frontendDist, { index: false }));
   app.get(/^(?!\/api|\/uploads).*/, (req, res, next) => {
     if (req.method !== "GET" && req.method !== "HEAD") return next();
-    res.sendFile(pageFile(req.path));
+    const file = req.path.startsWith("/admin") || req.path.startsWith("/preview")
+      ? (existsSync(shellFile) ? shellFile : path.join(frontendDist, "index.html"))
+      : pageFile(req.path);
+    res.sendFile(file);
   });
 } else {
   app.get("/", (_req, res) => {
@@ -94,6 +159,16 @@ async function start() {
   } catch (error) {
     console.error("MySQL connection failed:", error.message);
     console.error("Continuing with JSON files so the site stays online.");
+  }
+
+  if (existsSync(ssrEntry) && existsSync(shellFile)) {
+    try {
+      const mod = await import(pathToFileURL(ssrEntry).href);
+      renderPage = mod.render;
+      console.log("Live pages render from the current content, including new posts.");
+    } catch (error) {
+      console.error("Live page renderer failed to load:", error.message);
+    }
   }
 
   const server = app.listen(PORT, "0.0.0.0", () => {
