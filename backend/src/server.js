@@ -25,7 +25,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || "http://localhost:5173";
 const frontendDist = path.join(__dirname, "..", "..", "frontend", "dist");
-const serveFrontend = process.env.NODE_ENV === "production" && existsSync(path.join(frontendDist, "index.html"));
+const serveFrontend = existsSync(path.join(frontendDist, "index.html"));
 
 app.use(
   cors({
@@ -77,13 +77,13 @@ try {
   await initDatabase();
 } catch (error) {
   console.error("MySQL connection failed:", error.message);
-  if (process.env.NODE_ENV === "production") process.exit(1);
-  console.error("Continuing with JSON files so the site can still be tested.");
+  console.error("Continuing with JSON files so the site stays online.");
 }
 
-const server = app.listen(PORT, () => {
-  console.log(`API running at http://localhost:${PORT}`);
-  if (serveFrontend) console.log(`Website running at http://localhost:${PORT}`);
+const server = app.listen(PORT, "0.0.0.0", () => {
+  console.log(`API running at http://0.0.0.0:${PORT}`);
+  if (serveFrontend) console.log(`Website running at http://0.0.0.0:${PORT}`);
+  else console.error("frontend/dist is missing. Run npm run build before starting in production.");
 });
 
 server.on("error", (err) => {
