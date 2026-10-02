@@ -1,0 +1,18 @@
+export const SERVICE_CATEGORIES = [
+  { id: "all", label: "All services" },
+  { id: "home-health", label: "Home health" },
+  { id: "gda", label: "GDA staff" },
+  { id: "elder", label: "Elder care" },
+  { id: "nurse", label: "Nurses" },
+  { id: "injection", label: "Injections & TT" },
+  { id: "iv", label: "IV & saline" },
+  { id: "wound", label: "Wound dressing" },
+  { id: "catheter", label: "Catheter care" },
+  { id: "baby", label: "Baby care" },
+  { id: "physio", label: "Physiotherapy" },
+  { id: "caretaker", label: "Care takers" },
+  { id: "attendant", label: "Attendants" },
+  { id: "hospital", label: "Hospital" },
+  { id: "recovery", label: "Post-surgery" },
+  { id: "respiratory", label: "Respiratory" },
+];

@@ -1,0 +1,93 @@
+.share-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, #f8fafc 0%, #fff 55%, #fef2f2 100%);
+}
+
+.share-bar-copy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.share-bar-copy strong {
+  font-family: var(--font-display);
+  color: var(--blue);
+}
+
+.share-bar-cta-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  background: var(--red);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.share-bar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.share-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+.share-btn-primary {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+
+.share-btn-wa {
+  background: #059669;
+  border-color: #059669;
+  color: #fff;
+}
+
+/* Blog sidebar: stack actions on the right */
+.share-bar--stack-end {
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.share-bar--stack-end .share-bar-copy {
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.share-bar--stack-end .share-bar-actions {
+  justify-content: flex-end;
+  width: 100%;
+}

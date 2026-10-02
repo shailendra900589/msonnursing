@@ -1,0 +1,47 @@
+.trust-strip {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 1.1rem 0;
+}
+
+.trust-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.trust-strip-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.trust-strip-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(13, 58, 140, 0.08);
+  display: grid;
+  place-items: center;
+  color: var(--red);
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .trust-strip-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .trust-strip-grid {
+    grid-template-columns: 1fr;
+  }
+}

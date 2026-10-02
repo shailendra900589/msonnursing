@@ -1,0 +1,63 @@
+.why-section {
+  background: var(--surface);
+  border-block: 1px solid var(--border);
+}
+
+.section-intro.center {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-intro.center .section-lead {
+  margin-inline: auto;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.why-card {
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+
+.why-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.why-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(13, 58, 140, 0.08);
+  color: var(--blue);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.why-card h3 {
+  margin: 0;
+  color: var(--blue);
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.why-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.925rem;
+}
+
+@media (max-width: 900px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,157 @@
+.floating-care-hub {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.55rem;
+}
+
+.floating-care-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.55rem;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.floating-care-hub--open .floating-care-menu {
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.floating-care-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  color: #fff;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.16);
+  animation: careMenuIn 0.35s ease backwards;
+  animation-delay: calc(var(--care-i, 0) * 0.06s);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-care-item-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.floating-care-item:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.floating-care-item-icon {
+  display: grid;
+  place-items: center;
+  animation: careIconLive 2.2s ease-in-out infinite;
+  animation-delay: calc(var(--care-i, 0) * 0.15s);
+}
+
+.floating-care-item--bot {
+  background: linear-gradient(135deg, #0d3a8c, #2563eb);
+}
+
+.floating-care-item--email {
+  background: linear-gradient(135deg, #475569, #64748b);
+}
+
+.floating-care-item--whatsapp {
+  background: #25d366;
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.35);
+}
+
+.floating-care-item--call {
+  background: var(--red);
+  box-shadow: 0 10px 28px rgba(196, 30, 42, 0.35);
+}
+
+.floating-care-trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  color: #fff;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #0d3a8c 0%, #c41e2a 100%);
+  box-shadow: 0 14px 40px rgba(13, 58, 140, 0.35);
+  z-index: 1;
+}
+
+.floating-care-trigger-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(196, 30, 42, 0.45);
+  animation: careTriggerRing 2s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes careTriggerRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1.18);
+    opacity: 0;
+  }
+}
+
+@keyframes careMenuIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes careIconLive {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-care-item-icon,
+  .floating-care-trigger-ring,
+  .floating-care-menu {
+    animation: none;
+    transition: none;
+  }
+}

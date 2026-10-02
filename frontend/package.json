@@ -1,0 +1,24 @@
+{
+  "name": "mson-nursing-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/sync-content-fallback.mjs",
+    "dev": "vite",
+    "prebuild": "node scripts/sync-content-fallback.mjs",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-helmet-async": "^2.0.5",
+    "react-router-dom": "^7.1.1",
+    "lucide-react": "^0.469.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.3"
+  }
+}

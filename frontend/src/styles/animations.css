@@ -1,0 +1,268 @@
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-up {
+  transform: translateY(32px);
+}
+
+.reveal-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  transform: translateX(-28px);
+}
+
+.reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  transform: translateX(28px);
+}
+
+.reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  transform: scale(0.96);
+}
+
+.reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.reveal-fade {
+  transform: none;
+}
+
+.reveal-fade.is-visible {
+  opacity: 1;
+}
+
+.page-enter {
+  opacity: 1;
+  animation: pageEnter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hover-lift {
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 48px rgba(13, 58, 140, 0.14);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.25s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.btn span {
+  line-height: 1.2;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.22) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.55s ease;
+}
+
+.btn-primary:hover::after {
+  transform: translateX(120%);
+}
+
+@keyframes heroFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate {
+  animation: heroFade 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-animate-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.hero-animate-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.hero-animate-delay-3 {
+  animation-delay: 0.32s;
+}
+
+@keyframes pulseSoft {
+  0%,
+  100% {
+    box-shadow: 0 8px 22px rgba(196, 30, 42, 0.22);
+  }
+  50% {
+    box-shadow: 0 10px 36px rgba(196, 30, 42, 0.4);
+  }
+}
+
+.btn-pulse {
+  animation: pulseSoft 2.8s ease-in-out infinite;
+}
+
+.header.scrolled {
+  box-shadow: 0 10px 36px rgba(13, 58, 140, 0.12);
+}
+
+.header.scrolled .header-main {
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
+}
+
+.header-main {
+  transition: padding 0.25s ease;
+}
+
+.nav a,
+.nav a:hover,
+.nav a.active,
+.nav a::after,
+.nav a:hover::after,
+.nav a.active::after {
+  text-decoration: none;
+}
+
+.nav a::after {
+  content: none;
+  display: none;
+}
+
+.events-filter button {
+  transition: all 0.22s ease;
+}
+
+.events-filter button:hover {
+  transform: translateY(-1px);
+}
+
+.process-list li {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.process-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.event-type-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+}
+
+.event-type-camp {
+  background: rgba(13, 58, 140, 0.1);
+  color: var(--blue);
+}
+
+.event-type-campaign {
+  background: rgba(196, 30, 42, 0.1);
+  color: var(--red);
+}
+
+.event-type-event {
+  background: rgba(100, 116, 139, 0.15);
+  color: var(--text);
+}
+
+.icon-hover-spin:hover svg {
+  animation: iconSpin 0.6s ease;
+}
+
+@keyframes iconSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none !important;
+    transition: none;
+  }
+
+  .hero-animate,
+  .btn-pulse,
+  .page-enter,
+  .floating-care-bar {
+    animation: none;
+  }
+
+  .btn-primary::after {
+    display: none;
+  }
+
+  .btn:hover,
+  .hover-lift:hover {
+    transform: none;
+  }
+}

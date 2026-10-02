@@ -1,0 +1,107 @@
+.jobs-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.job-card,
+.job-empty {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.15rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.job-card {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.job-card:hover,
+.job-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 28px rgba(13, 58, 140, 0.1);
+  outline: none;
+}
+
+.job-card h2 {
+  margin: 0.15rem 0 0.35rem;
+  font-size: 1.2rem;
+  color: inherit;
+}
+
+.job-card p,
+.job-empty p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.job-card-kicker {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.job-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.45rem !important;
+  font-size: 0.9rem;
+}
+
+.job-card-link {
+  flex-shrink: 0;
+  border-radius: 999px;
+  padding: 0.55rem 0.95rem;
+  background: var(--blue);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.job-empty {
+  justify-content: flex-start;
+  color: var(--blue);
+}
+
+.job-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.job-detail-copy {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.job-detail-copy p {
+  margin: 0;
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .job-card,
+  .job-empty {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .job-detail {
+    grid-template-columns: 1fr;
+  }
+}

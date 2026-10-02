@@ -1,0 +1,240 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface);
+  box-shadow: 0 1px 0 var(--border);
+}
+
+.header-top {
+  background: var(--blue);
+  color: #fff;
+  font-size: 0.875rem;
+  max-height: 3rem;
+  overflow: hidden;
+  transition: max-height 0.32s ease, opacity 0.28s ease;
+}
+
+.header.is-top-hidden .header-top {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.header-top-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  min-height: 2.35rem;
+  padding: 0.35rem 0;
+}
+
+.header-ticker {
+  container-type: inline-size;
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 1.35rem;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 16px, #000 calc(100% - 20px), transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 16px, #000 calc(100% - 20px), transparent);
+}
+
+.header-ticker-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  line-height: 1.35rem;
+  animation-name: header-ticker-rtl;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes header-ticker-rtl {
+  from {
+    transform: translateX(100cqi);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.header-top-contacts {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.header-top-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  opacity: 0.95;
+  white-space: nowrap;
+}
+
+.header-top-link + .header-top-link {
+  margin-left: 0.9rem;
+  padding-left: 0.9rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.header-top-link,
+.header-top-link:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.header-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo {
+  height: 64px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  display: block;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.nav a {
+  font-weight: 500;
+  color: var(--text);
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--blue);
+}
+
+.nav a.active {
+  font-weight: 600;
+}
+
+.nav-cta {
+  background: var(--red) !important;
+  color: #fff !important;
+  padding: 0.55rem 1.15rem;
+  border-radius: 999px;
+  font-weight: 600 !important;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.nav-cta::after {
+  display: none !important;
+}
+
+.nav-cta:hover {
+  background: var(--red-soft) !important;
+}
+
+.menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+}
+
+.menu-btn span {
+  width: 24px;
+  height: 2px;
+  background: var(--blue);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.menu-btn.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header-top {
+    transition: none;
+  }
+
+  .header-ticker-line {
+    position: static;
+    animation: none;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 860px) {
+  .header-top {
+    display: none;
+  }
+
+  .header {
+    overflow: visible;
+  }
+
+  .brand-logo {
+    height: 48px;
+    max-width: min(200px, 62vw);
+  }
+
+  .header-main {
+    min-height: 64px;
+    padding: 0.7rem 0;
+  }
+
+  .menu-btn {
+    display: flex;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    background: var(--surface);
+    padding: 1rem 1.5rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    display: none;
+    gap: 0.75rem;
+  }
+
+  .nav-open {
+    display: flex;
+  }
+
+  .header-main {
+    position: relative;
+    flex-wrap: wrap;
+  }
+}

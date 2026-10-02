@@ -1,0 +1,119 @@
+import { useEffect, useState } from "react";
+import { NavLink, Link } from "react-router-dom";
+import { Mail, Phone, ArrowRight } from "lucide-react";
+import { applyTemplate } from "../utils/template.js";
+import { mediaUrl } from "../utils/mediaUrl.js";
+import "./Header.css";
+
+function Ticker({ lines }) {
+  const [index, setIndex] = useState(0);
+  const [run, setRun] = useState(0);
+  const line = lines[index] || "";
+  const seconds = Math.min(28, Math.max(10, Math.round(line.length / 5)));
+
+  if (!line) return <div className="header-ticker" />;
+
+  return (
+    <div className="header-ticker">
+      <span
+        key={`${run}-${line}`}
+        className="header-ticker-line"
+        style={{ animationDuration: `${seconds}s` }}
+        onAnimationEnd={() => {
+          setIndex((current) => (current + 1) % lines.length);
+          setRun((current) => current + 1);
+        }}
+      >
+        {line}
+      </span>
+    </div>
+  );
+}
+
+export default function Header({ content }) {
+  const [open, setOpen] = useState(false);
+  const { contact, header, navigation, site } = content;
+  const phone = contact?.phones?.[0];
+  const vars = { phone, email: contact?.email, siteName: site?.name };
+  const ctaPath = header?.navCtaPath || "/contact";
+  const links = (navigation?.main || []).filter((l) => l.to !== ctaPath);
+  const tickerLines = (header?.tickerLines || [])
+    .map((line) => applyTemplate(String(line || ""), vars).trim())
+    .filter(Boolean);
+  const [scrolled, setScrolled] = useState(false);
+  const [topHidden, setTopHidden] = useState(false);
+
+  useEffect(() => {
+    let last = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 12);
+      if (y < 48) setTopHidden(false);
+      else if (y > last + 8) setTopHidden(true);
+      else if (y < last - 8) setTopHidden(false);
+      last = y;
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <header className={`header ${scrolled ? "scrolled" : ""} ${topHidden ? "is-top-hidden" : ""}`}>
+      <div className="header-top">
+        <div className="container header-top-inner">
+          <Ticker lines={tickerLines} />
+          <div className="header-top-contacts">
+            <a href={`tel:${phone}`} className="header-top-link">
+              <Phone size={15} aria-hidden />
+              {applyTemplate(header?.phoneLine, vars)}
+            </a>
+            <a href={`mailto:${contact?.email}`} className="header-top-link">
+              <Mail size={15} aria-hidden />
+              {applyTemplate(header?.emailLine, vars)}
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className="container header-main">
+        <Link to="/" className="brand" onClick={() => setOpen(false)}>
+          <img
+            src={mediaUrl(site?.logoUrl || "/uploads/logos/logo.png")}
+            alt={header?.logoAlt || site?.name}
+            className="brand-logo"
+          />
+        </Link>
+        <nav className={`nav ${open ? "nav-open" : ""}`} aria-label="Main">
+          {links.map((l) => (
+            <NavLink
+              key={`${l.to}-${l.label}`}
+              to={l.to}
+              end={Boolean(l.end)}
+              onClick={() => setOpen(false)}
+              className={({ isActive }) => (isActive ? "active" : undefined)}
+            >
+              {l.label}
+            </NavLink>
+          ))}
+          {header?.navCtaLabel ? (
+            <Link to={ctaPath} className="nav-cta" onClick={() => setOpen(false)}>
+              {header.navCtaLabel}
+              <ArrowRight size={16} aria-hidden />
+            </Link>
+          ) : null}
+        </nav>
+        <button
+          type="button"
+          className={`menu-btn ${open ? "open" : ""}`}
+          aria-label="Toggle menu"
+          aria-expanded={open}
+          onClick={() => setOpen(!open)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
+    </header>
+  );
+}

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /preview
+Disallow: /enquiry/thanks
+
+Sitemap: https://msonnursing.com/api/sitemap.xml

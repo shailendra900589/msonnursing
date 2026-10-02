@@ -1,0 +1,55 @@
+.cta-banner {
+  position: relative;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-soft) 100%);
+  color: #fff;
+  padding: 3rem 0;
+  overflow: hidden;
+}
+
+.cta-banner-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  top: -120px;
+  right: -80px;
+  filter: blur(2px);
+}
+
+.cta-banner-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cta-banner-copy {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.cta-banner-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.14);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.cta-banner h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.cta-banner p {
+  margin: 0;
+  opacity: 0.92;
+  max-width: 42rem;
+}
