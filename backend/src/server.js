@@ -73,25 +73,29 @@ app.use((_req, res) => {
   res.status(404).json({ error: "Not found" });
 });
 
-try {
-  await initDatabase();
-} catch (error) {
-  console.error("MySQL connection failed:", error.message);
-  console.error("Continuing with JSON files so the site stays online.");
+async function start() {
+  try {
+    await initDatabase();
+  } catch (error) {
+    console.error("MySQL connection failed:", error.message);
+    console.error("Continuing with JSON files so the site stays online.");
+  }
+
+  const server = app.listen(PORT, "0.0.0.0", () => {
+    console.log(`API running at http://0.0.0.0:${PORT}`);
+    if (serveFrontend) console.log(`Website running at http://0.0.0.0:${PORT}`);
+    else console.error("frontend/dist is missing. Run npm run build before starting in production.");
+  });
+
+  server.on("error", (err) => {
+    if (err.code === "EADDRINUSE") {
+      console.error(
+        `Port ${PORT} is already in use. Stop the other process or run: npx kill-port ${PORT}`
+      );
+      process.exit(1);
+    }
+    throw err;
+  });
 }
 
-const server = app.listen(PORT, "0.0.0.0", () => {
-  console.log(`API running at http://0.0.0.0:${PORT}`);
-  if (serveFrontend) console.log(`Website running at http://0.0.0.0:${PORT}`);
-  else console.error("frontend/dist is missing. Run npm run build before starting in production.");
-});
-
-server.on("error", (err) => {
-  if (err.code === "EADDRINUSE") {
-    console.error(
-      `Port ${PORT} is already in use. Stop the other process or run: npx kill-port ${PORT}`
-    );
-    process.exit(1);
-  }
-  throw err;
-});
+start();
