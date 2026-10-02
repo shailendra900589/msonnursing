@@ -38,6 +38,7 @@ app.use(
   })
 );
 app.use(express.json({ limit: "2mb" }));
+app.use(canonicalRedirect);
 
 app.use("/uploads", express.static(UPLOAD_ROOT));
 
@@ -73,12 +74,52 @@ function isPublicPage(req) {
   return !isAssetPath(pathname);
 }
 
+function requestHost(req) {
+  return String(req.headers["x-forwarded-host"] || req.headers.host || "")
+    .split(",")[0]
+    .trim()
+    .replace(/:\d+$/, "")
+    .toLowerCase();
+}
+
 function requestOrigin(req) {
-  const host = String(req.headers["x-forwarded-host"] || req.headers.host || "").split(",")[0].trim();
+  const host = requestHost(req);
   if (!host) return "";
   const forwarded = String(req.headers["x-forwarded-proto"] || "").split(",")[0].trim();
   const proto = forwarded || (host.includes("localhost") ? "http" : "https");
   return `${proto}://${host}`;
+}
+
+function canonicalRedirect(req, res, next) {
+  if (req.method !== "GET" && req.method !== "HEAD") return next();
+  const hostname = requestHost(req);
+  if (!hostname || hostname === "localhost" || hostname === "127.0.0.1") return next();
+  const forwarded = String(req.headers["x-forwarded-proto"] || "").split(",")[0].trim().toLowerCase();
+  const url = new URL(req.originalUrl || "/", "https://placeholder.local");
+  const trimmed = url.pathname.length > 1 ? url.pathname.replace(/\/+$/, "") : url.pathname;
+  const dropWww = hostname.startsWith("www.");
+  const dropSlash = trimmed !== url.pathname;
+  const upgradeHttps = forwarded === "http";
+  if (!dropWww && !dropSlash && !upgradeHttps) return next();
+  const bare = hostname.replace(/^www\./, "");
+  res.redirect(301, `https://${bare}${trimmed}${url.search}`);
+}
+
+const STATIC_PAGES = new Set(["/", "/about", "/services", "/events", "/contact", "/blog", "/jobs", "/enquiry/thanks"]);
+
+function isKnownPublicPath(pathname, content) {
+  const pathName = String(pathname || "/").replace(/\/+$/, "") || "/";
+  if (STATIC_PAGES.has(pathName)) return true;
+  const match = pathName.match(/^\/(services|events|blog|jobs)\/([^/]+)$/);
+  if (!match) return false;
+  const id = decodeURIComponent(match[2]);
+  const lists = {
+    services: content?.services,
+    events: content?.events,
+    blog: content?.posts,
+    jobs: content?.jobs,
+  };
+  return (lists[match[1]] || []).some((item) => item?.id === id);
 }
 
 function liveHtml(pathname, origin) {
@@ -161,8 +202,10 @@ if (serveFrontend) {
   app.get(/^(?!\/api|\/uploads).*/, (req, res, next) => {
     if (!isPublicPage(req)) return next();
     try {
-      const html = liveHtml(req.path || "/", requestOrigin(req));
+      const pathname = req.path || "/";
+      const html = liveHtml(pathname, requestOrigin(req));
       if (!html) return next();
+      res.status(isKnownPublicPath(pathname, getContent()) ? 200 : 404);
       res.setHeader("Content-Type", "text/html; charset=utf-8");
       res.setHeader("Cache-Control", "no-cache");
       if (req.method === "HEAD") return res.end();
@@ -178,6 +221,9 @@ if (serveFrontend) {
     const file = req.path.startsWith("/admin") || req.path.startsWith("/preview")
       ? (existsSync(shellFile) ? shellFile : path.join(frontendDist, "index.html"))
       : pageFile(req.path);
+    if (!req.path.startsWith("/admin") && !req.path.startsWith("/preview") && !isKnownPublicPath(req.path, getContent())) {
+      res.status(404);
+    }
     res.sendFile(file);
   });
 } else {
