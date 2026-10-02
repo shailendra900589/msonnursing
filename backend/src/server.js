@@ -22,6 +22,7 @@ if (existsSync(seedLogo) && !existsSync(seededLogo)) {
 }
 
 const app = express();
+app.disable("x-powered-by");
 const PORT = process.env.PORT || 5000;
 const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || "http://localhost:5173";
 const frontendDist = path.join(__dirname, "..", "..", "frontend", "dist");
@@ -50,11 +51,25 @@ app.use("/api", apiRoutes);
 app.use("/api/admin/upload", uploadRoutes);
 app.use("/api/admin", adminRoutes);
 
+function pageFile(requestPath) {
+  const pathname = decodeURIComponent(String(requestPath || "/").split("?")[0]);
+  if (pathname.includes("..") || pathname.includes("\0")) {
+    return path.join(frontendDist, "index.html");
+  }
+  const clean = pathname === "/" ? "" : pathname.replace(/^\/+|\/+$/g, "");
+  const nested = clean ? path.resolve(frontendDist, clean, "index.html") : path.join(frontendDist, "index.html");
+  const root = path.resolve(frontendDist);
+  if (!nested.startsWith(root) || !existsSync(nested)) {
+    return path.join(frontendDist, "index.html");
+  }
+  return nested;
+}
+
 if (serveFrontend) {
   app.use(express.static(frontendDist));
   app.get(/^(?!\/api|\/uploads).*/, (req, res, next) => {
     if (req.method !== "GET" && req.method !== "HEAD") return next();
-    res.sendFile(path.join(frontendDist, "index.html"));
+    res.sendFile(pageFile(req.path));
   });
 } else {
   app.get("/", (_req, res) => {

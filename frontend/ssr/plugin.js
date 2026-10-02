@@ -74,7 +74,7 @@ export function ssrDevPlugin(repoRoot, frontendRoot) {
               res.statusCode = 200;
               res.setHeader("Content-Type", "text/javascript; charset=utf-8");
               res.setHeader("Cache-Control", "no-store");
-              res.end(req.method === "HEAD" ? undefined : `window.__SSR_DATA=${data};`);
+              res.end(req.method === "HEAD" ? undefined : `window.__SSR_DATA__=${data};`);
               return;
             }
           }

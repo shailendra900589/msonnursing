@@ -7,7 +7,7 @@
     "predev": "node scripts/sync-content-fallback.mjs",
     "dev": "vite",
     "prebuild": "node scripts/sync-content-fallback.mjs",
-    "build": "vite build",
+    "build": "vite build && node scripts/prerender.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

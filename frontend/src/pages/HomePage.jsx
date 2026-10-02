@@ -8,6 +8,8 @@ import PostCard from "../components/PostCard.jsx";
 
 import Seo from "../components/Seo.jsx";
 
+import ShareBar from "../components/ShareBar.jsx";
+
 import ServiceCard from "../components/ServiceCard.jsx";
 
 import WhyChooseGrid from "../components/WhyChooseGrid.jsx";
@@ -418,6 +420,10 @@ export default function HomePage() {
           />
         </Reveal>
       ) : null}
+
+      <section className="container home-module">
+        <ShareBar pageKey="home" />
+      </section>
 
       <Reveal variant="scale" delay={40} className="home-module">
         <CtaBanner
