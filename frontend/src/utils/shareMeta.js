@@ -11,7 +11,7 @@ function clipTitle(title, max = 55) {
   if (text.length <= max) return text;
   const cut = text.slice(0, max);
   const space = cut.lastIndexOf(" ");
-  return (space > 24 ? cut.slice(0, space) : cut).replace(/[|,:–—-]+$/g, "").trim();
+  return (space > 24 ? cut.slice(0, space) : cut).replace(/[|,:–—&-]+\s*$/g, "").trim();
 }
 
 function clip(text, max = 200) {
