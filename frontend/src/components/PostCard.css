@@ -39,18 +39,20 @@
   color: var(--red);
 }
 
-.post-card h3 {
+.post-card-title {
   margin: 0;
   font-size: 1.05rem;
   line-height: 1.35;
+  font-weight: 650;
+  color: inherit;
 }
 
-.post-card h3 a {
+.post-card-title a {
   color: inherit;
   text-decoration: none;
 }
 
-.post-card h3 a::after {
+.post-card-title a::after {
   content: "";
   position: absolute;
   inset: 0;

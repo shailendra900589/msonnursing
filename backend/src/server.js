@@ -72,17 +72,25 @@ function isPublicPage(req) {
   return !isAssetPath(pathname);
 }
 
-function liveHtml(pathname) {
+function requestOrigin(req) {
+  const host = String(req.headers["x-forwarded-host"] || req.headers.host || "").split(",")[0].trim();
+  if (!host) return "";
+  const forwarded = String(req.headers["x-forwarded-proto"] || "").split(",")[0].trim();
+  const proto = forwarded || (host.includes("localhost") ? "http" : "https");
+  return `${proto}://${host}`;
+}
+
+function liveHtml(pathname, origin) {
   if (!renderPage || !existsSync(shellFile)) return null;
   const revision = getContentRevision();
   if (revision !== cacheRevision) {
     pageCache.clear();
     cacheRevision = revision;
   }
-  const key = pathname || "/";
+  const key = `${origin || ""}|${pathname || "/"}`;
   if (pageCache.has(key)) return pageCache.get(key);
   const content = getContent();
-  const rendered = renderPage(key, content);
+  const rendered = renderPage(pathname || "/", content, origin);
   const html = readFileSync(shellFile, "utf8")
     .replace("<!--ssr-css-->", "")
     .replace("<!--ssr-head-->", rendered.head)
@@ -117,7 +125,7 @@ if (serveFrontend) {
   app.get(/^(?!\/api|\/uploads).*/, (req, res, next) => {
     if (!isPublicPage(req)) return next();
     try {
-      const html = liveHtml(req.path || "/");
+      const html = liveHtml(req.path || "/", requestOrigin(req));
       if (!html) return next();
       res.setHeader("Content-Type", "text/html; charset=utf-8");
       res.setHeader("Cache-Control", "no-cache");

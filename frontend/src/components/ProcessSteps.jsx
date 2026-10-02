@@ -23,7 +23,7 @@ export default function ProcessSteps({ title, subtitle, steps = [] }) {
                   </span>
                 </div>
                 <div>
-                  <h3>{step.title}</h3>
+                  <p className="process-title">{step.title}</p>
                   <p>{step.text}</p>
                 </div>
               </Reveal>

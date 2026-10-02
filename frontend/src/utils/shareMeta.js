@@ -6,6 +6,14 @@ function buildUrl(siteUrl, path) {
   return base ? `${base}${p}` : p;
 }
 
+function clipTitle(title, max = 55) {
+  const text = String(title || "").replace(/\s+/g, " ").trim();
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max);
+  const space = cut.lastIndexOf(" ");
+  return (space > 24 ? cut.slice(0, space) : cut).replace(/[|,:–—-]+$/g, "").trim();
+}
+
 function clip(text, max = 200) {
   if (!text) return "";
   const s = String(text).trim();
@@ -104,7 +112,7 @@ export function resolveShareMeta({ content, pageKey, service, event, post, job }
   const shareText = meta.shareText || description;
 
   return {
-    title,
+    title: clipTitle(title),
     description: clip(description, 160),
     keywords,
     canonical,

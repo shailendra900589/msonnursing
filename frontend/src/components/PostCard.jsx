@@ -8,12 +8,12 @@ export default function PostCard({ post, delay = 0 }) {
   return (
     <Reveal delay={delay} className="post-card-wrap">
       <article className="post-card hover-lift">
-        {post.image ? <img src={mediaUrl(post.image)} alt={post.imageAlt || post.title} className="post-card-image" loading="lazy" /> : null}
+        {post.image ? <img src={mediaUrl(post.image)} alt={post.imageAlt || post.title} title={post.imageAlt || post.title} className="post-card-image" loading="lazy" /> : null}
         <div className="post-card-body">
           {post.category ? <span className="post-card-category">{post.category}</span> : null}
-          <h3>
+          <p className="post-card-title">
             <Link to={`/blog/${post.id}`}>{post.title}</Link>
-          </h3>
+          </p>
           <p>{post.excerpt}</p>
           <div className="post-card-meta">
             {post.date ? (

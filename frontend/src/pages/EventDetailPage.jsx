@@ -39,6 +39,7 @@ function EventHeroImage({ event }) {
     <img
       src={src}
       alt={event.imageAlt || event.title}
+      title={event.imageAlt || event.title}
       className="event-hero-image"
       onError={() => setSrc(eventFallbackImage())}
     />

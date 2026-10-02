@@ -127,7 +127,7 @@ export default function ServiceDetailPage() {
           <div className="service-product-grid">
             <Reveal variant="scale" className="service-product-gallery">
               <div className="service-product-image-frame hover-lift">
-                <img src={mediaUrl(service.image)} alt={service.imageAlt || service.title} className="service-product-image" />
+                <img src={mediaUrl(service.image)} alt={service.imageAlt || service.title} title={service.imageAlt || service.title} className="service-product-image" />
               </div>
               <ul className="service-product-gallery-trust" aria-label="Service guarantees">
                 {[
@@ -361,7 +361,7 @@ export default function ServiceDetailPage() {
               {related.map((item, i) => (
                 <Reveal key={item.id} variant="up" delay={i * 70}>
                 <Link to={`/services/${item.id}`} className="service-related-card hover-lift">
-                  <img src={mediaUrl(item.image)} alt={item.imageAlt || item.title} loading="lazy" />
+                  <img src={mediaUrl(item.image)} alt={item.imageAlt || item.title} title={item.imageAlt || item.title} loading="lazy" />
                   <div>
                     <h4>{item.title}</h4>
                     {item.price ? <p className="service-related-price">{item.price}</p> : null}

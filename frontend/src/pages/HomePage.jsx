@@ -52,7 +52,7 @@ export default function HomePage() {
 
   const vars = { siteName: content.site.name, phone };
 
-  const previewText = home.previewIntro?.trim() || block.introText;
+  const previewText = home.previewIntro?.trim() || home.heroDescription;
 
   const homeServiceCount = 4;
 
@@ -139,7 +139,7 @@ export default function HomePage() {
 
                 <li key={`${stat.value}-${stat.label}`}>
 
-                  <strong>{applyTemplate(stat.value, vars)}</strong>
+                  <span className="stat-value">{applyTemplate(stat.value, vars)}</span>
 
                   <span>{stat.label}</span>
 
@@ -155,7 +155,7 @@ export default function HomePage() {
 
             <div className="home-hero-media">
 
-              <img src={mediaUrl(home.heroImage)} alt={home.heroImageAlt} />
+              <img src={mediaUrl(home.heroImage)} alt={home.heroImageAlt} title={home.heroImageAlt} />
 
               <div className="home-badge hover-lift">
 
@@ -163,7 +163,7 @@ export default function HomePage() {
 
                 <div>
 
-                  <strong>{home.trustBadgeTitle}</strong>
+                  <span className="stat-value">{home.trustBadgeTitle}</span>
 
                   <span>{home.trustBadgeText}</span>
 
@@ -203,22 +203,14 @@ export default function HomePage() {
             <aside className="intro-band-aside">
               <Reveal variant="right" delay={90}>
                 <div className="intro-glance-card hover-lift">
-                  <h3 className="intro-glance-title">At a glance</h3>
-                  <ul className="intro-glance-stats">
-                    {(home.stats || []).map((stat) => (
-                      <li key={`${stat.value}-${stat.label}`}>
-                        <strong>{applyTemplate(stat.value, vars)}</strong>
-                        <span>{stat.label}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="intro-glance-title">At a glance</p>
                   <ul className="check-list intro-glance-list">
                     {(content.highlights || []).slice(0, 4).map((item) => (
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
                   <Btn to="/about" variant="outline" icon={ArrowRight} className="intro-glance-btn">
-                    {content.labels?.readOurStory || "About Mson Nursing"}
+                    About the agency
                   </Btn>
                 </div>
               </Reveal>

@@ -44,10 +44,13 @@
   flex: 1;
 }
 
+.event-card-title,
 .event-card-body h3 {
   margin: 0.65rem 0 0.5rem;
   color: var(--blue);
   font-size: 1.05rem;
+  font-family: var(--font-display);
+  font-weight: 650;
 }
 
 .event-card-body p {

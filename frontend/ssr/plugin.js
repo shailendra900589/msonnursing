@@ -89,7 +89,9 @@ export function ssrDevPlugin(repoRoot, frontendRoot) {
           let template = fs.readFileSync(indexPath, "utf8");
           template = await server.transformIndexHtml(url, template);
           const { render } = await server.ssrLoadModule("/src/entry-server.jsx");
-          const rendered = render(pathname, content);
+                    const host = req.headers.host || "";
+          const origin = host ? `http://${host}` : "";
+          const rendered = render(pathname, content, origin);
           await buildDevCss(server);
           const html = template
             .replace("<!--ssr-css-->", `<link rel="stylesheet" href="/__ssr_css" />`)

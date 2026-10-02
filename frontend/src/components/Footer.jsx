@@ -6,6 +6,20 @@ import Reveal from "./Reveal.jsx";
 import AgencyAttribution from "./AgencyAttribution.jsx";
 import "./Footer.css";
 
+const FOOTER_LABELS = {
+  "/": "Homepage",
+  "/about": "About us",
+  "/services": "All services",
+  "/blog": "Care articles",
+  "/events": "Health events",
+  "/contact": "Contact us",
+  "/jobs": "Careers",
+};
+
+function footerAnchor(link) {
+  return FOOTER_LABELS[link.to] || link.label;
+}
+
 function writtenLocation(address) {
   const text = String(address || "").replace(/\s+/g, " ").trim();
   if (!text) return [];
@@ -49,6 +63,7 @@ export default function Footer({ content }) {
               <img
                 src={mediaUrl(site?.logoUrl || "/uploads/logos/logo.png")}
                 alt={site.name}
+                title={site.name}
                 width={200}
                 height={58}
                 className="footer-logo"
@@ -69,7 +84,7 @@ export default function Footer({ content }) {
             <strong>{footer?.quickLinksTitle}</strong>
             {footerLinks.map((l) => (
               <Link key={`${l.to}-${l.label}`} to={l.to}>
-                {l.label}
+                {footerAnchor(l)}
               </Link>
             ))}
           </div>

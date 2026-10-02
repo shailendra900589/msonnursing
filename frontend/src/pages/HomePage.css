@@ -65,7 +65,7 @@
   border: 1px solid var(--border);
 }
 
-.intro-glance-stats strong {
+.intro-glance-stats .stat-value {
   display: block;
   font-size: 1.05rem;
   color: var(--blue);
@@ -180,12 +180,13 @@
   font-weight: 700;
 }
 
-.home-badge strong {
+.home-badge .stat-value {
   display: block;
   color: var(--blue);
+  font-weight: 700;
 }
 
-.home-badge span {
+.home-badge span:not(.stat-value) {
   font-size: 0.85rem;
   color: var(--text-muted);
 }
@@ -199,15 +200,16 @@
   gap: 2rem;
 }
 
-.home-stats strong {
-  display: block;
-  font-size: 1.35rem;
-  color: var(--blue);
-}
-
-.home-stats span {
+.home-stats span:not(.stat-value) {
   font-size: 0.85rem;
   color: var(--text-muted);
+}
+
+.home-stats .stat-value {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--blue);
 }
 
 section.home-services .card-grid.home-services-grid {

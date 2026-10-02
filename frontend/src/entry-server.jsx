@@ -6,12 +6,15 @@ import App from "./App.jsx";
 import "./index.css";
 import "./styles/animations.css";
 
-export function render(url, content) {
+export function render(url, content, siteUrl) {
+  const pageContent = siteUrl
+    ? { ...content, site: { ...content.site, url: String(siteUrl).replace(/\/$/, "") } }
+    : content;
   const helmetContext = {};
   const html = renderToString(
     <HelmetProvider context={helmetContext}>
       <MemoryRouter initialEntries={[url]}>
-        <StaticContentProvider content={content}>
+        <StaticContentProvider content={pageContent}>
           <App />
         </StaticContentProvider>
       </MemoryRouter>

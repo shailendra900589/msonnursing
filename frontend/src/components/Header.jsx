@@ -80,6 +80,7 @@ export default function Header({ content }) {
           <img
             src={mediaUrl(site?.logoUrl || "/uploads/logos/logo.png")}
             alt={header?.logoAlt || site?.name}
+            title={header?.logoAlt || site?.name}
             className="brand-logo"
           />
         </Link>

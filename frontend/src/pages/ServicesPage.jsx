@@ -138,6 +138,7 @@ export default function ServicesPage() {
                 <img
                   src={mediaUrl(introImage)}
                   alt={block.introImageAlt || content.pages?.home?.heroImageAlt || "Nurse providing home care in Lucknow"}
+                  title={block.introImageAlt || content.pages?.home?.heroImageAlt || "Nurse providing home care in Lucknow"}
                   className="services-intro-image"
                 />
               ) : null}

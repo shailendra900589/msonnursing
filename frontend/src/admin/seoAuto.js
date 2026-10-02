@@ -28,7 +28,7 @@ function slugWords(title) {
 
 export function buildServiceSeo(service, siteName, location = "Lucknow") {
   const priceBit = service.price ? ` From ${service.price}.` : "";
-  const title = `${service.title} | ${siteName} ${location}`;
+  const title = `${service.title} in ${location}`;
   const description = `${service.shortDescription || service.title}.${priceBit} Book trained nurses & GDA staff in ${location}. Call for home visits.`.slice(
     0,
     160
@@ -51,7 +51,7 @@ export function buildServiceSeo(service, siteName, location = "Lucknow") {
 }
 
 export function buildPostSeo(post, siteName, location = "Lucknow") {
-  const title = `${post.title} | Blog | ${siteName}`;
+  const title = `${post.title} | ${siteName}`;
   const description = (post.excerpt || post.title).slice(0, 160);
   const keywords = [post.category, "nursing blog", location, "home healthcare tips", ...GLOBAL_KEYWORDS.slice(0, 5)].join(
     ", "
@@ -69,7 +69,7 @@ export function buildPostSeo(post, siteName, location = "Lucknow") {
 }
 
 export function buildEventSeo(event, siteName, location = "Lucknow") {
-  const title = `${event.title} | ${siteName} ${location}`;
+  const title = `${event.title} in ${location}`;
   const description = (event.shortDescription || event.description || event.title).slice(0, 160);
   const keywords = `health camp ${location}, nursing event, ${event.type}, ${siteName}`;
   return { title, description, keywords, canonicalPath: `/events/${event.id}` };
@@ -86,7 +86,7 @@ export function applyAutoSeo(content) {
 
   next.seo.pages.home = {
     ...next.seo.pages.home,
-    title: `${siteName} | Home Nursing, Elder Care & Injections in ${loc}`,
+    title: `Home Nursing in ${loc} | Mson`,
     description: `Leading home nursing in ${loc} since 2020. GDA staff, registered nurses, wound dressing, IV drip, catheter care, injections at home. Call ${next.contact?.phones?.[0] || ""}.`,
     keywords: kw,
     canonicalPath: "/",
@@ -94,14 +94,14 @@ export function applyAutoSeo(content) {
 
   next.seo.pages.services = {
     ...next.seo.pages.services,
-    title: `Nursing Services & Prices | ${siteName} ${loc}`,
+    title: `Nursing Services in ${loc} | Mson`,
     description: `Home health care, elderly care, skilled nursing, injections, IV fluids, wound dressing and catheter services at home in ${loc}. Transparent visit pricing.`,
     keywords: kw,
     canonicalPath: "/services",
   };
 
   next.seo.pages.blog = {
-    title: `Nursing Care Blog | ${siteName}`,
+    title: `Nursing Care Blog | Mson`,
     description: `Health tips, elder care guides, and nursing news from ${siteName} in ${loc}.`,
     keywords: `nursing blog, home care tips, elder care ${loc}, ${kw.split(", ").slice(0, 6).join(", ")}`,
     canonicalPath: "/blog",

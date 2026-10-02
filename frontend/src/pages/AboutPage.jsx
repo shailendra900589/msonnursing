@@ -29,7 +29,7 @@ export default function AboutPage() {
         <div className="container about-page-grid">
           <Reveal variant="left">
             <div className="about-page-media">
-              <img src={mediaUrl(page.image)} alt={page.imageAlt} className="hover-lift" />
+              <img src={mediaUrl(page.image)} alt={page.imageAlt} title={page.imageAlt} className="hover-lift" />
               <div className="about-year">
                 <span>{content.site.established}</span>
                 <small>{page.yearBadgeLabel}</small>

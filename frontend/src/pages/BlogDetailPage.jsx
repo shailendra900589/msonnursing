@@ -76,7 +76,7 @@ export default function BlogDetailPage() {
               <Reveal variant="up">
                 {post.image ? (
                   <figure className="blog-featured-figure hover-lift">
-                    <img src={mediaUrl(post.image)} alt={post.imageAlt || post.title} className="blog-featured-image" />
+                    <img src={mediaUrl(post.image)} alt={post.imageAlt || post.title} title={post.imageAlt || post.title} className="blog-featured-image" />
                   </figure>
                 ) : null}
                 <ul className="blog-meta-chips">

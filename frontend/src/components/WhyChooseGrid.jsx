@@ -21,7 +21,7 @@ export default function WhyChooseGrid({ title, subtitle, items = [] }) {
                 <div className="why-icon">
                   <MedicalIcon name={item.icon} size={26} />
                 </div>
-                <h3>{item.title}</h3>
+                <p className="why-card-title">{item.title}</p>
               </div>
               <p>{item.text}</p>
             </article>
