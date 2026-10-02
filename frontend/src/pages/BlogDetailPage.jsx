@@ -10,6 +10,7 @@ import PostCard from "../components/PostCard.jsx";
 import ServiceCard from "../components/ServiceCard.jsx";
 import SectionHeading from "../components/ui/SectionHeading.jsx";
 import { mediaUrl } from "../utils/mediaUrl.js";
+import { formatPhone } from "../utils/phone.js";
 import { getPostFaq, pickRelatedPosts, pickRelatedServices } from "../utils/blogRelated.js";
 import "./BlogDetailPage.css";
 
@@ -76,7 +77,7 @@ export default function BlogDetailPage() {
               <Reveal variant="up">
                 {post.image ? (
                   <figure className="blog-featured-figure hover-lift">
-                    <img src={mediaUrl(post.image)} alt={post.imageAlt || post.title} title={post.imageAlt || post.title} className="blog-featured-image" />
+                    <img src={mediaUrl(post.image)} alt={post.imageAlt || post.title} title={post.imageAlt || post.title} className="blog-featured-image" width={960} height={540} />
                   </figure>
                 ) : null}
                 <ul className="blog-meta-chips">
@@ -111,14 +112,13 @@ export default function BlogDetailPage() {
             <aside className="blog-aside">
               <Reveal variant="left" delay={80}>
                 <div className="blog-aside-cta hover-lift">
-                  <h2>Need nursing care at home?</h2>
+                  <h2>Home nursing, home care and elder care</h2>
                   <p>
-                    {content.site.name} helps families in Lucknow with GDA staff, registered nurses, and visit-based
-                    clinical care.
+                    Mson Nursing Services is a nursing agency in Lucknow for nursing care and GDA male attendants.
                   </p>
                   {phone ? (
                     <p className="blog-aside-phone">
-                      <Phone size={16} aria-hidden /> {phone}
+                      <Phone size={16} aria-hidden /> {formatPhone(phone)}
                     </p>
                   ) : null}
                   <Btn to="/contact" pulse>

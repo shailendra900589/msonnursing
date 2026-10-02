@@ -849,8 +849,11 @@
 
 .service-product-gallery-trust li {
   animation: serviceTrustIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) backwards;
-  animation-delay: calc(var(--trust-i, 0) * 90ms + 200ms);
 }
+.service-product-gallery-trust li:nth-child(1) { animation-delay: 200ms; }
+.service-product-gallery-trust li:nth-child(2) { animation-delay: 290ms; }
+.service-product-gallery-trust li:nth-child(3) { animation-delay: 380ms; }
+.service-product-gallery-trust li:nth-child(4) { animation-delay: 470ms; }
 
 .service-product-price {
   animation: servicePriceIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
@@ -882,13 +885,25 @@
 
 .service-step-chip {
   animation: serviceStepIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) backwards;
-  animation-delay: calc(var(--step-i, 0) * 100ms + 150ms);
 }
+.service-step-chip:nth-child(1) { animation-delay: 150ms; }
+.service-step-chip:nth-child(2) { animation-delay: 250ms; }
+.service-step-chip:nth-child(3) { animation-delay: 350ms; }
+.service-step-chip:nth-child(4) { animation-delay: 450ms; }
+.service-step-chip:nth-child(5) { animation-delay: 550ms; }
+.service-step-chip:nth-child(6) { animation-delay: 650ms; }
+.service-step-chip:nth-child(7) { animation-delay: 750ms; }
+.service-step-chip:nth-child(n + 8) { animation-delay: 850ms; }
 
 .service-trust-card {
   animation: serviceStepIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) backwards;
-  animation-delay: calc(var(--trust-card-i, 0) * 80ms + 100ms);
 }
+.service-trust-card:nth-child(1) { animation-delay: 100ms; }
+.service-trust-card:nth-child(2) { animation-delay: 180ms; }
+.service-trust-card:nth-child(3) { animation-delay: 260ms; }
+.service-trust-card:nth-child(4) { animation-delay: 340ms; }
+.service-trust-card:nth-child(5) { animation-delay: 420ms; }
+.service-trust-card:nth-child(n + 6) { animation-delay: 500ms; }
 
 .service-faq-item summary {
   transition: background 0.2s ease;

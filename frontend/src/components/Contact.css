@@ -9,6 +9,10 @@
   box-shadow: var(--shadow);
 }
 
+.contact-lead {
+  margin-bottom: 1.5rem;
+}
+
 .contact-list {
   list-style: none;
   margin: 0;

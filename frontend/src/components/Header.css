@@ -47,6 +47,7 @@
   white-space: nowrap;
   line-height: 1.35rem;
   animation-name: header-ticker-rtl;
+  animation-duration: 16s;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
 }

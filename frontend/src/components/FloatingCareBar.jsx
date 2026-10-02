@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Bot, Mail, MessageCircle, Phone, MessagesSquare, X } from "lucide-react";
 import { useContent } from "../context/ContentContext.jsx";
 import { whatsappUrl } from "../utils/whatsapp.js";
+import { formatPhone, phoneHref } from "../utils/phone.js";
 import CareChatbot from "./CareChatbot.jsx";
 import "./FloatingCareBar.css";
 
@@ -48,7 +49,7 @@ export default function FloatingCareBar() {
             if (item.id === "call" && !phone) return null;
             if (item.id === "email" && !mailLink) return null;
 
-            const style = { "--care-i": i };
+            const careClass = `floating-care-i-${i}`;
             const inner = (
               <>
                 <span className="floating-care-item-icon">
@@ -63,8 +64,7 @@ export default function FloatingCareBar() {
                 <button
                   key={item.id}
                   type="button"
-                  className={`floating-care-item ${item.className}`}
-                  style={style}
+                  className={`floating-care-item ${item.className} ${careClass}`}
                   aria-label={item.label}
                   onClick={() => onItemClick("bot")}
                 >
@@ -77,8 +77,7 @@ export default function FloatingCareBar() {
                 <a
                   key={item.id}
                   href={mailLink}
-                  className={`floating-care-item ${item.className}`}
-                  style={style}
+                  className={`floating-care-item ${item.className} ${careClass}`}
                   aria-label={item.label}
                   onClick={() => onItemClick("email")}
                 >
@@ -91,8 +90,7 @@ export default function FloatingCareBar() {
                 <a
                   key={item.id}
                   href={waLink}
-                  className={`floating-care-item ${item.className}`}
-                  style={style}
+                  className={`floating-care-item ${item.className} ${careClass}`}
                   aria-label={item.label}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -105,10 +103,9 @@ export default function FloatingCareBar() {
             return (
               <a
                 key={item.id}
-                href={`tel:${phone.replace(/\s/g, "")}`}
-                className={`floating-care-item ${item.className}`}
-                style={style}
-                aria-label={`Call ${phone}`}
+                href={phoneHref(phone)}
+                className={`floating-care-item ${item.className} ${careClass}`}
+                aria-label={`Call ${formatPhone(phone)}`}
                 onClick={() => onItemClick("call")}
               >
                 {inner}

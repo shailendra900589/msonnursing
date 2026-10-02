@@ -1,4 +1,5 @@
 import { enrichService, normalizeServiceOrder } from "./serviceEnrich.js";
+import { fitTitle } from "../utils/shareMeta.js";
 
 const GLOBAL_KEYWORDS = [
   "home nursing services Lucknow",
@@ -28,8 +29,8 @@ function slugWords(title) {
 
 export function buildServiceSeo(service, siteName, location = "Lucknow") {
   const priceBit = service.price ? ` From ${service.price}.` : "";
-  const title = `${service.title} in ${location}`;
-  const description = `${service.shortDescription || service.title}.${priceBit} Book trained nurses & GDA staff in ${location}. Call for home visits.`.slice(
+  const title = fitTitle(`${service.title} | Home Nursing Lucknow`);
+  const description = `Home nursing and elder care in Lucknow from Mson Nursing Services. ${service.shortDescription || service.title}.${priceBit}`.slice(
     0,
     160
   );
@@ -51,8 +52,8 @@ export function buildServiceSeo(service, siteName, location = "Lucknow") {
 }
 
 export function buildPostSeo(post, siteName, location = "Lucknow") {
-  const title = `${post.title} | ${siteName}`;
-  const description = (post.excerpt || post.title).slice(0, 160);
+  const title = fitTitle(`${post.title} | Home Nursing Lucknow`);
+  const description = `Home nursing, home care and elder care in Lucknow from Mson Nursing Services. ${post.excerpt || post.title}`.slice(0, 160);
   const keywords = [post.category, "nursing blog", location, "home healthcare tips", ...GLOBAL_KEYWORDS.slice(0, 5)].join(
     ", "
   );
@@ -69,7 +70,7 @@ export function buildPostSeo(post, siteName, location = "Lucknow") {
 }
 
 export function buildEventSeo(event, siteName, location = "Lucknow") {
-  const title = `${event.title} in ${location}`;
+  const title = fitTitle(`${event.title} | Home Nursing Lucknow`);
   const description = (event.shortDescription || event.description || event.title).slice(0, 160);
   const keywords = `health camp ${location}, nursing event, ${event.type}, ${siteName}`;
   return { title, description, keywords, canonicalPath: `/events/${event.id}` };
@@ -86,22 +87,23 @@ export function applyAutoSeo(content) {
 
   next.seo.pages.home = {
     ...next.seo.pages.home,
-    title: `Home Nursing in ${loc} | Mson`,
-    description: `Leading home nursing in ${loc} since 2020. GDA staff, registered nurses, wound dressing, IV drip, catheter care, injections at home. Call ${next.contact?.phones?.[0] || ""}.`,
+    title: "Mson Nursing Services | Home Nursing and Elder Care",
+    description:
+      "Mson Nursing Services is a nursing agency in Lucknow for home nursing, home care, elder care, nursing care and GDA male attendants.",
     keywords: kw,
     canonicalPath: "/",
   };
 
   next.seo.pages.services = {
     ...next.seo.pages.services,
-    title: `Nursing Services in ${loc} | Mson`,
+    title: "Mson Nursing Services | Home Care Services Lucknow",
     description: `Home health care, elderly care, skilled nursing, injections, IV fluids, wound dressing and catheter services at home in ${loc}. Transparent visit pricing.`,
     keywords: kw,
     canonicalPath: "/services",
   };
 
   next.seo.pages.blog = {
-    title: `Nursing Care Blog | Mson`,
+    title: "Mson Nursing Services | Home Nursing Blog, Lucknow",
     description: `Health tips, elder care guides, and nursing news from ${siteName} in ${loc}.`,
     keywords: `nursing blog, home care tips, elder care ${loc}, ${kw.split(", ").slice(0, 6).join(", ")}`,
     canonicalPath: "/blog",

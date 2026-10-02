@@ -1,3 +1,4 @@
+import { formatPhone, phoneHref } from "../utils/phone.js";
 import "./Contact.css";
 
 export default function Contact({ contact }) {
@@ -7,7 +8,7 @@ export default function Contact({ contact }) {
         <div className="contact-panel">
           <div className="contact-info">
             <h2 className="section-title">Get in Touch</h2>
-            <p className="section-lead" style={{ marginBottom: "1.5rem" }}>
+            <p className="section-lead contact-lead">
               Reach out for nursing staff, home patient care, or physiotherapy in Lucknow and
               nearby areas.
             </p>
@@ -15,8 +16,8 @@ export default function Contact({ contact }) {
               <li>
                 <span className="contact-label">Phone</span>
                 {contact.phones.map((p) => (
-                  <a key={p} href={`tel:${p}`}>
-                    {p}
+                  <a key={p} href={phoneHref(p)}>
+                    {formatPhone(p)}
                   </a>
                 ))}
               </li>

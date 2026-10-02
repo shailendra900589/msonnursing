@@ -5,6 +5,7 @@ import Seo from "../components/Seo.jsx";
 import PageHeader from "../components/PageHeader.jsx";
 import Reveal from "../components/Reveal.jsx";
 import { applyTemplate } from "../utils/template.js";
+import { formatPhone, phoneHref } from "../utils/phone.js";
 import "./ContactPage.css";
 
 export default function ContactPage() {
@@ -72,9 +73,9 @@ export default function ContactPage() {
                     <dt>{labels?.phoneLabel || "Phone"}</dt>
                     <dd>
                       {contact.phones.map((phone) => (
-                        <a key={phone} href={`tel:${phone.replace(/\s/g, "")}`} className="contact-detail-row">
+                        <a key={phone} href={phoneHref(phone)} className="contact-detail-row">
                           <Phone size={16} aria-hidden />
-                          <span>{phone}</span>
+                          <span>{formatPhone(phone)}</span>
                         </a>
                       ))}
                     </dd>

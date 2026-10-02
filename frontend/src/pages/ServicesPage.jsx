@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { BadgeCheck, ChevronDown, Phone, Search, Stethoscope, Users } from "lucide-react";
 import Btn from "../components/ui/Btn.jsx";
 import { mediaUrl } from "../utils/mediaUrl.js";
+import { formatPhone, phoneHref } from "../utils/phone.js";
 import Seo from "../components/Seo.jsx";
 import PageHeader from "../components/PageHeader.jsx";
 import ServiceCard from "../components/ServiceCard.jsx";
@@ -119,8 +120,8 @@ export default function ServicesPage() {
               <Btn to="/contact" pulse>
                 {content.labels?.serviceBook || "Book care"}
               </Btn>
-              <Btn href={`tel:${content.contact.phones[0]?.replace(/\s/g, "")}`} variant="outline" icon={Phone}>
-                {content.contact.phones[0]}
+              <Btn href={phoneHref(content.contact.phones[0])} variant="outline" icon={Phone}>
+                {formatPhone(content.contact.phones[0])}
               </Btn>
             </div>
             <ul className="services-intro-highlights">
@@ -140,6 +141,8 @@ export default function ServicesPage() {
                   alt={block.introImageAlt || content.pages?.home?.heroImageAlt || "Nurse providing home care in Lucknow"}
                   title={block.introImageAlt || content.pages?.home?.heroImageAlt || "Nurse providing home care in Lucknow"}
                   className="services-intro-image"
+                  width={800}
+                  height={600}
                 />
               ) : null}
               <div className="services-intro-stats">

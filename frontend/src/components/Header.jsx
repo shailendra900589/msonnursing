@@ -3,14 +3,13 @@ import { NavLink, Link } from "react-router-dom";
 import { Mail, Phone, ArrowRight } from "lucide-react";
 import { applyTemplate } from "../utils/template.js";
 import { mediaUrl } from "../utils/mediaUrl.js";
+import { formatPhone, phoneHref } from "../utils/phone.js";
 import "./Header.css";
 
 function Ticker({ lines }) {
   const [index, setIndex] = useState(0);
   const [run, setRun] = useState(0);
   const line = lines[index] || "";
-  const seconds = Math.min(28, Math.max(10, Math.round(line.length / 5)));
-
   if (!line) return <div className="header-ticker" />;
 
   return (
@@ -18,7 +17,6 @@ function Ticker({ lines }) {
       <span
         key={`${run}-${line}`}
         className="header-ticker-line"
-        style={{ animationDuration: `${seconds}s` }}
         onAnimationEnd={() => {
           setIndex((current) => (current + 1) % lines.length);
           setRun((current) => current + 1);
@@ -34,7 +32,7 @@ export default function Header({ content }) {
   const [open, setOpen] = useState(false);
   const { contact, header, navigation, site } = content;
   const phone = contact?.phones?.[0];
-  const vars = { phone, email: contact?.email, siteName: site?.name };
+  const vars = { phone: formatPhone(phone), email: contact?.email, siteName: site?.name };
   const ctaPath = header?.navCtaPath || "/contact";
   const links = (navigation?.main || []).filter((l) => l.to !== ctaPath);
   const tickerLines = (header?.tickerLines || [])
@@ -64,7 +62,7 @@ export default function Header({ content }) {
         <div className="container header-top-inner">
           <Ticker lines={tickerLines} />
           <div className="header-top-contacts">
-            <a href={`tel:${phone}`} className="header-top-link">
+            <a href={phoneHref(phone)} className="header-top-link">
               <Phone size={15} aria-hidden />
               {applyTemplate(header?.phoneLine, vars)}
             </a>
@@ -82,6 +80,8 @@ export default function Header({ content }) {
             alt={header?.logoAlt || site?.name}
             title={header?.logoAlt || site?.name}
             className="brand-logo"
+            width={220}
+            height={64}
           />
         </Link>
         <nav className={`nav ${open ? "nav-open" : ""}`} aria-label="Main">

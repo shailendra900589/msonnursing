@@ -18,7 +18,7 @@ export default function EventCard({ event, labels, delay = 0 }) {
     <Reveal delay={delay} className="event-card-wrap">
       <article className="event-card hover-lift">
         <div className="event-card-media">
-          <img src={mediaUrl(event.image)} alt={event.imageAlt || event.title} title={event.imageAlt || event.title} loading="lazy" />
+          <img src={mediaUrl(event.image)} alt={event.imageAlt || event.title} title={event.imageAlt || event.title} width={640} height={360} loading="lazy" />
           {event.featured ? <span className="event-featured">{labels?.eventFeatured || "Featured"}</span> : null}
         </div>
         <div className="event-card-body">

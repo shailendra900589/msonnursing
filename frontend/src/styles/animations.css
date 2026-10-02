@@ -3,7 +3,7 @@
   transition:
     opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  transition-delay: var(--reveal-delay, 0ms);
+  transition-delay: 0ms;
 }
 
 .reveal-up {
@@ -242,6 +242,37 @@
     transform: rotate(360deg);
   }
 }
+
+.reveal-wait-1 { transition-delay: 20ms; }
+.reveal-wait-2 { transition-delay: 40ms; }
+.reveal-wait-3 { transition-delay: 60ms; }
+.reveal-wait-4 { transition-delay: 80ms; }
+.reveal-wait-5 { transition-delay: 100ms; }
+.reveal-wait-6 { transition-delay: 120ms; }
+.reveal-wait-7 { transition-delay: 140ms; }
+.reveal-wait-8 { transition-delay: 160ms; }
+.reveal-wait-9 { transition-delay: 180ms; }
+.reveal-wait-10 { transition-delay: 200ms; }
+.reveal-wait-11 { transition-delay: 220ms; }
+.reveal-wait-12 { transition-delay: 240ms; }
+.reveal-wait-13 { transition-delay: 260ms; }
+.reveal-wait-14 { transition-delay: 280ms; }
+.reveal-wait-15 { transition-delay: 300ms; }
+.reveal-wait-16 { transition-delay: 320ms; }
+.reveal-wait-17 { transition-delay: 340ms; }
+.reveal-wait-18 { transition-delay: 360ms; }
+.reveal-wait-19 { transition-delay: 380ms; }
+.reveal-wait-20 { transition-delay: 400ms; }
+.reveal-wait-21 { transition-delay: 420ms; }
+.reveal-wait-22 { transition-delay: 440ms; }
+.reveal-wait-23 { transition-delay: 460ms; }
+.reveal-wait-24 { transition-delay: 480ms; }
+.reveal-wait-25 { transition-delay: 500ms; }
+.reveal-wait-26 { transition-delay: 520ms; }
+.reveal-wait-27 { transition-delay: 540ms; }
+.reveal-wait-28 { transition-delay: 560ms; }
+.reveal-wait-29 { transition-delay: 580ms; }
+.reveal-wait-30 { transition-delay: 600ms; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal {

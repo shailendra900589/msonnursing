@@ -90,8 +90,8 @@ export default function BlogPage() {
     <>
       <Seo pageKey="blog" />
       <PageHeader
-        title={pageMeta.title || "Blog"}
-        subtitle={pageMeta.subtitle}
+        title="Home nursing and elder care blog"
+        subtitle={pageMeta.subtitle || "Articles from Mson Nursing Services, a nursing agency in Lucknow."}
         breadcrumbs={[
           { label: labels?.homeBreadcrumb, to: "/" },
           { label: pageMeta.title || "Blog", to: null },
@@ -101,7 +101,7 @@ export default function BlogPage() {
         <div className="container">
           <div className="blog-toolbar">
             <h2 className="section-title blog-listing-title">
-              <BookOpen size={22} aria-hidden /> Latest articles
+              <BookOpen size={22} aria-hidden /> Latest home nursing and elder care articles
             </h2>
             <label className="blog-search">
               <Search size={18} aria-hidden />

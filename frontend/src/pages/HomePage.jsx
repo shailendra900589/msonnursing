@@ -116,6 +116,9 @@ export default function HomePage() {
             <p className="lead hero-animate hero-animate-delay-2">{home.heroSubtitle}</p>
 
             <p className="body hero-animate hero-animate-delay-2">{home.heroDescription}</p>
+            <p className="body hero-keywords hero-animate hero-animate-delay-2">
+              Mson Nursing Services is a nursing agency in Lucknow for home nursing, home care, elder care, nursing care and GDA male attendants.
+            </p>
 
             <div className="actions hero-animate hero-animate-delay-3">
 
@@ -155,7 +158,7 @@ export default function HomePage() {
 
             <div className="home-hero-media">
 
-              <img src={mediaUrl(home.heroImage)} alt={home.heroImageAlt} title={home.heroImageAlt} />
+              <img src={mediaUrl(home.heroImage)} alt={home.heroImageAlt} title={home.heroImageAlt} width={800} height={640} />
 
               <div className="home-badge hover-lift">
 
@@ -195,9 +198,9 @@ export default function HomePage() {
                 <span className="section-heading-icon" aria-hidden>
                   <LayoutGrid size={20} strokeWidth={2} />
                 </span>
-                <p className="eyebrow">Home nursing · Lucknow</p>
+                <p className="eyebrow">{block.introTitle || "Nursing agency in Lucknow"}</p>
               </div>
-              <h2 className="section-title">{block.introTitle}</h2>
+              <h2 className="section-title">Home nursing, home care and elder care</h2>
               <p className="section-lead">{block.introText}</p>
             </div>
             <aside className="intro-band-aside">

@@ -11,6 +11,7 @@ import { ensureResumeDir } from "./utils/resumeFiles.js";
 import { initDatabase } from "./db/index.js";
 import { memory } from "./db/memory.js";
 import { getContent, getContentRevision } from "./utils/contentStore.js";
+import { buildSitemapXml } from "./utils/sitemap.js";
 
 ensureUploadDirs();
 ensureResumeDir();
@@ -95,7 +96,8 @@ function liveHtml(pathname, origin) {
     .replace("<!--ssr-css-->", "")
     .replace("<!--ssr-head-->", rendered.head)
     .replace("<!--ssr-html-->", rendered.html)
-    .replace("<!--ssr-data-->", `<script src="/ssr-data.js"></script>`);
+    .replace("<!--ssr-data-->", `<script src="/ssr-data.js"></script>`)
+    .replace(/(?<![\d+])(9807925369|8894654090)(?!\d)/g, "+91 $1");
   if (pageCache.size > 300) pageCache.clear();
   pageCache.set(key, html);
   return html;
@@ -114,6 +116,40 @@ function pageFile(requestPath) {
   }
   return nested;
 }
+
+function robotsTxt(origin) {
+  const base = (origin || "https://msonnursing.com").replace(/\/$/, "");
+  return [
+    "User-agent: *",
+    "Allow: /",
+    "Disallow: /admin",
+    "Disallow: /preview",
+    "Disallow: /enquiry/thanks",
+    "",
+    "User-agent: Googlebot",
+    "Allow: /",
+    "Disallow: /admin",
+    "Disallow: /preview",
+    "Disallow: /enquiry/thanks",
+    "",
+    `Sitemap: ${base}/sitemap.xml`,
+    "",
+  ].join("\n");
+}
+
+app.get("/sitemap.xml", (req, res) => {
+  const origin = requestOrigin(req) || process.env.SITE_URL || "https://msonnursing.com";
+  res.type("application/xml");
+  res.setHeader("Cache-Control", "no-cache");
+  res.send(buildSitemapXml(origin));
+});
+
+app.get("/robots.txt", (req, res) => {
+  const origin = requestOrigin(req) || process.env.SITE_URL || "https://msonnursing.com";
+  res.type("text/plain; charset=utf-8");
+  res.setHeader("Cache-Control", "no-cache");
+  res.send(robotsTxt(origin));
+});
 
 if (serveFrontend) {
   app.get("/ssr-data.js", (_req, res) => {

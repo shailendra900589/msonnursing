@@ -127,15 +127,15 @@ export default function ServiceDetailPage() {
           <div className="service-product-grid">
             <Reveal variant="scale" className="service-product-gallery">
               <div className="service-product-image-frame hover-lift">
-                <img src={mediaUrl(service.image)} alt={service.imageAlt || service.title} title={service.imageAlt || service.title} className="service-product-image" />
+                <img src={mediaUrl(service.image)} alt={service.imageAlt || service.title} title={service.imageAlt || service.title} className="service-product-image" width={800} height={600} />
               </div>
               <ul className="service-product-gallery-trust" aria-label="Service guarantees">
                 {[
                   { icon: BadgeCheck, text: "Verified staff" },
                   { icon: Users, text: "Male & female" },
                   { icon: Sparkles, text: "Since 2020" },
-                ].map((item, i) => (
-                  <li key={item.text} style={{ "--trust-i": i }}>
+                ].map((item) => (
+                  <li key={item.text}>
                     <item.icon size={15} aria-hidden /> {item.text}
                   </li>
                 ))}
@@ -308,7 +308,7 @@ export default function ServiceDetailPage() {
                 />
                 <ol className="service-steps-row">
                   {careSteps.map((step, i) => (
-                    <li key={step.title} className="service-step-chip hover-lift" style={{ "--step-i": i }}>
+                    <li key={step.title} className="service-step-chip hover-lift">
                       <span className="service-step-index">{i + 1}</span>
                       <strong>{step.title}</strong>
                       <p>{step.text}</p>
@@ -328,10 +328,10 @@ export default function ServiceDetailPage() {
                   icon={ShieldCheck}
                 />
                 <div className="service-trust-grid">
-                  {trustCards.map((card, i) => {
+                  {trustCards.map((card) => {
                     const Icon = card.icon;
                     return (
-                      <div key={card.key} className="service-trust-card hover-lift" style={{ "--trust-card-i": i }}>
+                      <div key={card.key} className="service-trust-card hover-lift">
                         <span className="service-trust-card-icon">
                           <Icon size={20} aria-hidden />
                         </span>
@@ -361,7 +361,7 @@ export default function ServiceDetailPage() {
               {related.map((item, i) => (
                 <Reveal key={item.id} variant="up" delay={i * 70}>
                 <Link to={`/services/${item.id}`} className="service-related-card hover-lift">
-                  <img src={mediaUrl(item.image)} alt={item.imageAlt || item.title} title={item.imageAlt || item.title} loading="lazy" />
+                  <img src={mediaUrl(item.image)} alt={item.imageAlt || item.title} title={item.imageAlt || item.title} width={640} height={180} loading="lazy" />
                   <div>
                     <h4>{item.title}</h4>
                     {item.price ? <p className="service-related-price">{item.price}</p> : null}

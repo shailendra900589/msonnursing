@@ -17,7 +17,7 @@ export default function ServiceCard({ service, labels, delay = 0, compact = fals
     <Reveal delay={delay} className="service-card-wrap">
       <article className={cardClass}>
         <div className="service-card-media">
-          <img src={mediaUrl(service.image)} alt={alt} title={alt} className="service-card-image" loading="lazy" />
+          <img src={mediaUrl(service.image)} alt={alt} title={alt} className="service-card-image" width={640} height={180} loading="lazy" />
           <span className="service-card-icon">
             <ServiceIcon name={service.icon} size={compact ? 18 : 22} />
           </span>

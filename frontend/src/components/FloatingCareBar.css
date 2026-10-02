@@ -1,3 +1,8 @@
+.floating-care-i-0 { --care-i: 0; }
+.floating-care-i-1 { --care-i: 1; }
+.floating-care-i-2 { --care-i: 2; }
+.floating-care-i-3 { --care-i: 3; }
+
 .floating-care-hub {
   position: fixed;
   right: 1.25rem;

@@ -44,11 +44,12 @@ export default function Reveal({
     };
   }, []);
 
+  const wait = Math.min(30, Math.round((Number(delay) || 0) / 20));
+
   return (
     <Tag
       ref={ref}
-      className={`reveal reveal-${variant} ${visible ? "is-visible" : ""} ${className}`.trim()}
-      style={{ "--reveal-delay": `${delay}ms` }}
+      className={`reveal reveal-${variant} reveal-wait-${wait} ${visible ? "is-visible" : ""} ${className}`.trim()}
     >
       {children}
     </Tag>
