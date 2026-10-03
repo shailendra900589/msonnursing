@@ -20,7 +20,7 @@ function imageBlock(image, title) {
 }
 
 export function buildSitemapXml(baseUrl) {
-  const base = (baseUrl || "https://msonnursing.com").replace(/\/$/, "");
+  const base = (baseUrl || "https://www.msonnursing.com").replace(/\/$/, "");
   const content = getContent();
   const hero = content.pages?.home?.heroImage;
   const heroAlt = content.pages?.home?.heroImageAlt || content.site?.name;

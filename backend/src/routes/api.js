@@ -140,7 +140,8 @@ router.get("/social-preview", (req, res) => {
 });
 
 router.get("/sitemap.xml", (_req, res) => {
-  const siteUrl = getContent().site?.url || process.env.SITE_URL || "https://msonnursing.com";
+  const siteUrl = String(getContent().site?.url || process.env.SITE_URL || "https://www.msonnursing.com")
+    .replace(/^(https?:\/\/)(?:www\.)?msonnursing\.com/i, "https://www.msonnursing.com");
   res.type("application/xml").send(buildSitemapXml(siteUrl));
 });
 

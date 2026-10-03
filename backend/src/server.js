@@ -97,12 +97,13 @@ function canonicalRedirect(req, res, next) {
   const forwarded = String(req.headers["x-forwarded-proto"] || "").split(",")[0].trim().toLowerCase();
   const url = new URL(req.originalUrl || "/", "https://placeholder.local");
   const trimmed = url.pathname.length > 1 ? url.pathname.replace(/\/+$/, "") : url.pathname;
-  const dropWww = hostname.startsWith("www.");
+  const bare = hostname.replace(/^www\./, "");
+  const targetHost = bare === "msonnursing.com" ? "www.msonnursing.com" : hostname;
   const dropSlash = trimmed !== url.pathname;
   const upgradeHttps = forwarded === "http";
-  if (!dropWww && !dropSlash && !upgradeHttps) return next();
-  const bare = hostname.replace(/^www\./, "");
-  res.redirect(301, `https://${bare}${trimmed}${url.search}`);
+  const addWww = targetHost !== hostname;
+  if (!addWww && !dropSlash && !upgradeHttps) return next();
+  res.redirect(301, `https://${targetHost}${trimmed}${url.search}`);
 }
 
 const STATIC_PAGES = new Set(["/", "/about", "/services", "/events", "/contact", "/blog", "/jobs", "/enquiry/thanks"]);
@@ -159,7 +160,7 @@ function pageFile(requestPath) {
 }
 
 function robotsTxt(origin) {
-  const base = (origin || "https://msonnursing.com").replace(/\/$/, "");
+  const base = (origin || "https://www.msonnursing.com").replace(/\/$/, "");
   return [
     "User-agent: *",
     "Allow: /",
@@ -179,14 +180,14 @@ function robotsTxt(origin) {
 }
 
 app.get("/sitemap.xml", (req, res) => {
-  const origin = requestOrigin(req) || process.env.SITE_URL || "https://msonnursing.com";
+  const origin = requestOrigin(req) || process.env.SITE_URL || "https://www.msonnursing.com";
   res.type("application/xml");
   res.setHeader("Cache-Control", "no-cache");
   res.send(buildSitemapXml(origin));
 });
 
 app.get("/robots.txt", (req, res) => {
-  const origin = requestOrigin(req) || process.env.SITE_URL || "https://msonnursing.com";
+  const origin = requestOrigin(req) || process.env.SITE_URL || "https://www.msonnursing.com";
   res.type("text/plain; charset=utf-8");
   res.setHeader("Cache-Control", "no-cache");
   res.send(robotsTxt(origin));

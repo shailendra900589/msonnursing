@@ -5,7 +5,7 @@ function clip(text, max = 180) {
 }
 
 function abs(siteUrl, path) {
-  const base = String(siteUrl || "https://msonnursing.com").replace(/\/$/, "");
+  const base = String(siteUrl || "https://www.msonnursing.com").replace(/\/$/, "");
   const clean = path?.startsWith("/") ? path : `/${path || ""}`;
   return `${base}${clean}`;
 }
@@ -18,7 +18,8 @@ function link(siteUrl, path, label, detail) {
 export function buildLlmsTxt(content) {
   const site = content?.site || {};
   const contact = content?.contact || {};
-  const siteUrl = site.url || "https://msonnursing.com";
+  const siteUrl = String(site.url || "https://www.msonnursing.com")
+    .replace(/^(https?:\/\/)(?:www\.)?msonnursing\.com/i, "https://www.msonnursing.com");
   const name = site.name || "Mson Nursing Services";
   const phones = (contact.phones || []).filter(Boolean).join(", ");
   const lines = [];
