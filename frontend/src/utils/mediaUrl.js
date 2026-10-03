@@ -7,3 +7,12 @@ export function mediaUrl(path) {
   const normalized = path.startsWith("/") ? path : `/${path}`;
   return `${API_BASE}${normalized}`;
 }
+
+/** Ask Pexels for a smaller file when the CMS URL is a full-size photo. */
+export function imageSrc(path, width) {
+  const src = mediaUrl(path);
+  if (!src || !width || !/images\.pexels\.com/i.test(src)) return src;
+  if (/[?&]w=\d+/.test(src)) return src.replace(/([?&]w=)\d+/, `$1${width}`);
+  const joiner = src.includes("?") ? "&" : "?";
+  return `${src}${joiner}auto=compress&cs=tinysrgb&w=${width}`;
+}

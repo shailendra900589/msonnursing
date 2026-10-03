@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 import { mediaUrl } from "../utils/mediaUrl.js";
-import { mapEmbedSrc } from "../utils/mapEmbed.js";
 import { formatPhone, phoneHref } from "../utils/phone.js";
+import { MailMark } from "./MailMark.jsx";
 import Reveal from "./Reveal.jsx";
 import AgencyAttribution from "./AgencyAttribution.jsx";
 import SocialLinks from "./SocialLinks.jsx";
@@ -24,9 +24,9 @@ function footerAnchor(link) {
 
 function writtenLocation(address) {
   const text = String(address || "").replace(/\s+/g, " ").trim();
-  if (!text) return [];
+  if (!text) return "";
   const parts = text.split(",").map((part) => part.trim()).filter(Boolean);
-  if (parts.length < 4) return [text];
+  if (parts.length < 4) return text;
   const city = parts[parts.length - 1];
   const body = parts.slice(0, -1);
   const lines = [];
@@ -43,15 +43,16 @@ function writtenLocation(address) {
       lines.push(joined);
     }
   }
-  lines.push(city);
-  return lines;
+  const postal = city.match(/\b(\d{6})\b/);
+  const locality = city.replace(/\b\d{6}\b/, "").replace(/[, ]+$/g, "").trim() || "Lucknow";
+  lines.push(postal ? `${locality}, Uttar Pradesh ${postal[1]}` : city);
+  return lines.join("\n");
 }
 
 export default function Footer({ content }) {
   const { site, contact, footer, navigation } = content;
   const year = new Date().getFullYear();
   const footerLinks = navigation?.footer || navigation?.main || [];
-  const mapSrc = mapEmbedSrc(footer?.mapEmbed);
   const mapsHref = contact?.address
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contact.address)}`
     : "";
@@ -103,41 +104,39 @@ export default function Footer({ content }) {
                 </a>
               ))}
             </div>
-            <a href={`mailto:${contact.email}`} className="footer-link-row">
-              <Mail size={15} aria-hidden />
-              {contact.email}
-            </a>
+            {contact?.email ? <MailMark icon className="footer-link-row" /> : null}
             {contact?.address ? (
-              <p className="footer-address">
+              <address className="footer-address" itemScope itemType="https://schema.org/PostalAddress">
                 <MapPin size={15} aria-hidden />
                 <span>
                   <span className="footer-address-label">Location</span>
-                  {writtenLocation(contact.address).map((line) => (
-                    <span key={line} className="footer-address-line">
-                      {line}
-                    </span>
-                  ))}
+                  <span className="footer-address-full" itemProp="streetAddress">
+                    {writtenLocation(contact.address)}
+                  </span>
+                  <meta itemProp="addressLocality" content="Lucknow" />
+                  <meta itemProp="addressRegion" content="Uttar Pradesh" />
+                  <meta itemProp="postalCode" content="226016" />
+                  <meta itemProp="addressCountry" content="IN" />
                 </span>
-              </p>
+              </address>
             ) : null}
           </div>
         </Reveal>
         <Reveal variant="up" delay={180}>
           <div className="footer-col footer-location">
             <strong>{footer?.locationTitle || "Location"}</strong>
-            {mapSrc ? (
-              <iframe
-                className="footer-map"
-                src={mapSrc}
-                title={footer?.locationTitle || "Location"}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
-            ) : mapsHref ? (
-              <a className="footer-map-link" href={mapsHref} target="_blank" rel="noopener noreferrer">
-                <MapPin size={16} aria-hidden />
-                Open in Google Maps
+            {mapsHref ? (
+              <a className="footer-map-card" href={mapsHref} target="_blank" rel="noopener noreferrer">
+                <img
+                  src="/map-lucknow.png"
+                  alt="Map of Mson Nursing Services, Ashok Vihar, Lucknow, Uttar Pradesh 226016"
+                  width={256}
+                  height={256}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className="footer-map-pin" aria-hidden />
+                <span className="footer-map-open">View map</span>
               </a>
             ) : (
               <p className="footer-map-note">Add a map embed from the admin footer settings.</p>

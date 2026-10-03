@@ -13,6 +13,7 @@ import {
   Tent,
 } from "lucide-react";
 import Seo from "../components/Seo.jsx";
+import { SafeText } from "../components/MailMark.jsx";
 import PageHeader from "../components/PageHeader.jsx";
 import Reveal from "../components/Reveal.jsx";
 import Btn from "../components/ui/Btn.jsx";
@@ -139,7 +140,7 @@ export default function EventDetailPage() {
                   </div>
                 </li>
               </ul>
-              <p className="event-hero-lead">{event.description}</p>
+              <p className="event-hero-lead"><SafeText text={event.description} /></p>
               <ShareBar pageKey={`event-${event.id}`} event={raw} className="event-share-bar" />
               <div className="event-hero-actions">
                 <Btn href="#event-register" pulse>

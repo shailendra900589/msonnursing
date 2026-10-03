@@ -9,6 +9,7 @@ import ShareBar from "../components/ShareBar.jsx";
 import PostCard from "../components/PostCard.jsx";
 import ServiceCard from "../components/ServiceCard.jsx";
 import SectionHeading from "../components/ui/SectionHeading.jsx";
+import { SafeText } from "../components/MailMark.jsx";
 import { mediaUrl } from "../utils/mediaUrl.js";
 import { formatPhone } from "../utils/phone.js";
 import { getPostFaq, pickRelatedPosts, pickRelatedServices } from "../utils/blogRelated.js";
@@ -103,7 +104,7 @@ export default function BlogDetailPage() {
               <Reveal variant="up" delay={60}>
                 <div className="prose blog-article-body">
                   {paragraphs.map((para) => (
-                    <p key={para.slice(0, 48)}>{para}</p>
+                    <p key={para.slice(0, 48)}><SafeText text={para} /></p>
                   ))}
                 </div>
               </Reveal>

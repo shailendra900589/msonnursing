@@ -126,6 +126,19 @@ img {
   display: block;
 }
 
+.mail-mark {
+  display: inline-block;
+  width: auto;
+  max-width: 14.5rem;
+  height: 1em;
+  vertical-align: -0.12em;
+}
+
+.header-top .mail-mark,
+.footer .mail-mark {
+  filter: brightness(0) invert(1);
+}
+
 a {
   color: inherit;
   text-decoration: none;

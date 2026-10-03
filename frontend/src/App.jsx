@@ -1,6 +1,6 @@
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout.jsx";
-import AdminLayout from "./layouts/AdminLayout.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import ServicesPage from "./pages/ServicesPage.jsx";
@@ -13,14 +13,16 @@ import BlogDetailPage from "./pages/BlogDetailPage.jsx";
 import JobsPage from "./pages/JobsPage.jsx";
 import JobDetailPage from "./pages/JobDetailPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
-import AdminLoginPage from "./admin/AdminLoginPage.jsx";
-import PreviewRoot from "./preview/PreviewRoot.jsx";
 import EnquiryThankYouPage from "./pages/EnquiryThankYouPage.jsx";
+
+const AdminLayout = lazy(() => import("./layouts/AdminLayout.jsx"));
+const AdminLoginPage = lazy(() => import("./admin/AdminLoginPage.jsx"));
+const PreviewRoot = lazy(() => import("./preview/PreviewRoot.jsx"));
 
 export default function App() {
   return (
     <Routes>
-      <Route path="/preview" element={<PreviewRoot />}>
+      <Route path="/preview" element={<Suspense fallback={null}><PreviewRoot /></Suspense>}>
         <Route element={<MainLayout previewMode />}>
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
@@ -51,8 +53,8 @@ export default function App() {
         <Route path="jobs/:id" element={<JobDetailPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
-      <Route path="/admin/login" element={<AdminLoginPage />} />
-      <Route path="/admin" element={<AdminLayout />} />
+      <Route path="/admin/login" element={<Suspense fallback={null}><AdminLoginPage /></Suspense>} />
+      <Route path="/admin" element={<Suspense fallback={null}><AdminLayout /></Suspense>} />
     </Routes>
   );
 }

@@ -1,4 +1,5 @@
 import { formatPhone, phoneHref } from "../utils/phone.js";
+import { MailMark } from "./MailMark.jsx";
 import "./Contact.css";
 
 export default function Contact({ contact }) {
@@ -23,7 +24,7 @@ export default function Contact({ contact }) {
               </li>
               <li>
                 <span className="contact-label">Email</span>
-                <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                <MailMark />
               </li>
               <li>
                 <span className="contact-label">Address</span>

@@ -32,7 +32,7 @@ import SectionHeading from "../components/ui/SectionHeading.jsx";
 
 import { applyTemplate } from "../utils/template.js";
 
-import { mediaUrl } from "../utils/mediaUrl.js";
+import { imageSrc } from "../utils/mediaUrl.js";
 
 import { pickPopularServices, readServiceStats, recordServiceEngagement } from "../utils/servicePopularity.js";
 
@@ -158,7 +158,17 @@ export default function HomePage() {
 
             <div className="home-hero-media">
 
-              <img src={mediaUrl(home.heroImage)} alt={home.heroImageAlt} title={home.heroImageAlt} width={800} height={640} />
+              <img
+                src={imageSrc(home.heroImage, 800)}
+                srcSet={`${imageSrc(home.heroImage, 480)} 480w, ${imageSrc(home.heroImage, 800)} 800w, ${imageSrc(home.heroImage, 1200)} 1200w`}
+                sizes="(max-width: 760px) 92vw, 440px"
+                alt={home.heroImageAlt}
+                title={home.heroImageAlt}
+                width={800}
+                height={640}
+                fetchPriority="high"
+                decoding="async"
+              />
 
               <div className="home-badge hover-lift">
 

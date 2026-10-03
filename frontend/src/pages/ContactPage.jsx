@@ -1,4 +1,4 @@
-import { useOutletContext } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import { Clock, Mail, MapPin, Phone, PhoneCall } from "lucide-react";
 import ContactEnquiryForm from "../components/ContactEnquiryForm.jsx";
 import Seo from "../components/Seo.jsx";
@@ -6,6 +6,7 @@ import PageHeader from "../components/PageHeader.jsx";
 import Reveal from "../components/Reveal.jsx";
 import { applyTemplate } from "../utils/template.js";
 import { formatPhone, phoneHref } from "../utils/phone.js";
+import { MailMark, SafeText } from "../components/MailMark.jsx";
 import SocialLinks from "../components/SocialLinks.jsx";
 import "./ContactPage.css";
 
@@ -52,7 +53,7 @@ export default function ContactPage() {
                       </span>
                       <div>
                         <h3>{item.title}</h3>
-                        <p>{item.text}</p>
+                        <p><SafeText text={item.text} /></p>
                       </div>
                     </article>
                   </Reveal>
@@ -84,10 +85,10 @@ export default function ContactPage() {
                   <div>
                     <dt>{labels?.emailLabel || "Email"}</dt>
                     <dd>
-                      <a href={`mailto:${contact.email}`} className="contact-detail-row">
+                      <Link to="/contact" className="contact-detail-row">
                         <Mail size={16} aria-hidden />
-                        <span>{contact.email}</span>
-                      </a>
+                        <MailMark linked={false} />
+                      </Link>
                     </dd>
                   </div>
                   <div>

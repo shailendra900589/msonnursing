@@ -76,7 +76,7 @@ export default function FloatingCareBar() {
               return (
                 <a
                   key={item.id}
-                  href={mailLink}
+                  href="/contact"
                   className={`floating-care-item ${item.className} ${careClass}`}
                   aria-label={item.label}
                   onClick={() => onItemClick("email")}

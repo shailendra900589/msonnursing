@@ -14,7 +14,6 @@ import {
   Stethoscope,
   Users,
   ChevronRight,
-  Mail,
   Send,
   Truck,
 } from "lucide-react";
@@ -26,6 +25,7 @@ import Reveal from "../components/Reveal.jsx";
 import Btn from "../components/ui/Btn.jsx";
 import SectionHeading from "../components/ui/SectionHeading.jsx";
 import ContactEnquiryForm from "../components/ContactEnquiryForm.jsx";
+import { MailMark, SafeText } from "../components/MailMark.jsx";
 import { mediaUrl } from "../utils/mediaUrl.js";
 import { SERVICE_CATEGORIES } from "../utils/serviceCategories.js";
 import { sortServices } from "../utils/sortServices.js";
@@ -217,7 +217,7 @@ export default function ServiceDetailPage() {
                 {contact.email ? (
                   <div>
                     <dt>Email</dt>
-                    <dd>{contact.email}</dd>
+                    <dd><MailMark /></dd>
                   </div>
                 ) : null}
               </dl>
@@ -250,7 +250,7 @@ export default function ServiceDetailPage() {
               </div>
               <div>
                 <h2>About this service</h2>
-                <p className="service-overview-lead">{lead}</p>
+                <p className="service-overview-lead"><SafeText text={lead} /></p>
               </div>
             </header>
           </Reveal>
@@ -259,7 +259,7 @@ export default function ServiceDetailPage() {
             <Reveal variant="up" delay={50}>
               <div className="service-prose hover-lift">
                 {restParts.map((p) => (
-                  <p key={p.slice(0, 40)}>{p}</p>
+                  <p key={p.slice(0, 40)}><SafeText text={p} /></p>
                 ))}
               </div>
             </Reveal>
@@ -439,9 +439,7 @@ export default function ServiceDetailPage() {
                   ) : null}
                 </div>
                 {contact.email ? (
-                  <a href={`mailto:${contact.email}`} className="service-help-email">
-                    <Mail size={16} aria-hidden /> {contact.email}
-                  </a>
+                  <MailMark className="service-help-email" icon />
                 ) : null}
                 {service.features?.length ? (
                   <div className="service-help-includes">

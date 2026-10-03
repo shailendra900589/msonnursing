@@ -40,6 +40,10 @@ export function fitTitle(title) {
   return text;
 }
 
+function concealEmail(text) {
+  return String(text || "").replace(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/gi, "the contact form");
+}
+
 function clip(text, max = 200) {
   if (!text) return "";
   const s = String(text).trim();
@@ -214,7 +218,7 @@ export function resolveShareMeta({ content, pageKey, service, event, post, job }
 
   return {
     title: fitTitle(title),
-    description: clip(description, 160),
+    description: clip(concealEmail(description), 160),
     keywords,
     canonical,
     canonicalPath,
@@ -228,8 +232,8 @@ export function resolveShareMeta({ content, pageKey, service, event, post, job }
     twitterData1,
     twitterLabel2,
     twitterData2,
-    shareTitle,
-    shareText,
+    shareTitle: concealEmail(shareTitle),
+    shareText: concealEmail(shareText),
     phone,
     ctaLabel,
     article: post

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { Mail, Phone, ArrowRight } from "lucide-react";
+import { ArrowRight, Mail, Phone } from "lucide-react";
 import { applyTemplate } from "../utils/template.js";
 import { mediaUrl } from "../utils/mediaUrl.js";
 import { formatPhone, phoneHref } from "../utils/phone.js";
+import { MailMark, SafeText } from "./MailMark.jsx";
 import "./Header.css";
 
 function Ticker({ lines }) {
@@ -22,7 +23,7 @@ function Ticker({ lines }) {
           setRun((current) => current + 1);
         }}
       >
-        {line}
+        <SafeText text={line} />
       </span>
     </div>
   );
@@ -66,10 +67,10 @@ export default function Header({ content }) {
               <Phone size={15} aria-hidden />
               {applyTemplate(header?.phoneLine, vars)}
             </a>
-            <a href={`mailto:${contact?.email}`} className="header-top-link">
+            <Link to="/contact" className="header-top-link">
               <Mail size={15} aria-hidden />
-              {applyTemplate(header?.emailLine, vars)}
-            </a>
+              <SafeText text={applyTemplate(header?.emailLine, vars)} />
+            </Link>
           </div>
         </div>
       </div>

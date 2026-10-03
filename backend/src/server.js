@@ -194,7 +194,7 @@ app.get("/robots.txt", (req, res) => {
 
 if (serveFrontend) {
   app.get("/ssr-data.js", (_req, res) => {
-    const data = JSON.stringify(getContent()).replace(/</g, "\\u003c");
+    const data = JSON.stringify(getContent()).replace(/</g, "\\u003c").replace(/@/g, "\\u0040");
     res.setHeader("Content-Type", "text/javascript; charset=utf-8");
     res.setHeader("Cache-Control", "no-store");
     res.send(`window.__SSR_DATA__=${data};`);

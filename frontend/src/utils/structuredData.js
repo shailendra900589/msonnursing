@@ -63,7 +63,6 @@ function businessNode(content, meta) {
     foundingDate: site.established ? String(site.established) : undefined,
     image: meta?.ogImage || undefined,
     logo: abs(siteUrl, site.logoUrl || "/logo.png"),
-    email: contact.email || undefined,
     telephone: contact.phones || undefined,
     medicalSpecialty: "Nursing",
     address: postalAddress(content),
