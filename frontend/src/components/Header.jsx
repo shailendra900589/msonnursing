@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { ArrowRight, Mail, Phone } from "lucide-react";
 import { applyTemplate } from "../utils/template.js";
@@ -8,23 +8,22 @@ import { MailMark, SafeText } from "./MailMark.jsx";
 import "./Header.css";
 
 function Ticker({ lines }) {
-  const [index, setIndex] = useState(0);
-  const [run, setRun] = useState(0);
-  const line = lines[index] || "";
-  if (!line) return <div className="header-ticker" />;
+  if (!lines.length) return <div className="header-ticker" />;
 
   return (
     <div className="header-ticker">
-      <span
-        key={`${run}-${line}`}
-        className="header-ticker-line"
-        onAnimationEnd={() => {
-          setIndex((current) => (current + 1) % lines.length);
-          setRun((current) => current + 1);
-        }}
-      >
-        <SafeText text={line} />
-      </span>
+      <div className="header-ticker-track">
+        {lines.map((line) => (
+          <span className="header-ticker-line" key={line}>
+            <SafeText text={line} />
+          </span>
+        ))}
+        {lines.map((line) => (
+          <span className="header-ticker-line" key={`loop-${line}`} aria-hidden="true">
+            <SafeText text={line} />
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
@@ -39,26 +38,9 @@ export default function Header({ content }) {
   const tickerLines = (header?.tickerLines || [])
     .map((line) => applyTemplate(String(line || ""), vars).trim())
     .filter(Boolean);
-  const [scrolled, setScrolled] = useState(false);
-  const [topHidden, setTopHidden] = useState(false);
-
-  useEffect(() => {
-    let last = window.scrollY;
-    const onScroll = () => {
-      const y = window.scrollY;
-      setScrolled(y > 12);
-      if (y < 48) setTopHidden(false);
-      else if (y > last + 8) setTopHidden(true);
-      else if (y < last - 8) setTopHidden(false);
-      last = y;
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
-    <header className={`header ${scrolled ? "scrolled" : ""} ${topHidden ? "is-top-hidden" : ""}`}>
+    <header className="header">
       <div className="header-top">
         <div className="container header-top-inner">
           <Ticker lines={tickerLines} />

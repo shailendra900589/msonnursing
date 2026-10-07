@@ -161,19 +161,6 @@
   animation: pulseSoft 2.8s ease-in-out infinite;
 }
 
-.header.scrolled {
-  box-shadow: 0 10px 36px rgba(13, 58, 140, 0.12);
-}
-
-.header.scrolled .header-main {
-  padding-top: 0.45rem;
-  padding-bottom: 0.45rem;
-}
-
-.header-main {
-  transition: padding 0.25s ease;
-}
-
 .nav a,
 .nav a:hover,
 .nav a.active,
