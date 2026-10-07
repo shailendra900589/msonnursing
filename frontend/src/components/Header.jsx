@@ -116,12 +116,18 @@ export default function Header({ content }) {
       <div className="container header-main">
         <Link to="/" className="brand" onClick={() => setOpen(false)}>
           <img
-            src={mediaUrl(site?.logoUrl || "/uploads/logos/logo.png")}
+            src={mediaUrl(site?.logoUrl || "/logo.png")}
             alt={header?.logoAlt || site?.name}
             title={header?.logoAlt || site?.name}
             className="brand-logo"
             width={220}
             height={64}
+            onError={(event) => {
+              const img = event.currentTarget;
+              if (img.dataset.fallback) return;
+              img.dataset.fallback = "1";
+              img.src = "/logo.png";
+            }}
           />
         </Link>
         <nav className={`nav ${open ? "nav-open" : ""}`} aria-label="Main">
