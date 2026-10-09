@@ -3,13 +3,15 @@ import { MemoryRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { StaticContentProvider } from "./context/ContentContext.jsx";
 import App from "./App.jsx";
+import { canonicalSiteUrl } from "./utils/siteUrl.js";
 import "./index.css";
 import "./styles/animations.css";
 
 export function render(url, content, siteUrl) {
-  const pageContent = siteUrl
-    ? { ...content, site: { ...content.site, url: String(siteUrl).replace(/\/$/, "") } }
-    : content;
+  const pageContent = {
+    ...content,
+    site: { ...content.site, url: canonicalSiteUrl(content?.site?.url, siteUrl) },
+  };
   const helmetContext = {};
   const html = renderToString(
     <HelmetProvider context={helmetContext}>

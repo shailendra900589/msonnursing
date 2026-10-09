@@ -9,8 +9,18 @@ import { cleanResumeLabel, removeResumeFile, resumeMime } from "../utils/resumeF
 
 const router = Router();
 
+function publicContent(content) {
+  if (!content?.site?.url) return content;
+  const url = String(content.site.url).replace(
+    /^(https?:\/\/)(?:www\.)?msonnursing\.com\b/i,
+    "https://www.msonnursing.com"
+  );
+  if (url === content.site.url) return content;
+  return { ...content, site: { ...content.site, url } };
+}
+
 router.get("/content", (_req, res) => {
-  res.json(getContent());
+  res.json(publicContent(getContent()));
 });
 
 router.get("/services", (_req, res) => {

@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 import { useContent } from "../context/ContentContext.jsx";
 import { resolveShareMeta } from "../utils/shareMeta.js";
+import { canonicalSiteUrl } from "../utils/siteUrl.js";
 import { buildStructuredData, businessGeo } from "../utils/structuredData.js";
 
 function buildUrl(siteUrl, path) {
@@ -25,10 +26,10 @@ export default function Seo({
   const meta = resolveShareMeta({ content, pageKey, service, event, post, job });
   if (!meta || !content) return null;
 
-  if (noindex) {
-    meta.canonical = buildUrl(content.site?.url, location.pathname);
-    meta.canonicalPath = location.pathname;
-  }
+  const pageOrigin = typeof window !== "undefined" ? window.location.origin : content.site?.url;
+  const path = location.pathname.length > 1 ? location.pathname.replace(/\/+$/, "") : location.pathname || "/";
+  meta.canonicalPath = path;
+  meta.canonical = buildUrl(canonicalSiteUrl(content.site?.url, pageOrigin), path);
   if (titleOverride) meta.title = titleOverride;
   if (descriptionOverride) meta.description = descriptionOverride;
 

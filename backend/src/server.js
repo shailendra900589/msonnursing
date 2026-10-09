@@ -194,8 +194,18 @@ app.get("/robots.txt", (req, res) => {
 });
 
 if (serveFrontend) {
-  app.get("/ssr-data.js", (_req, res) => {
-    const data = JSON.stringify(getContent()).replace(/</g, "\\u003c").replace(/@/g, "\\u0040");
+  app.get("/ssr-data.js", (req, res) => {
+    const content = getContent();
+    const origin = requestOrigin(req);
+    let siteUrl = origin || "https://www.msonnursing.com";
+    try {
+      const host = new URL(siteUrl).hostname.replace(/^www\./i, "");
+      if (host === "msonnursing.com") siteUrl = "https://www.msonnursing.com";
+    } catch {
+      siteUrl = "https://www.msonnursing.com";
+    }
+    const payload = content?.site ? { ...content, site: { ...content.site, url: siteUrl } } : content;
+    const data = JSON.stringify(payload).replace(/</g, "\\u003c").replace(/@/g, "\\u0040");
     res.setHeader("Content-Type", "text/javascript; charset=utf-8");
     res.setHeader("Cache-Control", "no-store");
     res.send(`window.__SSR_DATA__=${data};`);

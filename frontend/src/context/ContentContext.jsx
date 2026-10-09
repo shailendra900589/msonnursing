@@ -1,12 +1,18 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { fetchContent, getLastContentSource } from "../api/client.js";
+import { withPublicSiteUrl } from "../utils/siteUrl.js";
 
 const ContentContext = createContext(null);
+
+function publishContent(data) {
+  const origin = typeof window !== "undefined" ? window.location.origin : data?.site?.url;
+  return withPublicSiteUrl(data, origin);
+}
 
 export function StaticContentProvider({ content, children }) {
   const value = useMemo(
     () => ({
-      content,
+      content: publishContent(content),
       error: null,
       loading: !content,
       reload: async () => {},
@@ -18,7 +24,7 @@ export function StaticContentProvider({ content, children }) {
 }
 
 export function ContentProvider({ children, initialContent = null }) {
-  const [content, setContent] = useState(initialContent);
+  const [content, setContent] = useState(() => publishContent(initialContent));
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(!initialContent);
   const [contentSource, setContentSource] = useState("api");
@@ -28,7 +34,7 @@ export function ContentProvider({ children, initialContent = null }) {
     setError(null);
     return fetchContent()
       .then((data) => {
-        setContent(data);
+        setContent(publishContent(data));
         setContentSource(getLastContentSource());
         setError(null);
       })
@@ -66,7 +72,7 @@ export function ContentProvider({ children, initialContent = null }) {
       try {
         const data = await fetchContent();
         if (!cancelled) {
-          setContent(data);
+          setContent(publishContent(data));
           setContentSource(getLastContentSource());
           setError(null);
         }

@@ -1,7 +1,19 @@
 import { getContent } from "./contentStore.js";
 
+function publicSiteUrl(siteUrl) {
+  const raw = String(siteUrl || "https://www.msonnursing.com").trim();
+  try {
+    const url = new URL(raw.includes("://") ? raw : `https://${raw}`);
+    const host = url.hostname.replace(/^www\./i, "");
+    if (host === "msonnursing.com") return "https://www.msonnursing.com";
+    return url.origin;
+  } catch {
+    return "https://www.msonnursing.com";
+  }
+}
+
 function absUrl(siteUrl, path) {
-  const base = (siteUrl || "").replace(/\/$/, "");
+  const base = publicSiteUrl(siteUrl).replace(/\/$/, "");
   const p = path?.startsWith("/") ? path : `/${path || ""}`;
   return base ? `${base}${p}` : p;
 }
