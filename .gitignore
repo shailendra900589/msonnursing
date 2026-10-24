@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+backend/src/data/admin-secret.json
+backend/src/data/resumes/**
+!backend/src/data/resumes/.gitkeep
+*.log
+backend/uploads/**
+!backend/uploads/.gitkeep

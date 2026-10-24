@@ -1,0 +1,1925 @@
+{
+  "site": {
+    "logoUrl": "/uploads/logos/logo.png?v=2",
+    "faviconUrl": "/favicon.png?v=2",
+    "theme": {
+      "colors": {
+        "primary": "#0d3a8c",
+        "primarySoft": "#1a4fb3",
+        "accent": "#c41e2a",
+        "accentSoft": "#e63946",
+        "background": "#f4f7fb",
+        "surface": "#ffffff",
+        "text": "#1e293b",
+        "textMuted": "#64748b"
+      },
+      "typography": {
+        "baseFontSize": "16",
+        "headingScale": "1",
+        "headingWeight": "700",
+        "bodyWeight": "400",
+        "fontFamily": "DM Sans, system-ui, sans-serif"
+      }
+    },
+    "name": "Mson Nursing Services",
+    "sourceUrl": "https://www.msonnursing.com",
+    "established": 2020,
+    "location": "Lucknow, Uttar Pradesh, India",
+    "tagline": "Compassionate nursing care at home and in healthcare settings",
+    "url": "https://www.msonnursing.com"
+  },
+  "navigation": {
+    "main": [
+      {
+        "to": "/",
+        "label": "Home",
+        "end": true
+      },
+      {
+        "to": "/about",
+        "label": "About"
+      },
+      {
+        "to": "/services",
+        "label": "Services"
+      },
+      {
+        "to": "/events",
+        "label": "Events & Camps"
+      },
+      {
+        "to": "/blog",
+        "label": "Blog"
+      },
+      {
+        "to": "/jobs",
+        "label": "Careers"
+      }
+    ],
+    "footer": [
+      {
+        "to": "/",
+        "label": "Home"
+      },
+      {
+        "to": "/about",
+        "label": "About"
+      },
+      {
+        "to": "/services",
+        "label": "Services"
+      },
+      {
+        "to": "/events",
+        "label": "Events & Camps"
+      },
+      {
+        "to": "/blog",
+        "label": "Blog"
+      },
+      {
+        "to": "/contact",
+        "label": "Contact"
+      },
+      {
+        "to": "/jobs",
+        "label": "Careers"
+      }
+    ]
+  },
+  "header": {
+    "phoneLine": "{{phone}}",
+    "emailLine": "{{email}}",
+    "navCtaLabel": "Contact",
+    "navCtaPath": "/contact",
+    "logoAlt": "Mson Nursing Services",
+    "tickerLines": [
+      "Home nursing, elder care, and caregiver staff available across Lucknow",
+      "Open roles are listed on Careers — apply with your resume",
+      "Health camps and caregiver drives are listed under Events"
+    ]
+  },
+  "footer": {
+    "quickLinksTitle": "Quick links",
+    "contactTitle": "Contact",
+    "locationTitle": "Location",
+    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7117.734058880034!2d81.00673622253323!3d26.875965440567718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be3005c31bebd%3A0x590111dd07e75df2!2sMSON%20NURSING%20SERVICES!5e0!3m2!1sen!2sin!4v1790873658295!5m2!1sen!2sin",
+    "mapUrl": "https://maps.app.goo.gl/q3F5gXfbGfDriv6N6",
+    "copyrightPrefix": "©",
+    "copyrightSuffix": "Content from",
+    "sourceLinkLabel": "msonnursing.com"
+  },
+  "forms": {
+    "contact": {
+      "formTitle": "Send an enquiry",
+      "mailSubjectPrefix": "Care enquiry from",
+      "nameLabel": "Full name",
+      "phoneLabel": "Phone",
+      "messageLabel": "Message",
+      "namePlaceholder": "Your name",
+      "phonePlaceholder": "Mobile number",
+      "messagePlaceholder": "Describe care needs...",
+      "submitLabel": "Send enquiry",
+      "whatsappLabel": "WhatsApp instead"
+    },
+    "eventRegistration": {
+      "formTitle": "Register for this event",
+      "nameLabel": "Full name",
+      "phoneLabel": "Phone / WhatsApp",
+      "messageLabel": "Your requirement",
+      "namePlaceholder": "Your name",
+      "phonePlaceholder": "Mobile number",
+      "messagePlaceholder": "Patient age, preferred dates, location in Lucknow…",
+      "submitLabel": "Submit registration",
+      "whatsappLabel": "WhatsApp instead"
+    }
+  },
+  "labels": {
+    "serviceLearnMore": "Learn more →",
+    "serviceBook": "Book this service",
+    "allServices": "All services",
+    "readOurStory": "Read our story →",
+    "backToServices": "Back to services",
+    "serviceNotFound": "Service not found",
+    "contactDetailsTitle": "Contact details",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "addressLabel": "Address",
+    "hoursLabel": "Hours",
+    "homeBreadcrumb": "Home",
+    "notFoundTitle": "Page not found",
+    "notFoundMessage": "The page you are looking for does not exist.",
+    "notFoundButton": "Back to home",
+    "enquirySuccess": "Thank you — we received your enquiry and will call you soon.",
+    "enquiryError": "Could not send. Please call or WhatsApp us directly.",
+    "enquiryThanksTitle": "Thank you — enquiry received",
+    "enquiryThanksLead": "Our care coordinator will call you shortly. You can also connect on WhatsApp or phone right away.",
+    "enquiryThanksNoState": "If you closed this tab, call us directly — we are here to help.",
+    "enquiryWhatsApp": "Continue on WhatsApp",
+    "enquiryCall": "Call now",
+    "enquiryBack": "Back to page",
+    "eventsPageTitle": "Events & Camps",
+    "eventLearnMore": "View details →",
+    "eventRegister": "Register interest",
+    "eventFeatured": "Featured",
+    "eventAllTypes": "All",
+    "backToEvents": "Back to events",
+    "backToBlog": "Back to blog"
+  },
+  "system": {
+    "loadErrorTitle": "Unable to load website",
+    "loadErrorMessage": "Start the backend API on port 5000, then refresh this page."
+  },
+  "pages": {
+    "events": {
+      "title": "Events, Camps & Campaigns",
+      "subtitle": "Community health initiatives, nursing awareness camps and special care drives across Lucknow."
+    },
+    "blog": {
+      "title": "Nursing Care Blog",
+      "subtitle": "Home nursing tips, elder care guides, and health updates from Mson Nursing Services Lucknow."
+    },
+    "home": {
+      "heroEyebrow": "CARE AT HOME · SINCE 2020",
+      "heroTitle": "Nursing Care in Lucknow",
+      "heroSubtitle": "",
+      "heroDescription": "",
+      "heroImage": "/images/nurse-home-care.jpg",
+      "ctaPrimary": "Book Appointment",
+      "ctaSecondary": "View Services",
+      "trustBadgeTitle": "5.0 On Google",
+      "trustBadgeText": "Background-verified professionals",
+      "heroImageAlt": "Trained nurse providing compassionate home care to patient in Lucknow",
+      "trustBadgeIcon": "+",
+      "featuredCount": 4,
+      "previewTitle": "Why families choose {{siteName}}",
+      "previewIntro": "Families in Lucknow book screened nurses and attendants for baby care, elder support, and recovery at home. The care desk confirms the visit, the staff, and the fee before anyone is sent.",
+      "previewLinkText": "Read our story →",
+      "ctaCardTitle": "Need immediate assistance?",
+      "ctaCardText": "Speak with our care coordinator today.",
+      "ctaCardButton": "Call {{phone}}",
+      "stats": [
+        {
+          "value": "45+",
+          "label": "Care services"
+        },
+        {
+          "value": "2020",
+          "label": "Since"
+        },
+        {
+          "value": "24/7",
+          "label": "Enquiry line"
+        }
+      ],
+      "introText": "Mson Nursing Services is a home nursing agency in Lucknow, established in 2020. Families book screened male and female nurses, GDA attendants, and visit staff for home care, baby care, elder support, and physiotherapy. The office is in Ashok Vihar, Patel Nagar, Ismailganj, Indira Nagar, Lucknow 226028. Where a service page shows a fee, that is the published rate. Medicines and consumables are extra unless that page says they are included.",
+      "whySubtitle": "Screened nurses and attendants, with the fee and the visit scope explained before care starts in Lucknow."
+    },
+    "about": {
+      "title": "About Us",
+      "subtitle": "A Lucknow-based nursing agency built on trust, training, and compassionate care.",
+      "image": "/images/events/community-health-camp.jpg",
+      "mission": "We connect families and healthcare settings with qualified nursing professionals who understand dignity, safety, and consistent quality of care.",
+      "imageAlt": "Professional Indian doctor in a white coat with a stethoscope",
+      "yearBadgeLabel": "Year established"
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "End-to-end nursing and home-care solutions tailored to your needs."
+    },
+    "contact": {
+      "title": "Contact",
+      "subtitle": "Tell us about your care requirements — call, email, or send an enquiry. We respond promptly during business hours."
+    }
+  },
+  "blocks": {
+    "home": {
+      "whyItems": [
+        {
+          "icon": "shield-check",
+          "title": "Verified nursing staff",
+          "text": "Male and female nurses and attendants are screened, trained and matched to your care plan."
+        },
+        {
+          "icon": "stethoscope",
+          "title": "Clinical & home expertise",
+          "text": "Staff for private duty, at-home recovery, hospitals, clinics and long-term patient support."
+        },
+        {
+          "icon": "heart-pulse",
+          "title": "Complete care spectrum",
+          "text": "Baby care, elder care, patient care takers, ayas, and physiotherapy under one trusted agency."
+        },
+        {
+          "icon": "clock",
+          "title": "Responsive coordination",
+          "text": "Quick enquiry handling and timely placement when your family needs care without delay."
+        },
+        {
+          "icon": "award",
+          "title": "Quality-first approach",
+          "text": "Ongoing training on nursing acts, hospitality and patient safety for every assignment."
+        },
+        {
+          "icon": "phone",
+          "title": "Direct support line",
+          "text": "Call 9807925369 or 8894654090 to discuss staffing for home or healthcare facilities."
+        }
+      ],
+      "processSteps": [
+        {
+          "step": "01",
+          "title": "Share your requirement",
+          "text": "Tell us about the patient, schedule, and type of nursing or attendant support needed."
+        },
+        {
+          "step": "02",
+          "title": "Care plan matching",
+          "text": "We shortlist qualified male/female nurses or attendants suited to the case."
+        },
+        {
+          "step": "03",
+          "title": "Staff introduction",
+          "text": "Selected professionals are aligned on duties, timing and safety expectations."
+        },
+        {
+          "step": "04",
+          "title": "Ongoing support",
+          "text": "We stay available for replacements, feedback and service improvements."
+        }
+      ],
+      "introTitle": "Leading Nursing Agency in Lucknow",
+      "introText": "Mson Nursing Services is a leading nursing agency in India. Established in 2020 and situated in Lucknow, Uttar Pradesh, we are known for providing professionals who offer unmatched services to our clients. We have carved a niche in the market for our excellent level of services. Customer satisfaction is our sole motto and we endeavour to consistently improve our services to accommodate the changing needs of our clients.",
+      "whyTitle": "Why families trust Mson Nursing",
+      "whySubtitle": "Hospital-grade discipline with compassionate home care — built for real patient needs in Lucknow.",
+      "processTitle": "How care placement works",
+      "processSubtitle": "Simple, transparent steps from first call to caregiver support.",
+      "ctaTitle": "Ready to arrange nursing care?",
+      "ctaText": "Speak with Mson Nursing Services in Lucknow — home care, baby care, elder support and physiotherapy.",
+      "ctaButton": "Get in Touch",
+      "ctaLink": "/contact",
+      "eventsTitle": "Upcoming health camps & campaigns",
+      "eventsSubtitle": "Join our community nursing drives, free check-up camps and elder care awareness programs in Lucknow.",
+      "showOnHome": true,
+      "homeEventsCount": 4,
+      "testimonialsTitle": "What families say about us",
+      "testimonialsSubtitle": "Rated 5.0 out of 5 stars based on 93+ real reviews on Google. Verified home nursing & injection services across Lucknow.",
+      "showTestimonials": true,
+      "blogTitle": "Nursing care tips & updates",
+      "blogSubtitle": "Guides on home nursing, elder care, injections and IV therapy in Lucknow.",
+      "showBlogOnHome": true,
+      "homePostsCount": 4
+    },
+    "about": {
+      "values": [
+        {
+          "icon": "heart-pulse",
+          "title": "Compassion",
+          "text": "Every patient deserves kind, respectful care at home or in facility settings."
+        },
+        {
+          "icon": "shield-check",
+          "title": "Safety & trust",
+          "text": "We emphasize verified staff, clear communication and reliable attendance."
+        },
+        {
+          "icon": "clipboard",
+          "title": "Professional standards",
+          "text": "Nursing acts, hygiene and patient monitoring practices are reinforced through training."
+        },
+        {
+          "icon": "award",
+          "title": "Customer satisfaction",
+          "text": "Improving service quality continuously to meet changing family and clinical needs."
+        }
+      ],
+      "visionTitle": "Our vision",
+      "visionText": "Mson Nursing Services wants to be the nursing partner Lucknow families call first. Every home visit should feel safe, respectful, and steady, with screened nurses and attendants who stay dependable for a single shift or for longer care.",
+      "valuesTitle": "What we stand for",
+      "commitmentTitle": "Our commitment",
+      "commitmentText": "Families in Lucknow can arrange newborn care, elder support, attendants, and physiotherapy through one local team. We match staff to the patient, explain what is included before care starts, and stay available for timing changes and replacements."
+    },
+    "services": {
+      "standards": [
+        "Experienced staff for hospitals, homes, clinics and private duty",
+        "Training on quality care, nursing procedures and patient hospitality",
+        "Support for premature babies, low birth weight and special infant needs",
+        "Attendants for disabled, ill and elderly citizens with hands-on compassion",
+        "Physiotherapy support for accident recovery, ageing and chronic conditions",
+        "Transparent communication and replacement support when required"
+      ],
+      "introTitle": "Comprehensive nursing & home care",
+      "introText": "We offer ayas for baby and elder care, newborn nursing, qualified patient care takers at home, physiotherapy for mobility and pain relief, male and female nurses, male and female nursing attendants, and dedicated elder caretaker services — aligned with the full service range offered by Mson Nursing Services in Lucknow.",
+      "standardsTitle": "Our care standards"
+    },
+    "contact": {
+      "emergencyTitle": "Call for immediate assistance",
+      "emergencyText": "Primary: {{phone}} · Alternate: 8894654090 — msonnursingservices@gmail.com",
+      "areaTitle": "Service location",
+      "areaText": "Ashok Vihar, Patel Nagar, Ismailganj, Indira Nagar, Lucknow 226028 — serving Lucknow and nearby areas.",
+      "noteTitle": "When you contact us",
+      "noteText": "Please share patient age, care type (baby/elder/post-surgery/physiotherapy), preferred gender of staff if any, and timing required. Our team will guide you on suitable nurses or attendants."
+    }
+  },
+  "events": [
+    {
+      "id": "community-health-camp-lucknow",
+      "type": "camp",
+      "title": "Community Health & Nursing Awareness Camp",
+      "shortDescription": "Free basic health guidance, elder care awareness and nursing consultation camp in Lucknow.",
+      "description": "Mson Nursing Services organizes community health camps to raise awareness about home nursing, patient care at home, elder support and newborn care. Meet our care coordinators and learn how professional nurses and attendants can support your family.",
+      "date": "2026-04-12",
+      "endDate": "2026-04-12",
+      "time": "10:00 AM – 4:00 PM",
+      "location": "Indira Nagar, Lucknow",
+      "featured": true,
+      "published": true,
+      "image": "/images/events/community-health-camp.jpg",
+      "imageAlt": "Professional Indian doctor in a white coat at a community health camp",
+      "highlights": [
+        "Free nursing care guidance",
+        "Elder & patient home care information",
+        "On-spot enquiry for nurses and attendants",
+        "Meet Mson care coordinators in person"
+      ],
+      "longContent": "Join our Community Health & Nursing Awareness Camp in Indira Nagar, Lucknow — a free, walk-in session for families who want clear answers about home nursing, elder safety, and patient care after hospital discharge.\n\nOur team explains how to choose between GDA attendants and registered nurses, typical duty hours, and when visit-based clinical care (injections, wound dressing, vitals) is appropriate at home.\n\nYou can bring basic questions about post-surgery recovery, dementia-friendly routines, or newborn and mother support. No obligation to book — leave with a checklist and a direct line to our coordination desk.",
+      "whoFor": [
+        "Residents of Indira Nagar and nearby Lucknow localities",
+        "Caregivers supporting elders or bedridden patients at home",
+        "Societies and RWAs planning health awareness for members"
+      ],
+      "faq": [
+        {
+          "q": "Do I need an appointment for the camp?",
+          "a": "Walk-ins are welcome between 10:00 AM and 4:00 PM on camp day. For large groups, WhatsApp us so we can reserve a coordinator slot."
+        },
+        {
+          "q": "Will doctors be present?",
+          "a": "This camp focuses on nursing and home-care coordination. For diagnosis or prescriptions, please consult your physician; we can support care at home once your doctor defines the plan."
+        }
+      ],
+      "seo": {
+        "title": "Community Health & Nursing Awareness Camp | Mson Nursing Services Lucknow",
+        "description": "Free basic health guidance, elder care awareness and nursing consultation camp in Lucknow.",
+        "keywords": "health camp Lucknow, nursing event, camp, Mson Nursing Services",
+        "canonicalPath": "/events/community-health-camp-lucknow",
+        "ogImageAlt": "Professional Indian doctor in a white coat at a community health camp"
+      }
+    },
+    {
+      "id": "elder-care-campaign",
+      "type": "campaign",
+      "title": "Elder Care at Home Campaign",
+      "shortDescription": "Special campaign for senior citizen caretaker services and safety at home.",
+      "description": "Our elder care campaign highlights trained caregivers for senior citizens — medication routines, mobility help, companionship and safety monitoring. Families in Lucknow can enquire about short-term and long-term elder caretaker placements.",
+      "date": "2026-05-01",
+      "endDate": "2026-05-31",
+      "time": "All month — enquire anytime",
+      "location": "Lucknow & nearby areas",
+      "featured": true,
+      "published": true,
+      "image": "/images/elder-care-campaign.jpg",
+      "imageAlt": "Indian senior couple during an elder care at home campaign",
+      "highlights": [
+        "Senior citizen caretaker services",
+        "Screened & trained staff",
+        "Flexible home care plans",
+        "Medication reminders & mobility support",
+        "Family updates and safety checks at home"
+      ],
+      "longContent": "The Elder Care at Home Campaign by Mson Nursing Services is designed for families in Lucknow who want dignified, reliable support for senior citizens without moving them to a facility.\n\nThroughout May, our coordinators help you understand how trained caregivers assist with daily routines — bathing and grooming support, meal supervision, medication reminders, gentle mobility help, and companionship that reduces isolation.\n\nWe screen attendants and nurses for experience with elders, communication with family members, and basic safety awareness (falls, hydration, emergency escalation). You can choose short respite cover when a family caregiver travels, or long-term daily duty matched to your home schedule.\n\nRegister interest during the campaign for priority matching, transparent coordination fees, and a clear care plan before staff starts duty at your address in Lucknow or nearby areas.",
+      "whoFor": [
+        "Families caring for parents or grandparents at home in Lucknow",
+        "NRIs coordinating elder care remotely with local support",
+        "Seniors recovering from illness who need supervised home assistance",
+        "Households needing night duty or 12–24 hour caretaker coverage"
+      ],
+      "agenda": [
+        {
+          "title": "Share your elder's needs",
+          "text": "Tell us age, mobility, medical conditions, and preferred hours (day, night, or live-in)."
+        },
+        {
+          "title": "Care plan & staff profile",
+          "text": "We suggest caregiver type — GDA attendant or nurse — and share screening background before placement."
+        },
+        {
+          "title": "Trial duty & family handover",
+          "text": "Staff begins with clear routines; coordinator stays available for replacements or schedule changes."
+        },
+        {
+          "title": "Ongoing coordinator support",
+          "text": "Mson Nursing Services stays available for schedule changes, staff replacements, and family feedback after care starts."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is included in senior citizen caretaker services?",
+          "a": "Daily living support, companionship, medication reminders, mobility assistance, and reporting to family. Clinical tasks like injections require a nurse — we clarify scope before booking."
+        },
+        {
+          "q": "Can I hire for only a few days during the campaign?",
+          "a": "Yes. Short-term respite and long-term monthly duty are both available. Campaign registration helps us prioritize matching in May."
+        },
+        {
+          "q": "How do you verify caregivers?",
+          "a": "Mson Nursing Services coordinates identity verification, reference checks where applicable, and orientation on home safety and elder dignity."
+        },
+        {
+          "q": "Which areas in Lucknow do you cover?",
+          "a": "We place elder caretakers across Lucknow including Indira Nagar, Gomti Nagar, Aliganj, Hazratganj, Alambagh, and nearby localities."
+        }
+      ],
+      "seo": {
+        "title": "Elder Care at Home Campaign | Mson Nursing Services Lucknow",
+        "description": "Special campaign for senior citizen caretaker services and safety at home.",
+        "keywords": "health camp Lucknow, nursing event, campaign, Mson Nursing Services",
+        "canonicalPath": "/events/elder-care-campaign",
+        "ogImageAlt": "Indian senior couple during an elder care at home campaign"
+      }
+    },
+    {
+      "id": "home-nursing-drive",
+      "type": "event",
+      "title": "Home Nursing Services Drive",
+      "shortDescription": "Meet our team to plan post-surgery and long-term patient care at home.",
+      "description": "This nursing drive helps families understand patient care taker services, male/female nurses for home duty, and physiotherapy support after illness or surgery. Contact Mson Nursing Services to schedule a care assessment discussion.",
+      "date": "2026-06-08",
+      "endDate": "",
+      "time": "11:00 AM – 6:00 PM",
+      "location": "Ashok Vihar area, Lucknow",
+      "featured": false,
+      "published": true,
+      "image": "/images/events/home-nursing-drive.jpg",
+      "imageAlt": "Nurse consulting with family during home nursing drive in Lucknow",
+      "highlights": [
+        "Patient care at home planning",
+        "Male & female nurse availability",
+        "Physiotherapy referrals"
+      ],
+      "seo": {
+        "title": "Home Nursing Services Drive | Mson Nursing Services Lucknow",
+        "description": "Meet our team to plan post-surgery and long-term patient care at home.",
+        "keywords": "health camp Lucknow, nursing event, event, Mson Nursing Services",
+        "canonicalPath": "/events/home-nursing-drive",
+        "ogImageAlt": "Indian woman doctor with a chart at a home nursing drive",
+        "ogImage": "/images/events/home-nursing-drive.jpg"
+      }
+    },
+    {
+      "id": "newborn-mother-care-camp",
+      "type": "camp",
+      "title": "Newborn & Mother Care Awareness Camp",
+      "shortDescription": "Guidance for new mothers on home nursing, newborn hygiene, and post-delivery support in Lucknow.",
+      "description": "A community camp for families welcoming a new baby — learn how trained attendants and nurses support feeding routines, hygiene, night duty, and recovery at home.",
+      "date": "2026-07-20",
+      "endDate": "2026-07-20",
+      "time": "10:00 AM – 3:00 PM",
+      "location": "Gomti Nagar, Lucknow",
+      "featured": false,
+      "published": true,
+      "image": "https://images.pexels.com/photos/37115099/pexels-photo-37115099.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "imageAlt": "Indian mother and child at a newborn care awareness camp",
+      "highlights": [
+        "Newborn hygiene & safety basics",
+        "Mother recovery support at home",
+        "Night-duty attendant planning",
+        "Meet Mson nursing coordinators"
+      ],
+      "longContent": "Our Newborn & Mother Care Awareness Camp in Gomti Nagar helps families plan safe, dignified support after delivery — without guesswork about duties, timing, or staff qualifications.\n\nCoordinators explain when a GDA attendant is appropriate versus a registered nurse, how night shifts are structured, and what families should prepare before staff begins home duty.\n\nWalk in with questions about feeding support, bathing assistance, laundry and hygiene routines, and emergency escalation. Leave with a clear checklist and direct contact for placement in Lucknow.",
+      "whoFor": [
+        "New parents and extended families in Lucknow",
+        "Expecting mothers planning post-delivery home help",
+        "Households needing short-term newborn night support"
+      ],
+      "agenda": [
+        {
+          "title": "Share your home schedule",
+          "text": "Tell us delivery date, room setup, and whether you need day, night, or 24-hour support."
+        },
+        {
+          "title": "Care plan for mother & baby",
+          "text": "We outline attendant or nurse scope — hygiene, monitoring, and family communication."
+        },
+        {
+          "title": "Staff introduction",
+          "text": "Review screened profiles and agree on start date before duty begins."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I book only night duty for a few weeks?",
+          "a": "Yes. Short newborn support packages are available. Camp registration helps us prioritize matching."
+        },
+        {
+          "q": "Do you provide clinical procedures for the baby?",
+          "a": "Routine newborn care and hygiene support are handled by trained attendants. Clinical procedures require a nurse — we clarify scope before booking."
+        }
+      ],
+      "seo": {
+        "title": "Newborn & Mother Care Awareness Camp | Mson Nursing Services Lucknow",
+        "description": "Guidance for new mothers on home nursing, newborn hygiene, and post-delivery support in Lucknow.",
+        "keywords": "newborn care camp Lucknow, mother care, nursing event, Mson Nursing Services",
+        "canonicalPath": "/events/newborn-mother-care-camp",
+        "ogImageAlt": "Indian mother and child at a newborn care awareness camp"
+      }
+    },
+    {
+      "id": "gda-caregiver-awareness-drive",
+      "type": "drive",
+      "title": "GDA Caregiver Awareness Drive",
+      "shortDescription": "Understand GDA male & female attendants, 12-hour shifts, and patient care at home in Lucknow.",
+      "description": "An open house style drive for families comparing GDA attendants and home nursing options — screening, pricing, and coordinator support explained clearly.",
+      "date": "2026-08-15",
+      "endDate": "",
+      "time": "11:00 AM – 5:00 PM",
+      "location": "Aliganj, Lucknow",
+      "featured": true,
+      "published": true,
+      "image": "/images/events/gda-caregiver-drive.jpg",
+      "imageAlt": "Male and female GDA caregivers in scrubs at awareness drive in Lucknow",
+      "highlights": [
+        "GDA attendant vs nurse — when to choose",
+        "12-hour & live-in duty options",
+        "Transparent coordination process",
+        "Same-day enquiry handling"
+      ],
+      "longContent": "The GDA Caregiver Awareness Drive in Aliganj is for families who need dependable patient attendants but want clarity before committing to a shift pattern or budget.\n\nMson Nursing Services walks you through male and female GDA placements, hygiene protocols, replacement policy, and how coordinators stay reachable after duty starts.\n\nWhether you are supporting post-surgery recovery, chronic illness, or elder mobility, you will leave with realistic expectations and a direct path to book staff in Lucknow.",
+      "whoFor": [
+        "Families hiring a patient attendant for the first time",
+        "Clients comparing 12-hour versus live-in GDA coverage",
+        "Caregivers researching verified agencies in Lucknow"
+      ],
+      "agenda": [
+        {
+          "title": "Explain patient needs",
+          "text": "Share diagnosis context, mobility level, and preferred male or female staff."
+        },
+        {
+          "title": "Match GDA or nurse",
+          "text": "We recommend attendant versus nursing skill level and share screening summary."
+        },
+        {
+          "title": "Start duty at home",
+          "text": "Staff follows agreed routines with coordinator backup for swaps or feedback."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is the difference between GDA and a nurse visit?",
+          "a": "GDA attendants focus on daily living and supervised care. Nurses handle clinical tasks such as injections or wound care — often as scheduled visits."
+        },
+        {
+          "q": "Can I meet staff before confirming?",
+          "a": "We share profiles and experience summary before placement. Trial duty can be arranged where schedules allow."
+        }
+      ],
+      "seo": {
+        "title": "GDA Caregiver Awareness Drive | Mson Nursing Services Lucknow",
+        "description": "Understand GDA attendants, shifts, and patient care at home in Lucknow.",
+        "keywords": "GDA drive Lucknow, patient attendant, nursing event, Mson Nursing Services",
+        "canonicalPath": "/events/gda-caregiver-awareness-drive",
+        "ogImageAlt": "Indian doctor at a GDA caregiver awareness drive",
+        "ogImage": "/images/events/gda-caregiver-drive.jpg"
+      }
+    }
+  ],
+  "jobs": [
+    {
+      "id": "home-care-nurse-lucknow",
+      "title": "Home Care Nurse",
+      "summary": "Provide nursing visits and supervised patient care at homes across Lucknow.",
+      "description": "Mson Nursing Services is hiring a home care nurse for patient visits in Lucknow.\n\nThe role covers scheduled nursing procedures, family updates, and coordination with our care desk. Experience with elder care, injections, wound dressing, or GDA supervision is useful.\n\nShifts are discussed at interview. The workplace is on-site, based from our Indira Nagar office, with travel to patient homes in Lucknow.\n\nApply on this page with your name, phone number, resume, and a short note about your experience.",
+      "datePosted": "2026-10-01",
+      "validThrough": "2026-12-31",
+      "employmentType": "FULL_TIME",
+      "workplace": "ONSITE",
+      "streetAddress": "Ashok Vihar, Patel Nagar, Ismailganj, Indira Nagar, Lucknow",
+      "addressLocality": "Lucknow",
+      "addressRegion": "Uttar Pradesh",
+      "postalCode": "226028",
+      "addressCountry": "IN",
+      "salaryMin": "",
+      "salaryMax": "",
+      "salaryUnit": "MONTH",
+      "published": true
+    }
+  ],
+  "posts": [
+    {
+      "id": "home-nursing-guide-lucknow",
+      "title": "Complete Guide to Home Nursing Services in Lucknow",
+      "excerpt": "How Lucknow families choose a GDA attendant, a nurse shift, or a procedure visit, and what to confirm before someone enters the home.",
+      "body": "Home nursing in Lucknow usually means one of three bookings: a GDA attendant for daily living, a nurse for a shift, or a nurse for a single task such as an injection, dressing, IV, or catheter care.\n\nA GDA attendant helps with bathing, meals, mobility, and company. That role does not include injections or IV fluids. A 12-hour GDA shift on this site is listed at ₹650 where the service page shows that rate. A 12-hour registered-nurse shift is a different booking, listed at ₹1,200.\n\nBefore you confirm, ask three things. Who is coming, and is that person a GDA attendant or a nurse? What does the fee include? Which items, such as syringes, dressings, or IV fluids, will you need to arrange?\n\nShare the patient's age, the locality, whether you prefer male or female staff, and the hours. Mson Nursing Services confirms those details from its Indira Nagar office before staff are sent. Call 9807925369 or 8894654090.\n\nHome nursing is support at the address you give. It is not an emergency department. Chest pain, trouble breathing, heavy bleeding, a seizure, or collapse needs emergency medical services.\n\nThis guide is written by the Mson Nursing Services care desk in Lucknow. It describes how to book. It is not a diagnosis for a specific patient.",
+      "date": "2026-03-15",
+      "author": "Mson Nursing Services, Lucknow",
+      "category": "Home Nursing",
+      "published": true,
+      "featured": true,
+      "image": "/images/blog/home-nursing-guide.jpg",
+      "imageAlt": "Indian registered nurse in scrubs with medical chart and stethoscope",
+      "seo": {
+        "title": "Complete Guide to Home Nursing Services in Lucknow | Mson Nursing Services",
+        "description": "How Lucknow families choose a GDA attendant, a nurse shift, or a procedure visit, and what to confirm before someone enters the home.",
+        "keywords": "home nursing services Lucknow, GDA attendant Lucknow, registered nurse at home, how to book home nursing",
+        "canonicalPath": "/blog/home-nursing-guide-lucknow",
+        "ogImageAlt": "Indian woman doctor reviewing a chart in a guide to home nursing",
+        "ogImage": "/images/blog/home-nursing-guide.jpg"
+      },
+      "faq": [
+        {
+          "q": "What is the difference between a GDA attendant and a nurse?",
+          "a": "A GDA attendant helps with daily living on a shift. A nurse is booked for clinical tasks such as injections, dressings, IV care, or a nursing shift. The service page states which role you are booking."
+        },
+        {
+          "q": "Are medicines included in the visit fee?",
+          "a": "Medicines and consumables are extra unless the service page says they are included. The coordinator repeats what the fee covers before staff are sent."
+        }
+      ],
+      "relatedServiceIds": [
+        "gda-male-and-female-12-hours",
+        "registered-nurses-12-hours",
+        "home-health-care-service",
+        "trained-nursing-staff-per-visit"
+      ]
+    },
+    {
+      "id": "elder-care-at-home-tips",
+      "title": "Elder Care at Home: Safety, Hygiene & Daily Routines",
+      "excerpt": "What Lucknow families should set up before an elder-care attendant starts: routine, hygiene, mobility, and when a nurse is the better booking.",
+      "body": "Elder care at home works when the routine is clear. Write down wake time, meals, medicines the family already manages, bathing preference, and how the person moves from bed to chair.\n\nA GDA elder-care shift on this site is listed at ₹650 for 12 hours where that fee is printed. The attendant helps with daily living. If the older person needs injections, wound dressing, or an IV, book a nurse visit as well.\n\nReduce falls by keeping the path to the bathroom clear, using the footwear the person already wears safely, and agreeing who helps with transfers. The attendant should follow that plan, not invent a new exercise programme.\n\nCall the coordinator if the attendant is late, if the older person refuses care, or if you need a replacement. The desk number is 9807925369, with 8894654090 as the second line.\n\nSeek urgent care for a new fall with head injury, sudden weakness on one side, chest pain, or breathing difficulty. An attendant at home cannot replace that response.\n\nThis article is from the Mson Nursing Services care desk in Lucknow. It is planning advice for families, not a medical assessment of a parent or grandparent.",
+      "date": "2026-03-01",
+      "author": "Mson Nursing Services, Lucknow",
+      "category": "Elder Care",
+      "published": true,
+      "image": "/images/blog/elder-care-tips.jpg",
+      "imageAlt": "Indian senior couple supported by home nurse in Lucknow",
+      "seo": {
+        "title": "Elder Care at Home: Safety, Hygiene & Daily Routines | Mson Nursing Services",
+        "description": "What Lucknow families should set up before an elder-care attendant starts: routine, hygiene, mobility, and when a nurse is the better booking.",
+        "keywords": "elder care at home Lucknow, GDA for elderly, old age care taker, elder care attendant",
+        "canonicalPath": "/blog/elder-care-at-home-tips",
+        "ogImageAlt": "Indian senior couple, for elder care safety at home",
+        "ogImage": "/images/blog/elder-care-tips.jpg"
+      },
+      "faq": [
+        {
+          "q": "Can a GDA attendant give my parent their medicines?",
+          "a": "Attendants can remind and help with medicines the family already manages. Injections and IV medicines need a nurse booking and a prescription."
+        },
+        {
+          "q": "How do I ask for male or female staff?",
+          "a": "Say the preference when you call. Elder-care shifts can be booked with male or female GDA staff, subject to who is available that day."
+        }
+      ],
+      "relatedServiceIds": [
+        "elderly-care-service",
+        "elder-care-at-home",
+        "old-age-care-taker-service",
+        "elder-care-nurse"
+      ]
+    },
+    {
+      "id": "injection-iv-services-at-home",
+      "title": "Injections, IV Drip & Catheter Care at Your Doorstep",
+      "excerpt": "When a Lucknow nurse visit can cover an injection, TT, IV drip, or catheter change, and what must be prescribed first.",
+      "body": "A home nurse can give an injection, set up an IV, dress a wound, or change a catheter when that task has already been decided by a doctor and someone is at home to receive the nurse.\n\nOn this website, many injection visits are listed at ₹299 and TT visits at ₹299. IV cannula or line visits are often ₹299 to ₹350. IV fluids or IV therapy are listed at ₹550 where the page says the drip follows a prescription. Catheter care is listed at ₹350 on the matching service page. Always read the fee on that page before you book, because consumables are usually extra.\n\nThe nurse does not choose the drug, the drip, or the catheter size. Keep the prescription, and any items the clinic told you to buy, ready before the visit. The page titled Doctor Injection at Home is still a nurse visit for an injection a doctor has prescribed. It is not a doctor consultation at the house.\n\nBook on 9807925369. Say the procedure, the patient's age, the locality, and whether a female nurse is required. The coordinator confirms the fee and the consumables before the nurse leaves the Indira Nagar desk.\n\nDo not wait for a home visit if there is chest pain, severe breathlessness, heavy bleeding, a seizure, or collapse. Those need emergency medical services.\n\nThis note is published by Mson Nursing Services, Lucknow, so families know how procedure visits are booked. It does not replace the doctor's instruction for a named patient.",
+      "date": "2026-02-20",
+      "author": "Mson Nursing Services, Lucknow",
+      "category": "Clinical Visits",
+      "published": true,
+      "image": "/images/blog/injection-iv-catheter-care.jpg",
+      "imageAlt": "Indian nurse in sterile gloves preparing on-call injection at home",
+      "seo": {
+        "title": "Injections, IV Drip & Catheter Care at Your Doorstep | Mson Nursing Services",
+        "description": "When a Lucknow nurse visit can cover an injection, TT, IV drip, or catheter change, and what must be prescribed first.",
+        "keywords": "injection at home Lucknow, TT injection at home, IV drip at home, catheter change at home, nurse visit fee",
+        "canonicalPath": "/blog/injection-iv-services-at-home",
+        "ogImageAlt": "Indian doctor planning injection and IV care at home",
+        "ogImage": "/images/blog/injection-iv-catheter-care.jpg"
+      },
+      "faq": [
+        {
+          "q": "Do I need a prescription for an injection or IV at home?",
+          "a": "Yes. The nurse gives the injection, drip, or catheter care that was prescribed. The nurse does not decide the medicine."
+        },
+        {
+          "q": "Are syringes and IV fluids included?",
+          "a": "Usually no. The visit fee is for the nurse. Medicines, fluids, cannulas, and dressing packs are extra unless that service page says otherwise."
+        }
+      ],
+      "relatedServiceIds": [
+        "on-call-tt-injection-at-home",
+        "home-injection-services",
+        "saline-drip-at-home",
+        "foley-s-catheter-change-service"
+      ]
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "t-1",
+      "name": "Akanksha prajapati",
+      "role": "Gomti Nagar, Lucknow · 4 months ago",
+      "rating": 5,
+      "source": "Google Review",
+      "quote": "Best Nursing services in Gomati nagar, Injection on call at home.",
+      "published": true
+    },
+    {
+      "id": "t-2",
+      "name": "Sonam Devi",
+      "role": "Indira Nagar, Lucknow · 8 months ago",
+      "rating": 5,
+      "source": "Google Review",
+      "quote": "Mson nursing is best Caregiver in near me.on call injection at home.",
+      "published": true
+    },
+    {
+      "id": "t-3",
+      "name": "madhu gautam",
+      "role": "Lucknow · 3 months ago",
+      "rating": 5,
+      "source": "Google Review",
+      "quote": "Best caregiver near me .on call injection near me",
+      "published": true
+    },
+    {
+      "id": "t-4",
+      "name": "Sneha Gm",
+      "role": "Lucknow · 7 months ago",
+      "rating": 5,
+      "source": "Google Review",
+      "quote": "Very nice caregiver in lucknow.on call injection at home near me.",
+      "published": true
+    },
+    {
+      "id": "t-5",
+      "name": "Gajendra Yadav",
+      "role": "Indira Nagar, Lucknow · 3 months ago",
+      "rating": 5,
+      "source": "Google Review",
+      "quote": "Home care services and on-call injection support met our expectations. Excellent and compassionate elder care at home.",
+      "published": true
+    }
+  ],
+  "seo": {
+    "default": {
+      "siteName": "Mson Nursing Services",
+      "locale": "en_IN",
+      "twitterCard": "summary_large_image",
+      "twitterSite": "",
+      "shareCtaLabel": "Book nursing care",
+      "shareCtaAction": "Call now",
+      "ogImage": "/images/events/community-health-camp.jpg",
+      "ogImageAlt": "Professional Indian doctor in a white coat with a stethoscope"
+    },
+    "pages": {
+      "home": {
+        "title": "Home Nursing in Lucknow | Mson",
+        "description": "Leading home nursing in Lucknow since 2020. GDA staff, registered nurses, wound dressing, IV drip, catheter care, injections at home. Call 9807925369.",
+        "keywords": "home nursing services Lucknow, nursing care at home, elder care at home, GDA staff Lucknow, registered nurse at home, injection at home Lucknow, IV drip at home, wound dressing at home, baby care Lucknow, physiotherapy at home Lucknow",
+        "canonicalPath": "/"
+      },
+      "about": {
+        "title": "About Us | Mson Nursing Services Lucknow",
+        "description": "Learn about Mson Nursing Services — a trusted Lucknow nursing agency focused on qualified staff and customer satisfaction since 2020.",
+        "keywords": "about Mson Nursing Services, nursing agency Lucknow, home nursing since 2020, trained nurses Lucknow",
+        "canonicalPath": "/about"
+      },
+      "services": {
+        "title": "Nursing Services & Prices | Mson Nursing Services Lucknow",
+        "description": "Home health care, elderly care, skilled nursing, injections, IV fluids, wound dressing and catheter services at home in Lucknow. Transparent visit pricing.",
+        "keywords": "home nursing services Lucknow, nursing service prices, GDA staff, registered nurses, elder care, injections at home, IV fluids, wound dressing, catheter care",
+        "canonicalPath": "/services"
+      },
+      "contact": {
+        "title": "Contact Us | Mson Nursing Services Lucknow",
+        "description": "Call 9807925369 or email msonnursingservices@gmail.com. Ashok Vihar, Patel Nagar, Ismailganj, Indira Nagar, Lucknow 226028.",
+        "keywords": "contact Mson Nursing Services, home nurse Lucknow, 9807925369, Indira Nagar nursing care",
+        "canonicalPath": "/contact"
+      },
+      "events": {
+        "title": "Health Camps & Events | Mson Nursing Services Lucknow",
+        "description": "Free health camps, nursing awareness drives and community care campaigns by Mson Nursing Services in Lucknow.",
+        "keywords": "health camp Lucknow, nursing awareness camp, community care campaign, Mson Nursing Services",
+        "canonicalPath": "/events"
+      },
+      "jobs": {
+        "title": "Careers | Mson Nursing Services Lucknow",
+        "description": "Nursing, GDA, and caregiver jobs at Mson Nursing Services in Lucknow. Apply online for home care roles.",
+        "keywords": "nursing jobs Lucknow, GDA jobs, caregiver jobs, home nurse vacancy, Mson Nursing Services careers",
+        "canonicalPath": "/jobs"
+      },
+      "blog": {
+        "title": "Nursing Care Blog | Mson Nursing Services",
+        "description": "Health tips, elder care guides, and nursing news from Mson Nursing Services in Lucknow.",
+        "keywords": "nursing care blog Lucknow, home nursing tips, elder care guide, injection and IV care at home",
+        "canonicalPath": "/blog"
+      }
+    }
+  },
+  "about": {
+    "title": "Who We Are",
+    "summary": "Mson Nursing Services is a home nursing agency in Lucknow, established in 2020. Families book screened male and female nurses, GDA attendants, and visit staff for home care, baby care, elder support, and physiotherapy. The office is in Ashok Vihar, Patel Nagar, Ismailganj, Indira Nagar, Lucknow 226028. Where a service page shows a fee, that is the published rate. Medicines and consumables are extra unless that page says they are included."
+  },
+  "contact": {
+    "phones": [
+      "9807925369",
+      "8894654090"
+    ],
+    "whatsapp": "9807925369",
+    "whatsappMessage": "Hello Mson Nursing Services, I would like to enquire about nursing care in Lucknow.",
+    "email": "msonnursingservices@gmail.com",
+    "instagram": "https://www.instagram.com/msonnursingservices/",
+    "youtube": "https://www.youtube.com/@MsonNursingServices",
+    "address": "Ashok Vihar, Patel Nagar, Ismailganj, Indira Nagar, Lucknow, Uttar Pradesh 226028",
+    "mapUrl": "https://maps.app.goo.gl/q3F5gXfbGfDriv6N6",
+    "hours": "Mon – Sun: 8:00 AM – 8:00 PM"
+  },
+  "highlights": [
+    "Established 2020 — trusted nursing agency in Lucknow",
+    "Qualified male & female nurses and attendants",
+    "Home care, baby care, elder care & physiotherapy",
+    "Customer satisfaction is our sole motto",
+    "Screened, trained and dependable nursing professionals",
+    "Serving hospitals, clinics and home care across Lucknow"
+  ],
+  "services": [
+    {
+      "id": "home-health-care-service",
+      "title": "Home Health Care Service",
+      "shortDescription": "Complete home health care with trained nursing support.",
+      "description": "Home Health Care Service in Lucknow by Mson Nursing Services. Complete home health care with trained nursing support. Contact for pricing. Trained male & female nursing staff for home visits.",
+      "price": "",
+      "priceNote": "",
+      "category": "home-health",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "home-health",
+      "image": "/images/services/service-nurse.jpg",
+      "seo": {
+        "title": "Home Health Care Service | Mson Nursing Services Lucknow",
+        "description": "Complete home health care with trained nursing support. Contact for pricing.",
+        "keywords": "Home Health Care Service, Home Health Care Service Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-nurse.jpg"
+      }
+    },
+    {
+      "id": "gda-male-and-female-12-hours",
+      "title": "GDA Male and Female (12 Hours)",
+      "shortDescription": "GDA Male and Female (12 Hours)",
+      "description": "GDA Male and Female (12 Hours) in Lucknow by Mson Nursing Services. GDA Male and Female (12 Hours) Starting ₹650.00 (12 hours). Trained male & female nursing staff for home visits.",
+      "price": "₹650.00",
+      "priceNote": "12 hours",
+      "category": "gda",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "attendant-f",
+      "image": "/images/services/service-gda.jpg",
+      "seo": {
+        "title": "GDA Male and Female (12 Hours) | Mson Nursing Services Lucknow",
+        "description": "GDA Male and Female (12 Hours) Starting ₹650.00 (12 hours).",
+        "keywords": "GDA Male and Female (12 Hours), GDA Male and Female (12 Hours) Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-gda.jpg"
+      }
+    },
+    {
+      "id": "elderly-care-service",
+      "title": "Elderly Care Service",
+      "shortDescription": "Elderly Care Service",
+      "description": "Elderly Care Service in Lucknow by Mson Nursing Services. Elderly Care Service Starting ₹650.00 (GDA male & female, 12 hours). Trained male & female nursing staff for home visits.",
+      "price": "₹650.00",
+      "priceNote": "GDA male & female, 12 hours",
+      "category": "elder",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "heart-pulse",
+      "image": "/images/services/service-elderly.jpg",
+      "seo": {
+        "title": "Elderly Care Service | Mson Nursing Services Lucknow",
+        "description": "Elderly Care Service Starting ₹650.00 (GDA male & female, 12 hours).",
+        "keywords": "Elderly Care Service, Elderly Care Service Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-elderly.jpg"
+      }
+    },
+    {
+      "id": "registered-nurses-12-hours",
+      "title": "Registered Nurses (12 Hours)",
+      "shortDescription": "Registered Nurses (12 Hours)",
+      "description": "Registered Nurses (12 Hours) in Lucknow by Mson Nursing Services. Registered Nurses (12 Hours) Starting ₹1,200.00 (Male & female nursing staff). Trained male & female nursing staff for home visits.",
+      "price": "₹1,200.00",
+      "priceNote": "Male & female nursing staff",
+      "category": "nurse",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "nurse",
+      "image": "/images/services/service-nurse.jpg",
+      "seo": {
+        "title": "Registered Nurses (12 Hours) | Mson Nursing Services Lucknow",
+        "description": "Registered Nurses (12 Hours) Starting ₹1,200.00 (Male & female nursing staff).",
+        "keywords": "Registered Nurses (12 Hours), Registered Nurses (12 Hours) Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-nurse.jpg"
+      }
+    },
+    {
+      "id": "medical-care-nurse",
+      "title": "Medical Care Nurse",
+      "shortDescription": "Clinical medical care nurse for home and facility support.",
+      "description": "Medical Care Nurse in Lucknow by Mson Nursing Services. Clinical medical care nurse for home and facility support. Contact for pricing. Trained male & female nursing staff for home visits.",
+      "price": "",
+      "priceNote": "",
+      "category": "nurse",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "nurse",
+      "image": "/images/services/service-nurse.jpg",
+      "seo": {
+        "title": "Medical Care Nurse | Mson Nursing Services Lucknow",
+        "description": "Clinical medical care nurse for home and facility support. Contact for pricing.",
+        "keywords": "Medical Care Nurse, Medical Care Nurse Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-nurse.jpg"
+      }
+    },
+    {
+      "id": "elder-care-nurse",
+      "title": "Elder Care Nurse",
+      "shortDescription": "Dedicated elder care nurse for seniors at home.",
+      "description": "Elder Care Nurse in Lucknow by Mson Nursing Services. Dedicated elder care nurse for seniors at home. Contact for pricing. Trained male & female nursing staff for home visits.",
+      "price": "",
+      "priceNote": "",
+      "category": "elder",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "nurse",
+      "image": "/images/services/service-elderly.jpg",
+      "seo": {
+        "title": "Elder Care Nurse | Mson Nursing Services Lucknow",
+        "description": "Dedicated elder care nurse for seniors at home. Contact for pricing.",
+        "keywords": "Elder Care Nurse, Elder Care Nurse Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-elderly.jpg"
+      }
+    },
+    {
+      "id": "hospital-nursing-services",
+      "title": "Hospital Nursing Services",
+      "shortDescription": "Hospital-grade nursing staff for facilities and private duty.",
+      "description": "Hospital Nursing Services in Lucknow by Mson Nursing Services. Hospital-grade nursing staff for facilities and private duty. Contact for pricing. Trained male & female nursing staff for home visits.",
+      "price": "",
+      "priceNote": "",
+      "category": "hospital",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "nurse",
+      "image": "/images/services/service-nurse.jpg",
+      "seo": {
+        "title": "Hospital Nursing Services | Mson Nursing Services Lucknow",
+        "description": "Hospital-grade nursing staff for facilities and private duty. Contact for pricing.",
+        "keywords": "Hospital Nursing Services, Hospital Nursing Services Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-nurse.jpg"
+      }
+    },
+    {
+      "id": "nursing-care-taker",
+      "title": "Nursing Care Taker",
+      "shortDescription": "Reliable nursing care takers for daily patient support.",
+      "description": "Nursing Care Taker in Lucknow by Mson Nursing Services. Reliable nursing care takers for daily patient support. Contact for pricing. Trained male & female nursing staff for home visits.",
+      "price": "",
+      "priceNote": "",
+      "category": "caretaker",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "attendant-m",
+      "image": "/images/services/service-gda.jpg",
+      "seo": {
+        "title": "Nursing Care Taker | Mson Nursing Services Lucknow",
+        "description": "Reliable nursing care takers for daily patient support. Contact for pricing.",
+        "keywords": "Nursing Care Taker, Nursing Care Taker Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-gda.jpg"
+      }
+    },
+    {
+      "id": "skilled-nursing",
+      "title": "Skilled Nursing",
+      "shortDescription": "Skilled nursing for recovery, monitoring and clinical tasks.",
+      "description": "Skilled Nursing in Lucknow by Mson Nursing Services. Skilled nursing for recovery, monitoring and clinical tasks. Contact for pricing. Trained male & female nursing staff for home visits.",
+      "price": "",
+      "priceNote": "",
+      "category": "nurse",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "stethoscope",
+      "image": "/images/services/service-nurse.jpg",
+      "seo": {
+        "title": "Skilled Nursing | Mson Nursing Services Lucknow",
+        "description": "Skilled nursing for recovery, monitoring and clinical tasks. Contact for pricing.",
+        "keywords": "Skilled Nursing, Skilled Nursing Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-nurse.jpg"
+      }
+    },
+    {
+      "id": "post-surgical-care-at-home",
+      "title": "Post Surgical Care at Home",
+      "shortDescription": "Post-surgery recovery nursing and attendant support at home.",
+      "description": "Post Surgical Care at Home in Lucknow by Mson Nursing Services. Post-surgery recovery nursing and attendant support at home. Contact for pricing. Trained male & female nursing staff for home visits.",
+      "price": "",
+      "priceNote": "",
+      "category": "recovery",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "heart-pulse",
+      "image": "/images/services/service-nurse.jpg",
+      "seo": {
+        "title": "Post Surgical Care at Home | Mson Nursing Services Lucknow",
+        "description": "Post-surgery recovery nursing and attendant support at home. Contact for pricing.",
+        "keywords": "Post Surgical Care at Home, Post Surgical Care at Home Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-nurse.jpg"
+      }
+    },
+    {
+      "id": "wound-care",
+      "title": "Wound Care",
+      "shortDescription": "Professional wound assessment and nursing care at home.",
+      "description": "Wound Care in Lucknow by Mson Nursing Services. Professional wound assessment and nursing care at home. Contact for pricing. Trained male & female nursing staff for home visits.",
+      "price": "",
+      "priceNote": "",
+      "category": "wound",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "bandage",
+      "image": "/images/services/service-wound.jpg",
+      "seo": {
+        "title": "Wound Care | Mson Nursing Services Lucknow",
+        "description": "Professional wound assessment and nursing care at home. Contact for pricing.",
+        "keywords": "Wound Care, Wound Care Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-wound.jpg"
+      }
+    },
+    {
+      "id": "trained-nursing-staff-per-visit",
+      "title": "Trained Nursing Staff (Per Visit)",
+      "shortDescription": "Trained Nursing Staff (Per Visit)",
+      "description": "Trained Nursing Staff (Per Visit) in Lucknow by Mson Nursing Services. Trained Nursing Staff (Per Visit) Starting ₹400.00 (Per visit, dressing items not included). Trained male & female nursing staff for home visits.",
+      "price": "₹400.00",
+      "priceNote": "Per visit, dressing items not included",
+      "category": "nurse",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "nurse",
+      "image": "/images/services/service-nurse.jpg",
+      "seo": {
+        "title": "Trained Nursing Staff (Per Visit) | Mson Nursing Services Lucknow",
+        "description": "Trained Nursing Staff (Per Visit) Starting ₹400.00 (Per visit, dressing items not included).",
+        "keywords": "Trained Nursing Staff (Per Visit), Trained Nursing Staff (Per Visit) Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-nurse.jpg"
+      }
+    },
+    {
+      "id": "elder-care-at-home",
+      "title": "Elder Care at Home",
+      "shortDescription": "Elder Care at Home",
+      "description": "Elder Care at Home in Lucknow by Mson Nursing Services. Elder Care at Home Starting ₹650.00 (GDA male & female, 12 hours). Trained male & female nursing staff for home visits.",
+      "price": "₹650.00",
+      "priceNote": "GDA male & female, 12 hours",
+      "category": "elder",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "heart-pulse",
+      "image": "/images/services/service-elderly.jpg",
+      "seo": {
+        "title": "Elder Care at Home | Mson Nursing Services Lucknow",
+        "description": "Elder Care at Home Starting ₹650.00 (GDA male & female, 12 hours).",
+        "keywords": "Elder Care at Home, Elder Care at Home Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-elderly.jpg"
+      }
+    },
+    {
+      "id": "injection-iv-catheter-tt-at-home",
+      "title": "Injection, IV, Catheter & TT at Home",
+      "shortDescription": "Injection, IV, Catheter & TT at Home",
+      "description": "Injection, IV, Catheter & TT at Home in Lucknow by Mson Nursing Services. Injection, IV, Catheter & TT at Home Starting ₹300.00 (Per visit, medical items not included). Trained male & female nursing staff for home visits.",
+      "price": "₹300.00",
+      "priceNote": "Per visit, medical items not included",
+      "category": "injection",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "syringe",
+      "image": "/images/services/service-injection.jpg",
+      "seo": {
+        "title": "Injection, IV, Catheter & TT at Home | Mson Nursing Services Lucknow",
+        "description": "Injection, IV, Catheter & TT at Home Starting ₹300.00 (Per visit, medical items not included).",
+        "keywords": "Injection, IV, Catheter & TT at Home, Injection, IV, Catheter & TT at Home Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-injection.jpg"
+      }
+    },
+    {
+      "id": "o2-concentrator-support",
+      "title": "O2 Concentrator Support",
+      "shortDescription": "Nursing support for home patients on oxygen therapy.",
+      "description": "O2 Concentrator Support in Lucknow by Mson Nursing Services. Nursing support for home patients on oxygen therapy. Contact for pricing. Trained male & female nursing staff for home visits.",
+      "price": "",
+      "priceNote": "",
+      "category": "respiratory",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "heart-pulse",
+      "image": "/images/services/service-iv.jpg",
+      "seo": {
+        "title": "O2 Concentrator Support | Mson Nursing Services Lucknow",
+        "description": "Nursing support for home patients on oxygen therapy. Contact for pricing.",
+        "keywords": "O2 Concentrator Support, O2 Concentrator Support Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-iv.jpg"
+      }
+    },
+    {
+      "id": "home-patient-care",
+      "title": "Home Patient Care",
+      "shortDescription": "Long-term and short-term home patient care packages.",
+      "description": "Home Patient Care in Lucknow by Mson Nursing Services. Long-term and short-term home patient care packages. Contact for pricing. Trained male & female nursing staff for home visits.",
+      "price": "",
+      "priceNote": "",
+      "category": "home-health",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "home-health",
+      "image": "/images/services/service-nurse.jpg",
+      "seo": {
+        "title": "Home Patient Care | Mson Nursing Services Lucknow",
+        "description": "Long-term and short-term home patient care packages. Contact for pricing.",
+        "keywords": "Home Patient Care, Home Patient Care Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-nurse.jpg"
+      }
+    },
+    {
+      "id": "care-taker-service-at-home",
+      "title": "Care Taker Service at Home",
+      "shortDescription": "Compassionate care takers for daily living assistance.",
+      "description": "Care Taker Service at Home in Lucknow by Mson Nursing Services. Compassionate care takers for daily living assistance. Contact for pricing. Trained male & female nursing staff for home visits.",
+      "price": "",
+      "priceNote": "",
+      "category": "caretaker",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "attendant-f",
+      "image": "/images/services/service-gda.jpg",
+      "seo": {
+        "title": "Care Taker Service at Home | Mson Nursing Services Lucknow",
+        "description": "Compassionate care takers for daily living assistance. Contact for pricing.",
+        "keywords": "Care Taker Service at Home, Care Taker Service at Home Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-gda.jpg"
+      }
+    },
+    {
+      "id": "female-nursing-attendant",
+      "title": "Female Nursing Attendant",
+      "shortDescription": "Female attendants for dignified hands-on patient care.",
+      "description": "Female Nursing Attendant in Lucknow by Mson Nursing Services. Female attendants for dignified hands-on patient care. Contact for pricing. Trained male & female nursing staff for home visits.",
+      "price": "",
+      "priceNote": "",
+      "category": "attendant",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "attendant-f",
+      "image": "/images/services/service-gda.jpg",
+      "seo": {
+        "title": "Female Nursing Attendant | Mson Nursing Services Lucknow",
+        "description": "Female attendants for dignified hands-on patient care. Contact for pricing.",
+        "keywords": "Female Nursing Attendant, Female Nursing Attendant Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-gda.jpg"
+      }
+    },
+    {
+      "id": "best-gda-staff",
+      "title": "Best GDA Staff",
+      "shortDescription": "Best GDA Staff",
+      "description": "Best GDA Staff in Lucknow by Mson Nursing Services. Best GDA Staff Starting ₹650.00 (Male & female, 12 hours). Trained male & female nursing staff for home visits.",
+      "price": "₹650.00",
+      "priceNote": "Male & female, 12 hours",
+      "category": "gda",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "attendant-m",
+      "image": "/images/services/service-gda.jpg",
+      "seo": {
+        "title": "Best GDA Staff | Mson Nursing Services Lucknow",
+        "description": "Best GDA Staff Starting ₹650.00 (Male & female, 12 hours).",
+        "keywords": "Best GDA Staff, Best GDA Staff Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-gda.jpg"
+      }
+    },
+    {
+      "id": "old-age-care-taker-service",
+      "title": "Old Age Care Taker Service",
+      "shortDescription": "Old Age Care Taker Service",
+      "description": "Old Age Care Taker Service in Lucknow by Mson Nursing Services. Old Age Care Taker Service Starting ₹650.00 (Trained GDA staff). Trained male & female nursing staff for home visits.",
+      "price": "₹650.00",
+      "priceNote": "Trained GDA staff",
+      "category": "elder",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "heart-pulse",
+      "image": "/images/services/service-elderly.jpg",
+      "seo": {
+        "title": "Old Age Care Taker Service | Mson Nursing Services Lucknow",
+        "description": "Old Age Care Taker Service Starting ₹650.00 (Trained GDA staff).",
+        "keywords": "Old Age Care Taker Service, Old Age Care Taker Service Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-elderly.jpg"
+      }
+    },
+    {
+      "id": "home-injection-services",
+      "title": "Home Injection Services",
+      "shortDescription": "Home Injection Services",
+      "description": "Home Injection Services in Lucknow by Mson Nursing Services. Home Injection Services Starting ₹299.00 (Per visit). Trained male & female nursing staff for home visits.",
+      "price": "₹299.00",
+      "priceNote": "Per visit",
+      "category": "injection",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "syringe",
+      "image": "/images/services/service-injection.jpg",
+      "seo": {
+        "title": "Home Injection Services | Mson Nursing Services Lucknow",
+        "description": "Home Injection Services Starting ₹299.00 (Per visit).",
+        "keywords": "Home Injection Services, Home Injection Services Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-injection.jpg"
+      }
+    },
+    {
+      "id": "injection-nurse-at-home",
+      "title": "Injection Nurse at Home",
+      "shortDescription": "Injection Nurse at Home",
+      "description": "Injection Nurse at Home in Lucknow by Mson Nursing Services. Injection Nurse at Home Starting ₹299.00. Trained male & female nursing staff for home visits.",
+      "price": "₹299.00",
+      "priceNote": "",
+      "category": "injection",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "syringe",
+      "image": "/images/services/service-injection.jpg",
+      "seo": {
+        "title": "Injection Nurse at Home | Mson Nursing Services Lucknow",
+        "description": "Injection Nurse at Home Starting ₹299.00.",
+        "keywords": "Injection Nurse at Home, Injection Nurse at Home Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-injection.jpg"
+      }
+    },
+    {
+      "id": "doctor-injection-at-home",
+      "title": "Doctor Injection at Home",
+      "shortDescription": "Doctor Injection at Home",
+      "description": "Doctor Injection at Home in Lucknow by Mson Nursing Services. Doctor Injection at Home Starting ₹299.00. Trained male & female nursing staff for home visits.",
+      "price": "₹299.00",
+      "priceNote": "",
+      "category": "injection",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "syringe",
+      "image": "/images/services/service-injection.jpg",
+      "seo": {
+        "title": "Doctor Injection at Home | Mson Nursing Services Lucknow",
+        "description": "Doctor Injection at Home Starting ₹299.00.",
+        "keywords": "Doctor Injection at Home, Doctor Injection at Home Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-injection.jpg"
+      }
+    },
+    {
+      "id": "nursing-injection-services",
+      "title": "Nursing Injection Services",
+      "shortDescription": "Nursing Injection Services",
+      "description": "Nursing Injection Services in Lucknow by Mson Nursing Services. Nursing Injection Services Starting ₹299.00. Trained male & female nursing staff for home visits.",
+      "price": "₹299.00",
+      "priceNote": "",
+      "category": "injection",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "syringe",
+      "image": "/images/services/service-injection.jpg",
+      "seo": {
+        "title": "Nursing Injection Services | Mson Nursing Services Lucknow",
+        "description": "Nursing Injection Services Starting ₹299.00.",
+        "keywords": "Nursing Injection Services, Nursing Injection Services Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-injection.jpg"
+      }
+    },
+    {
+      "id": "wound-dressing-at-home",
+      "title": "Wound Dressing at Home",
+      "shortDescription": "Wound Dressing at Home",
+      "description": "Wound Dressing at Home in Lucknow by Mson Nursing Services. Wound Dressing at Home Starting ₹299.00. Trained male & female nursing staff for home visits.",
+      "price": "₹299.00",
+      "priceNote": "",
+      "category": "wound",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "bandage",
+      "image": "/images/services/service-wound.jpg",
+      "seo": {
+        "title": "Wound Dressing at Home | Mson Nursing Services Lucknow",
+        "description": "Wound Dressing at Home Starting ₹299.00.",
+        "keywords": "Wound Dressing at Home, Wound Dressing at Home Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-wound.jpg"
+      }
+    },
+    {
+      "id": "home-bandage-services",
+      "title": "Home Bandage Services",
+      "shortDescription": "Home Bandage Services",
+      "description": "Home Bandage Services in Lucknow by Mson Nursing Services. Home Bandage Services Starting ₹300.00. Trained male & female nursing staff for home visits.",
+      "price": "₹300.00",
+      "priceNote": "",
+      "category": "wound",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "bandage",
+      "image": "/images/services/service-wound.jpg",
+      "seo": {
+        "title": "Home Bandage Services | Mson Nursing Services Lucknow",
+        "description": "Home Bandage Services Starting ₹300.00.",
+        "keywords": "Home Bandage Services, Home Bandage Services Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-wound.jpg"
+      }
+    },
+    {
+      "id": "post-surgery-dressing-care",
+      "title": "Post-Surgery Dressing Care",
+      "shortDescription": "Post-Surgery Dressing Care",
+      "description": "Post-Surgery Dressing Care in Lucknow by Mson Nursing Services. Post-Surgery Dressing Care Starting ₹299.00. Trained male & female nursing staff for home visits.",
+      "price": "₹299.00",
+      "priceNote": "",
+      "category": "wound",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "bandage",
+      "image": "/images/services/service-wound.jpg",
+      "seo": {
+        "title": "Post-Surgery Dressing Care | Mson Nursing Services Lucknow",
+        "description": "Post-Surgery Dressing Care Starting ₹299.00.",
+        "keywords": "Post-Surgery Dressing Care, Post-Surgery Dressing Care Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-wound.jpg"
+      }
+    },
+    {
+      "id": "nursing-dressing-care",
+      "title": "Nursing Dressing Care",
+      "shortDescription": "Nursing Dressing Care",
+      "description": "Nursing Dressing Care in Lucknow by Mson Nursing Services. Nursing Dressing Care Starting ₹299.00. Trained male & female nursing staff for home visits.",
+      "price": "₹299.00",
+      "priceNote": "",
+      "category": "wound",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "bandage",
+      "image": "/images/services/service-wound.jpg",
+      "seo": {
+        "title": "Nursing Dressing Care | Mson Nursing Services Lucknow",
+        "description": "Nursing Dressing Care Starting ₹299.00.",
+        "keywords": "Nursing Dressing Care, Nursing Dressing Care Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-wound.jpg"
+      }
+    },
+    {
+      "id": "iv-cannula-insertion-at-home",
+      "title": "IV Cannula Insertion at Home",
+      "shortDescription": "IV Cannula Insertion at Home",
+      "description": "IV Cannula Insertion at Home in Lucknow by Mson Nursing Services. IV Cannula Insertion at Home Starting ₹350.00. Trained male & female nursing staff for home visits.",
+      "price": "₹350.00",
+      "priceNote": "",
+      "category": "iv",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "iv",
+      "image": "/images/services/service-iv.jpg",
+      "seo": {
+        "title": "IV Cannula Insertion at Home | Mson Nursing Services Lucknow",
+        "description": "IV Cannula Insertion at Home Starting ₹350.00.",
+        "keywords": "IV Cannula Insertion at Home, IV Cannula Insertion at Home Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-iv.jpg"
+      }
+    },
+    {
+      "id": "iv-line-at-home",
+      "title": "IV Line at Home",
+      "shortDescription": "IV Line at Home",
+      "description": "IV Line at Home in Lucknow by Mson Nursing Services. IV Line at Home Starting ₹350.00. Trained male & female nursing staff for home visits.",
+      "price": "₹350.00",
+      "priceNote": "",
+      "category": "iv",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "iv",
+      "image": "/images/services/service-iv.jpg",
+      "seo": {
+        "title": "IV Line at Home | Mson Nursing Services Lucknow",
+        "description": "IV Line at Home Starting ₹350.00.",
+        "keywords": "IV Line at Home, IV Line at Home Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-iv.jpg"
+      }
+    },
+    {
+      "id": "home-nursing-iv-setup",
+      "title": "Home Nursing IV Setup",
+      "shortDescription": "Home Nursing IV Setup",
+      "description": "Home Nursing IV Setup in Lucknow by Mson Nursing Services. Home Nursing IV Setup Starting ₹299.00. Trained male & female nursing staff for home visits.",
+      "price": "₹299.00",
+      "priceNote": "",
+      "category": "iv",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "iv",
+      "image": "/images/services/service-iv.jpg",
+      "seo": {
+        "title": "Home Nursing IV Setup | Mson Nursing Services Lucknow",
+        "description": "Home Nursing IV Setup Starting ₹299.00.",
+        "keywords": "Home Nursing IV Setup, Home Nursing IV Setup Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-iv.jpg"
+      }
+    },
+    {
+      "id": "nursing-cannulation-services",
+      "title": "Nursing Cannulation Services",
+      "shortDescription": "Nursing Cannulation Services",
+      "description": "Nursing Cannulation Services in Lucknow by Mson Nursing Services. Nursing Cannulation Services Starting ₹299.00. Trained male & female nursing staff for home visits.",
+      "price": "₹299.00",
+      "priceNote": "",
+      "category": "iv",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "iv",
+      "image": "/images/services/service-iv.jpg",
+      "seo": {
+        "title": "Nursing Cannulation Services | Mson Nursing Services Lucknow",
+        "description": "Nursing Cannulation Services Starting ₹299.00.",
+        "keywords": "Nursing Cannulation Services, Nursing Cannulation Services Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-iv.jpg"
+      }
+    },
+    {
+      "id": "urinary-catheter-care-at-home",
+      "title": "Urinary Catheter Care at Home",
+      "shortDescription": "Urinary Catheter Care at Home",
+      "description": "Urinary Catheter Care at Home in Lucknow by Mson Nursing Services. Urinary Catheter Care at Home Starting ₹350.00. Trained male & female nursing staff for home visits.",
+      "price": "₹350.00",
+      "priceNote": "",
+      "category": "catheter",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "nurse",
+      "image": "/images/services/service-nurse.jpg",
+      "seo": {
+        "title": "Urinary Catheter Care at Home | Mson Nursing Services Lucknow",
+        "description": "Urinary Catheter Care at Home Starting ₹350.00.",
+        "keywords": "Urinary Catheter Care at Home, Urinary Catheter Care at Home Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-nurse.jpg"
+      }
+    },
+    {
+      "id": "catheter-insertion-at-home",
+      "title": "Catheter Insertion at Home",
+      "shortDescription": "Catheter Insertion at Home",
+      "description": "Catheter Insertion at Home in Lucknow by Mson Nursing Services. Catheter Insertion at Home Starting ₹350.00. Trained male & female nursing staff for home visits.",
+      "price": "₹350.00",
+      "priceNote": "",
+      "category": "catheter",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "nurse",
+      "image": "/images/services/service-nurse.jpg",
+      "seo": {
+        "title": "Catheter Insertion at Home | Mson Nursing Services Lucknow",
+        "description": "Catheter Insertion at Home Starting ₹350.00.",
+        "keywords": "Catheter Insertion at Home, Catheter Insertion at Home Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-nurse.jpg"
+      }
+    },
+    {
+      "id": "foley-s-catheter-change-service",
+      "title": "Foley's Catheter Change Service",
+      "shortDescription": "Foley's Catheter Change Service",
+      "description": "Foley's Catheter Change Service in Lucknow by Mson Nursing Services. Foley's Catheter Change Service Starting ₹350.00. Trained male & female nursing staff for home visits.",
+      "price": "₹350.00",
+      "priceNote": "",
+      "category": "catheter",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "nurse",
+      "image": "/images/services/service-nurse.jpg",
+      "seo": {
+        "title": "Foley's Catheter Change Service | Mson Nursing Services Lucknow",
+        "description": "Foley's Catheter Change Service Starting ₹350.00.",
+        "keywords": "Foley's Catheter Change Service, Foley's Catheter Change Service Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-nurse.jpg"
+      }
+    },
+    {
+      "id": "nursing-catheter-support",
+      "title": "Nursing Catheter Support",
+      "shortDescription": "Nursing Catheter Support",
+      "description": "Nursing Catheter Support in Lucknow by Mson Nursing Services. Nursing Catheter Support Starting ₹350.00. Trained male & female nursing staff for home visits.",
+      "price": "₹350.00",
+      "priceNote": "",
+      "category": "catheter",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "nurse",
+      "image": "/images/services/service-nurse.jpg",
+      "seo": {
+        "title": "Nursing Catheter Support | Mson Nursing Services Lucknow",
+        "description": "Nursing Catheter Support Starting ₹350.00.",
+        "keywords": "Nursing Catheter Support, Nursing Catheter Support Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-nurse.jpg"
+      }
+    },
+    {
+      "id": "home-nurse-for-injection",
+      "title": "Home Nurse for Injection",
+      "shortDescription": "Home Nurse for Injection",
+      "description": "Home Nurse for Injection in Lucknow by Mson Nursing Services. Home Nurse for Injection Starting ₹299.00. Trained male & female nursing staff for home visits.",
+      "price": "₹299.00",
+      "priceNote": "",
+      "category": "injection",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "syringe",
+      "image": "/images/services/service-injection.jpg",
+      "seo": {
+        "title": "Home Nurse for Injection | Mson Nursing Services Lucknow",
+        "description": "Home Nurse for Injection Starting ₹299.00.",
+        "keywords": "Home Nurse for Injection, Home Nurse for Injection Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-injection.jpg"
+      }
+    },
+    {
+      "id": "on-call-tt-injection-at-home",
+      "title": "On-Call TT Injection at Home",
+      "shortDescription": "On-Call TT Injection at Home",
+      "description": "On-Call TT Injection at Home in Lucknow by Mson Nursing Services. On-Call TT Injection at Home Starting ₹299.00 (Safe hygienic TT by trained nurse). Trained male & female nursing staff for home visits.",
+      "price": "₹299.00",
+      "priceNote": "Safe hygienic TT by trained nurse",
+      "category": "injection",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "syringe",
+      "image": "/images/services/service-injection.jpg",
+      "seo": {
+        "title": "On-Call TT Injection at Home | Mson Nursing Services Lucknow",
+        "description": "On-Call TT Injection at Home Starting ₹299.00 (Safe hygienic TT by trained nurse).",
+        "keywords": "On-Call TT Injection at Home, On-Call TT Injection at Home Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-injection.jpg"
+      }
+    },
+    {
+      "id": "iv-fluids-at-home",
+      "title": "IV Fluids at Home",
+      "shortDescription": "IV Fluids at Home",
+      "description": "IV Fluids at Home in Lucknow by Mson Nursing Services. IV Fluids at Home Starting ₹550.00 (As per doctor direction). Trained male & female nursing staff for home visits.",
+      "price": "₹550.00",
+      "priceNote": "As per doctor direction",
+      "category": "iv",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "iv",
+      "image": "/images/services/service-iv.jpg",
+      "seo": {
+        "title": "IV Fluids at Home | Mson Nursing Services Lucknow",
+        "description": "IV Fluids at Home Starting ₹550.00 (As per doctor direction).",
+        "keywords": "IV Fluids at Home, IV Fluids at Home Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-iv.jpg"
+      }
+    },
+    {
+      "id": "iv-drip-services-at-home",
+      "title": "IV Drip Services at Home",
+      "shortDescription": "IV Drip Services at Home",
+      "description": "IV Drip Services at Home in Lucknow by Mson Nursing Services. IV Drip Services at Home Starting ₹550.00. Trained male & female nursing staff for home visits.",
+      "price": "₹550.00",
+      "priceNote": "",
+      "category": "iv",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "iv",
+      "image": "/images/services/service-iv.jpg",
+      "seo": {
+        "title": "IV Drip Services at Home | Mson Nursing Services Lucknow",
+        "description": "IV Drip Services at Home Starting ₹550.00.",
+        "keywords": "IV Drip Services at Home, IV Drip Services at Home Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-iv.jpg"
+      }
+    },
+    {
+      "id": "nursing-iv-therapy",
+      "title": "Nursing IV Therapy",
+      "shortDescription": "Nursing IV Therapy",
+      "description": "Nursing IV Therapy in Lucknow by Mson Nursing Services. Nursing IV Therapy Starting ₹550.00 (IV medicine/fluids per prescription). Trained male & female nursing staff for home visits.",
+      "price": "₹550.00",
+      "priceNote": "IV medicine/fluids per prescription",
+      "category": "iv",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "iv",
+      "image": "/images/services/service-iv.jpg",
+      "seo": {
+        "title": "Nursing IV Therapy | Mson Nursing Services Lucknow",
+        "description": "Nursing IV Therapy Starting ₹550.00 (IV medicine/fluids per prescription).",
+        "keywords": "Nursing IV Therapy, Nursing IV Therapy Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-iv.jpg"
+      }
+    },
+    {
+      "id": "saline-drip-at-home",
+      "title": "Saline Drip at Home",
+      "shortDescription": "Saline Drip at Home",
+      "description": "Saline Drip at Home in Lucknow by Mson Nursing Services. Saline Drip at Home Starting ₹550.00 (Prescription only — dehydration, weakness, fever). Trained male & female nursing staff for home visits.",
+      "price": "₹550.00",
+      "priceNote": "Prescription only — dehydration, weakness, fever",
+      "category": "iv",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "iv",
+      "image": "/images/services/service-iv.jpg",
+      "seo": {
+        "title": "Saline Drip at Home | Mson Nursing Services Lucknow",
+        "description": "Saline Drip at Home Starting ₹550.00 (Prescription only — dehydration, weakness, fever).",
+        "keywords": "Saline Drip at Home, Saline Drip at Home Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-iv.jpg"
+      }
+    },
+    {
+      "id": "ayas-for-baby-elder-care",
+      "title": "Ayas for Baby / Elder Care",
+      "shortDescription": "Experienced ayas for baby and elder support at home.",
+      "description": "Ayas for Baby / Elder Care in Lucknow by Mson Nursing Services. Experienced ayas for baby and elder support at home. Contact for pricing. Trained male & female nursing staff for home visits.",
+      "price": "",
+      "priceNote": "",
+      "category": "baby",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "baby",
+      "image": "/images/services/service-baby.jpg",
+      "seo": {
+        "title": "Ayas for Baby / Elder Care | Mson Nursing Services Lucknow",
+        "description": "Experienced ayas for baby and elder support at home. Contact for pricing.",
+        "keywords": "Ayas for Baby / Elder Care, Ayas for Baby / Elder Care Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-baby.jpg"
+      }
+    },
+    {
+      "id": "baby-care",
+      "title": "Baby Care",
+      "shortDescription": "Newborn and infant nursing from the first days of life.",
+      "description": "Baby Care in Lucknow by Mson Nursing Services. Newborn and infant nursing from the first days of life. Contact for pricing. Trained male & female nursing staff for home visits.",
+      "price": "",
+      "priceNote": "",
+      "category": "baby",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "baby",
+      "image": "/images/services/service-baby.jpg",
+      "seo": {
+        "title": "Baby Care | Mson Nursing Services Lucknow",
+        "description": "Newborn and infant nursing from the first days of life. Contact for pricing.",
+        "keywords": "Baby Care, Baby Care Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-baby.jpg"
+      }
+    },
+    {
+      "id": "physiotherapy-at-home",
+      "title": "Physiotherapy at Home",
+      "shortDescription": "Mobility, pain relief and rehabilitation at home.",
+      "description": "Physiotherapy at Home in Lucknow by Mson Nursing Services. Mobility, pain relief and rehabilitation at home. Contact for pricing. Trained male & female nursing staff for home visits.",
+      "price": "",
+      "priceNote": "",
+      "category": "physio",
+      "features": [
+        "Verified male & female staff",
+        "Home visit service in Lucknow",
+        "Hygiene-first nursing protocols",
+        "Call to book same-day support"
+      ],
+      "icon": "physio",
+      "image": "/images/services/service-physio.jpg",
+      "seo": {
+        "title": "Physiotherapy at Home | Mson Nursing Services Lucknow",
+        "description": "Mobility, pain relief and rehabilitation at home. Contact for pricing.",
+        "keywords": "Physiotherapy at Home, Physiotherapy at Home Lucknow, home nursing services, nursing care at home",
+        "ogImage": "/images/services/service-physio.jpg"
+      }
+    }
+  ]
+}
