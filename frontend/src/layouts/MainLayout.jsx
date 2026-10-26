@@ -51,16 +51,10 @@ export default function MainLayout({ previewMode = false }) {
           Live CMS preview — changes appear automatically (no refresh)
         </div>
       ) : null}
-      {contentSource === "fallback" ? (
+      {contentSource === "fallback" && import.meta.env.DEV ? (
         <div className="dev-api-banner" role="status">
-          {import.meta.env.DEV
-            ? "Offline snapshot — start backend for live CMS:"
-            : "Showing saved content — live API is unavailable."}{" "}
-          {import.meta.env.DEV ? (
-            <>
-              <code>npm run dev</code> from project root (port 5000).
-            </>
-          ) : null}
+          Offline snapshot — start backend for live CMS:{" "}
+          <code>npm run dev</code> from project root (port 5000).
           <button type="button" className="dev-api-banner-retry" onClick={() => reload()}>
             Retry API
           </button>
