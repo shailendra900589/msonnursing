@@ -126,8 +126,15 @@ export default function ServiceDetailPage() {
 
           <div className="service-product-grid">
             <Reveal variant="scale" className="service-product-gallery">
-              <div className="service-product-image-frame hover-lift">
-                <img src={mediaUrl(service.image)} alt={service.imageAlt || service.title} title={service.imageAlt || service.title} className="service-product-image" width={800} height={600} />
+              <div className="service-product-image-frame">
+                <img
+                  src={mediaUrl(service.image)}
+                  alt={service.imageAlt || service.title}
+                  title={service.imageAlt || service.title}
+                  className="service-product-image"
+                  loading="eager"
+                  decoding="async"
+                />
               </div>
               <ul className="service-product-gallery-trust" aria-label="Service guarantees">
                 {[
