@@ -23,19 +23,22 @@ export default function ShareBar({ pageKey, service, event, post, className = ""
 
   if (!meta) return null;
 
-  const url = hydrated ? window.location.href : meta.canonical;
+  // Keep hrefs on meta.canonical so SSR HTML matches the first client paint.
+  // Live browser URL is only used after mount for copy / native share.
+  const shareUrl = meta.canonical;
+  const liveUrl = hydrated && typeof window !== "undefined" ? window.location.href : shareUrl;
 
   const waLink = whatsappUrl(
     content?.contact?.whatsapp || meta.phone,
-    `${meta.shareTitle}\n${meta.shareText}\n${url}`
+    `${meta.shareTitle}\n${meta.shareText}\n${shareUrl}`
   );
 
-  const fbShare = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-  const twitterShare = `https://twitter.com/intent/tweet?text=${encodeURIComponent(meta.shareTitle)}&url=${encodeURIComponent(url)}`;
+  const fbShare = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+  const twitterShare = `https://twitter.com/intent/tweet?text=${encodeURIComponent(meta.shareTitle)}&url=${encodeURIComponent(shareUrl)}`;
 
   const onCopy = async () => {
     try {
-      await navigator.clipboard.writeText(url);
+      await navigator.clipboard.writeText(liveUrl);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
@@ -49,7 +52,7 @@ export default function ShareBar({ pageKey, service, event, post, className = ""
       await navigator.share({
         title: meta.shareTitle,
         text: meta.shareText,
-        url,
+        url: liveUrl,
       });
     } catch {
       /* cancelled */

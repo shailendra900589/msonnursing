@@ -1,3 +1,4 @@
+import { StrictMode } from "react";
 import { renderToString } from "react-dom/server";
 import { MemoryRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
@@ -13,14 +14,17 @@ export function render(url, content, siteUrl) {
     site: { ...content.site, url: canonicalSiteUrl(content?.site?.url, siteUrl) },
   };
   const helmetContext = {};
+  // Keep StrictMode on SSR so the fiber / useId tree matches client hydrateRoot.
   const html = renderToString(
-    <HelmetProvider context={helmetContext}>
-      <MemoryRouter initialEntries={[url]}>
-        <StaticContentProvider content={pageContent}>
-          <App />
-        </StaticContentProvider>
-      </MemoryRouter>
-    </HelmetProvider>
+    <StrictMode>
+      <HelmetProvider context={helmetContext}>
+        <MemoryRouter initialEntries={[url]}>
+          <StaticContentProvider content={pageContent}>
+            <App />
+          </StaticContentProvider>
+        </MemoryRouter>
+      </HelmetProvider>
+    </StrictMode>
   );
   const { helmet } = helmetContext;
   const head = [helmet?.title, helmet?.meta, helmet?.link, helmet?.script]

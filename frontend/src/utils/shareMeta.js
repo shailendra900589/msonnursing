@@ -1,4 +1,5 @@
 import { mediaUrl } from "./mediaUrl.js";
+import { formatPhone } from "./phone.js";
 import { canonicalSiteUrl } from "./siteUrl.js";
 
 function buildUrl(siteUrl, path) {
@@ -135,7 +136,7 @@ export function resolveShareMeta({ content, pageKey, service, event, post, job }
 
   const defaults = content.seo?.default || {};
   const contact = content.contact || {};
-  const phone = contact.phones?.[0] || "";
+  const phone = formatPhone(contact.phones?.[0] || "");
   const siteName = content.site?.name || "Mson Nursing Services";
   const siteUrl = canonicalSiteUrl(content.site?.url);
   const ctaLabel = defaults.shareCtaLabel || "Book care";

@@ -523,10 +523,14 @@ main {
 
 .event-detail-image {
   width: 100%;
-  border-radius: var(--radius);
+  border-radius: 16px;
   aspect-ratio: 16 / 10;
   object-fit: cover;
-  box-shadow: var(--shadow);
+  object-position: center center;
+  background: #e2e8f0;
+  box-shadow:
+    0 4px 6px rgba(15, 23, 42, 0.04),
+    0 16px 40px rgba(13, 58, 140, 0.14);
 }
 
 .event-detail-meta {
@@ -567,12 +571,15 @@ main {
 }
 
 .about-page-media img {
-  border-radius: var(--radius);
+  border-radius: 16px;
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  object-position: center 32%;
-  box-shadow: var(--shadow);
+  object-position: center center;
+  background: #e2e8f0;
+  box-shadow:
+    0 4px 6px rgba(15, 23, 42, 0.04),
+    0 16px 40px rgba(13, 58, 140, 0.14);
 }
 
 .about-year {

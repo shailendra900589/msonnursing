@@ -51,7 +51,8 @@ function writtenLocation(address) {
 
 export default function Footer({ content }) {
   const { site, contact, footer, navigation } = content;
-  const year = new Date().getFullYear();
+  // Prefer CMS year when present so SSR/client stay aligned across year boundaries.
+  const year = Number(footer?.copyrightYear) || new Date().getFullYear();
   const footerLinks = navigation?.footer || navigation?.main || [];
   const postalCode = contact?.address?.match(/\b(\d{6})\b/)?.[1] || "226028";
   const mapsHref =

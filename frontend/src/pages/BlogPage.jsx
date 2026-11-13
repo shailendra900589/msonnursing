@@ -5,6 +5,7 @@ import Seo from "../components/Seo.jsx";
 import PageHeader from "../components/PageHeader.jsx";
 import PostCard from "../components/PostCard.jsx";
 import CtaBanner from "../components/CtaBanner.jsx";
+import Reveal from "../components/Reveal.jsx";
 import "./BlogPage.css";
 
 const PAGE_SIZE = 12;
@@ -99,32 +100,36 @@ export default function BlogPage() {
       />
       <section className="section blog-listing">
         <div className="container">
-          <div className="blog-toolbar">
-            <h2 className="section-title blog-listing-title">
-              <BookOpen size={22} aria-hidden /> Latest home nursing and elder care articles
-            </h2>
-            <label className="blog-search">
-              <Search size={18} aria-hidden />
-              <input
-                type="search"
-                value={query}
-                placeholder="Search articles, topics, or care tips…"
-                onChange={(e) => updateQuery(e.target.value)}
-                aria-label="Search blog articles"
-              />
-            </label>
-          </div>
-          <p className="blog-result-count" aria-live="polite">
-            {filtered.length ? (
-              <>
-                Showing <strong>{rangeStart}</strong>–<strong>{rangeEnd}</strong> of <strong>{filtered.length}</strong>{" "}
-                {filtered.length === 1 ? "article" : "articles"}
-                {query.trim() ? <> for “{query.trim()}”</> : null}
-              </>
-            ) : (
-              <>No articles match “{query.trim()}”.</>
-            )}
-          </p>
+          <Reveal variant="fade">
+            <div className="blog-toolbar">
+              <h2 className="section-title blog-listing-title">
+                <BookOpen size={22} aria-hidden /> Latest home nursing and elder care articles
+              </h2>
+              <label className="blog-search">
+                <Search size={18} aria-hidden />
+                <input
+                  type="search"
+                  value={query}
+                  placeholder="Search articles, topics, or care tips…"
+                  onChange={(e) => updateQuery(e.target.value)}
+                  aria-label="Search blog articles"
+                />
+              </label>
+            </div>
+          </Reveal>
+          <Reveal variant="up" delay={60}>
+            <p className="blog-result-count" aria-live="polite">
+              {filtered.length ? (
+                <>
+                  Showing <strong>{rangeStart}</strong>–<strong>{rangeEnd}</strong> of <strong>{filtered.length}</strong>{" "}
+                  {filtered.length === 1 ? "article" : "articles"}
+                  {query.trim() ? <> for “{query.trim()}”</> : null}
+                </>
+              ) : (
+                <>No articles match “{query.trim()}”.</>
+              )}
+            </p>
+          </Reveal>
 
           {visible.length ? (
             <div className="posts-grid cards-grid-4 blog-page-grid" key={`${query}-${page}`}>
@@ -133,53 +138,57 @@ export default function BlogPage() {
               ))}
             </div>
           ) : (
-            <p className="section-lead blog-empty">
-              {posts.length
-                ? "Try another keyword, or clear the search to see every article."
-                : "New nursing care articles will appear here soon."}
-            </p>
+            <Reveal variant="up">
+              <p className="section-lead blog-empty">
+                {posts.length
+                  ? "Try another keyword, or clear the search to see every article."
+                  : "New nursing care articles will appear here soon."}
+              </p>
+            </Reveal>
           )}
 
           {showPagination ? (
-            <nav className="blog-pagination" aria-label="Blog pages">
-              <button
-                type="button"
-                className="blog-page-btn blog-page-nav"
-                onClick={() => goToPage(page - 1)}
-                disabled={page <= 1}
-              >
-                <ChevronLeft size={16} aria-hidden />
-                Previous
-              </button>
-              <div className="blog-page-numbers">
-                {pageItems(page, pageCount).map((item) =>
-                  typeof item === "string" ? (
-                    <span key={item} className="blog-page-gap" aria-hidden>
-                      …
-                    </span>
-                  ) : (
-                    <button
-                      key={item}
-                      type="button"
-                      className={`blog-page-btn${item === page ? " is-active" : ""}`}
-                      aria-current={item === page ? "page" : undefined}
-                      onClick={() => goToPage(item)}
-                    >
-                      {item}
-                    </button>
-                  )
-                )}
-              </div>
-              <button
-                type="button"
-                className="blog-page-btn blog-page-nav"
-                onClick={() => goToPage(page + 1)}
-                disabled={page >= pageCount}
-              >
-                Next
-                <ChevronRight size={16} aria-hidden />
-              </button>
-            </nav>
+            <Reveal variant="fade" delay={80}>
+              <nav className="blog-pagination" aria-label="Blog pages">
+                <button
+                  type="button"
+                  className="blog-page-btn blog-page-nav"
+                  onClick={() => goToPage(page - 1)}
+                  disabled={page <= 1}
+                >
+                  <ChevronLeft size={16} aria-hidden />
+                  Previous
+                </button>
+                <div className="blog-page-numbers">
+                  {pageItems(page, pageCount).map((item) =>
+                    typeof item === "string" ? (
+                      <span key={item} className="blog-page-gap" aria-hidden>
+                        …
+                      </span>
+                    ) : (
+                      <button
+                        key={item}
+                        type="button"
+                        className={`blog-page-btn${item === page ? " is-active" : ""}`}
+                        aria-current={item === page ? "page" : undefined}
+                        onClick={() => goToPage(item)}
+                      >
+                        {item}
+                      </button>
+                    )
+                  )}
+                </div>
+                <button
+                  type="button"
+                  className="blog-page-btn blog-page-nav"
+                  onClick={() => goToPage(page + 1)}
+                  disabled={page >= pageCount}
+                >
+                  Next
+                  <ChevronRight size={16} aria-hidden />
+                </button>
+              </nav>
+            </Reveal>
           ) : null}
         </div>
       </section>

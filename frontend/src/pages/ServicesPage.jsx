@@ -171,20 +171,23 @@ export default function ServicesPage() {
       </section>
       <section className="section services-toolbar-section">
         <div className="container">
-          <div className="services-toolbar">
-            <label className="services-search">
-              <Search size={18} aria-hidden />
-              <input
-                type="search"
-                placeholder="Search services or price…"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-              />
-            </label>
-            <p className="services-count">
-              Showing <strong>{services.length}</strong> of {(content.services || []).length} services
-            </p>
-          </div>
+          <Reveal variant="fade">
+            <div className="services-toolbar">
+              <label className="services-search">
+                <Search size={18} aria-hidden />
+                <input
+                  type="search"
+                  placeholder="Search services or price…"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                />
+              </label>
+              <p className="services-count">
+                Showing <strong>{services.length}</strong> of {(content.services || []).length} services
+              </p>
+            </div>
+          </Reveal>
+          <Reveal variant="up" delay={70}>
           <div className="services-filter-wrap">
             <div className="services-filter-measure" ref={filterMeasureRef} aria-hidden="true">
               {SERVICE_CATEGORIES.map((cat) => (
@@ -225,6 +228,7 @@ export default function ServicesPage() {
               ) : null}
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
       <section className="section services-catalog-section">
@@ -242,7 +246,9 @@ export default function ServicesPage() {
               ))}
             </div>
           ) : (
-            <p className="section-lead">No services match your search. Try another category or clear filters.</p>
+            <Reveal variant="up">
+              <p className="section-lead">No services match your search. Try another category or clear filters.</p>
+            </Reveal>
           )}
         </div>
       </section>

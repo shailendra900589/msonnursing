@@ -70,7 +70,14 @@ export function ssrDevPlugin(repoRoot, frontendRoot) {
             }
             if (pathname === "/__ssr_data") {
               const { getContent } = await import(contentModule);
-              const data = JSON.stringify(getContent()).replace(/</g, "\\u003c");
+              const { canonicalSiteUrl } = await server.ssrLoadModule("/src/utils/siteUrl.js");
+              const host = req.headers.host || "";
+              const origin = host ? `http://${host}` : "";
+              const content = getContent();
+              const payload = content?.site
+                ? { ...content, site: { ...content.site, url: canonicalSiteUrl(content.site.url, origin) } }
+                : content;
+              const data = JSON.stringify(payload).replace(/</g, "\\u003c");
               res.statusCode = 200;
               res.setHeader("Content-Type", "text/javascript; charset=utf-8");
               res.setHeader("Cache-Control", "no-store");

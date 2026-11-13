@@ -4,8 +4,10 @@ import { withPublicSiteUrl } from "../utils/siteUrl.js";
 
 const ContentContext = createContext(null);
 
-function publishContent(data) {
-  const origin = typeof window !== "undefined" ? window.location.origin : data?.site?.url;
+function publishContent(data, pageOrigin) {
+  // Prefer explicit / embedded site URL so SSR HTML and the first client paint match.
+  // Reading window.location during hydrate can change canonicals and break hydration.
+  const origin = pageOrigin || data?.site?.url;
   return withPublicSiteUrl(data, origin);
 }
 
@@ -34,7 +36,8 @@ export function ContentProvider({ children, initialContent = null }) {
     setError(null);
     return fetchContent()
       .then((data) => {
-        setContent(publishContent(data));
+        const origin = typeof window !== "undefined" ? window.location.origin : data?.site?.url;
+        setContent(publishContent(data, origin));
         setContentSource(getLastContentSource());
         setError(null);
       })
@@ -61,7 +64,7 @@ export function ContentProvider({ children, initialContent = null }) {
           const mod = await import("../dev/contentSnapshot.js");
           const snap = mod.default ?? mod;
           if (!cancelled && snap?.site && Array.isArray(snap.services)) {
-            setContent((prev) => prev || snap);
+            setContent((prev) => prev || publishContent(snap));
             setLoading(false);
           }
         } catch {
@@ -72,7 +75,8 @@ export function ContentProvider({ children, initialContent = null }) {
       try {
         const data = await fetchContent();
         if (!cancelled) {
-          setContent(publishContent(data));
+          const origin = typeof window !== "undefined" ? window.location.origin : data?.site?.url;
+          setContent(publishContent(data, origin));
           setContentSource(getLastContentSource());
           setError(null);
         }

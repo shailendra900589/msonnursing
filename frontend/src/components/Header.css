@@ -6,6 +6,7 @@
   background: var(--surface);
   box-shadow: 0 1px 0 var(--border);
   transition: top 0.28s ease;
+  overflow: visible;
 }
 
 .header.is-top-hidden {
@@ -81,6 +82,7 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 0.65rem 0;
+  overflow: visible;
 }
 
 .brand {
@@ -141,44 +143,161 @@
   display: flex;
   align-items: center;
   gap: 0.65rem;
+  overflow: visible;
+  position: relative;
+  z-index: 2;
 }
 
 .header-call-btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
   height: 38px;
-  padding: 0 0.85rem;
-  background: var(--blue);
+  padding: 0 0.95rem;
+  background: linear-gradient(135deg, #0d3a8c 0%, #1a5fd4 100%);
   color: #ffffff !important;
-  border-radius: 8px;
+  border: none;
+  border-radius: 1000px;
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none !important;
   white-space: nowrap;
-  box-shadow: 0 2px 6px rgba(13, 58, 140, 0.22);
-  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 8px 8px 20px rgba(13, 58, 140, 0.45);
+  outline: none;
+  cursor: pointer;
+  z-index: 3;
+  overflow: visible;
+  transform-origin: center center;
+  animation: header-call-shake 5s linear infinite;
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+/* Soft outer glow ring (always subtle pulse aura) */
+.header-call-btn::before {
+  content: "";
+  border-radius: 1000px;
+  min-width: calc(100% + 12px);
+  min-height: calc(100% + 12px);
+  border: 4px solid rgba(37, 99, 235, 0.75);
+  box-shadow: 0 0 40px rgba(37, 99, 235, 0.45);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.55;
+  z-index: -1;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+/* Expanding ring — same idea as the demo (grows far, then fades) */
+.header-call-btn::after {
+  content: "";
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 5px solid rgba(37, 99, 235, 0.95);
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: header-call-ring 1.5s infinite;
 }
 
 .header-call-icon {
+  position: relative;
+  z-index: 1;
   flex-shrink: 0;
 }
 
 .header-call-number {
+  position: relative;
+  z-index: 1;
   line-height: 1;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
 }
 
-.header-call-btn:hover {
-  background: var(--blue-soft);
+.header-call-btn:hover,
+.header-call-btn:focus-visible {
   color: #ffffff !important;
-  box-shadow: 0 4px 12px rgba(13, 58, 140, 0.32);
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, #1a5fd4 0%, #2563eb 100%);
+  box-shadow: 10px 14px 28px rgba(13, 58, 140, 0.5);
+  outline: none;
+}
+
+.header-call-btn:hover::before,
+.header-call-btn:focus-visible::before {
+  opacity: 1;
+  border-color: #3b82f6;
+  box-shadow: 0 0 50px rgba(59, 130, 246, 0.65);
 }
 
 .header-call-btn:active {
-  transform: scale(0.97);
+  filter: brightness(0.96);
+}
+
+/* Button shakes hard every 5s (first ~0.7s), then rests */
+@keyframes header-call-shake {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  2% {
+    transform: translate3d(-6px, 0, 0) rotate(-5deg);
+  }
+  4% {
+    transform: translate3d(7px, 0, 0) rotate(5deg);
+  }
+  6% {
+    transform: translate3d(-6px, 0, 0) rotate(-4deg);
+  }
+  8% {
+    transform: translate3d(6px, 0, 0) rotate(4deg);
+  }
+  10% {
+    transform: translate3d(-4px, 0, 0) rotate(-3deg);
+  }
+  12% {
+    transform: translate3d(4px, 0, 0) rotate(2deg);
+  }
+  14% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+
+@keyframes header-call-ring {
+  0% {
+    width: 24px;
+    height: 24px;
+    opacity: 1;
+  }
+  100% {
+    width: 220px;
+    height: 220px;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* CTA shake stays on — only the expanding ring is disabled */
+  .header-call-btn {
+    animation: header-call-shake 5s linear infinite !important;
+  }
+
+  .header-call-btn::after {
+    animation: none !important;
+    display: none;
+  }
+
+  .header-call-btn::before {
+    opacity: 0.35;
+  }
 }
 
 .menu-btn {

@@ -127,7 +127,7 @@ export default function HomePage() {
                 title={home.heroImageAlt || "Nursing Care in Lucknow"}
                 width={800}
                 height={600}
-                fetchPriority="high"
+                fetchpriority="high"
                 decoding="async"
               />
 

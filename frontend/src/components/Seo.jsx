@@ -26,10 +26,10 @@ export default function Seo({
   const meta = resolveShareMeta({ content, pageKey, service, event, post, job });
   if (!meta || !content) return null;
 
-  const pageOrigin = typeof window !== "undefined" ? window.location.origin : content.site?.url;
+  // Use embedded site URL only — window.location during hydrate causes SSR/client URL drift.
   const path = location.pathname.length > 1 ? location.pathname.replace(/\/+$/, "") : location.pathname || "/";
   meta.canonicalPath = path;
-  meta.canonical = buildUrl(canonicalSiteUrl(content.site?.url, pageOrigin), path);
+  meta.canonical = buildUrl(canonicalSiteUrl(content.site?.url), path);
   if (titleOverride) meta.title = titleOverride;
   if (descriptionOverride) meta.description = descriptionOverride;
 

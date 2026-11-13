@@ -4,6 +4,7 @@ import Seo from "../components/Seo.jsx";
 import PageHeader from "../components/PageHeader.jsx";
 import ContactEnquiryForm from "../components/ContactEnquiryForm.jsx";
 import Btn from "../components/ui/Btn.jsx";
+import Reveal from "../components/Reveal.jsx";
 import { employmentLabel, salaryUnitLabel } from "../utils/jobPosting.js";
 import "./JobsPage.css";
 
@@ -60,36 +61,40 @@ export default function JobDetailPage() {
       />
       <section className="section">
         <div className="container job-detail">
-          <article className="job-detail-copy">
-            <p className="job-card-meta">
-              <Briefcase size={16} aria-hidden /> {employmentLabel(job.employmentType)}
-              {job.datePosted ? ` · Posted ${job.datePosted}` : ""}
-              {job.validThrough ? ` · Apply until ${job.validThrough}` : ""}
-            </p>
-            <p className="job-card-meta">
-              <MapPin size={16} aria-hidden /> {place || "Lucknow"}
-              {salaryText(job) ? ` · ${salaryText(job)}` : ""}
-            </p>
-            {paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-            <Link to="/jobs">All open roles</Link>
-          </article>
-          <ContactEnquiryForm
-            contact={content.contact}
-            form={{
-              ...(content.forms?.contact || {}),
-              formTitle: `Apply for ${job.title}`,
-              messageLabel: "Cover note",
-              messagePlaceholder: "Tell us about your experience and when you can start.",
-              submitLabel: "Submit application",
-            }}
-            labels={labels}
-            sourcePath={`/jobs/${job.id}`}
-            sourcePage="Job application"
-            jobId={job.id}
-            jobTitle={job.title}
-          />
+          <Reveal variant="left">
+            <article className="job-detail-copy">
+              <p className="job-card-meta">
+                <Briefcase size={16} aria-hidden /> {employmentLabel(job.employmentType)}
+                {job.datePosted ? ` · Posted ${job.datePosted}` : ""}
+                {job.validThrough ? ` · Apply until ${job.validThrough}` : ""}
+              </p>
+              <p className="job-card-meta">
+                <MapPin size={16} aria-hidden /> {place || "Lucknow"}
+                {salaryText(job) ? ` · ${salaryText(job)}` : ""}
+              </p>
+              {paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+              <Link to="/jobs">All open roles</Link>
+            </article>
+          </Reveal>
+          <Reveal variant="right" delay={90}>
+            <ContactEnquiryForm
+              contact={content.contact}
+              form={{
+                ...(content.forms?.contact || {}),
+                formTitle: `Apply for ${job.title}`,
+                messageLabel: "Cover note",
+                messagePlaceholder: "Tell us about your experience and when you can start.",
+                submitLabel: "Submit application",
+              }}
+              labels={labels}
+              sourcePath={`/jobs/${job.id}`}
+              sourcePage="Job application"
+              jobId={job.id}
+              jobTitle={job.title}
+            />
+          </Reveal>
         </div>
       </section>
     </>

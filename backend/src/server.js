@@ -130,16 +130,18 @@ function liveHtml(pathname, origin) {
     pageCache.clear();
     cacheRevision = revision;
   }
-  const key = `${origin || ""}|${pathname || "/"}`;
+  // Bump when SSR HTML shape changes so stale in-memory pages cannot poison hydrate.
+  const key = `v2|${origin || ""}|${pathname || "/"}`;
   if (pageCache.has(key)) return pageCache.get(key);
   const content = getContent();
   const rendered = renderPage(pathname || "/", content, origin);
+  // Do not rewrite phone digits in HTML after render — that desyncs SSR markup
+  // from client hydrate (React #425/#418/#423). Display formatting belongs in formatPhone().
   const html = readFileSync(shellFile, "utf8")
     .replace("<!--ssr-css-->", "")
     .replace("<!--ssr-head-->", rendered.head)
     .replace("<!--ssr-html-->", rendered.html)
-    .replace("<!--ssr-data-->", `<script src="/ssr-data.js"></script>`)
-    .replace(/(?<![\d+])(?<!91 )(9807925369|8894654090)(?!\d)/g, "+91 $1");
+    .replace("<!--ssr-data-->", `<script src="/ssr-data.js"></script>`);
   if (pageCache.size > 300) pageCache.clear();
   pageCache.set(key, html);
   return html;

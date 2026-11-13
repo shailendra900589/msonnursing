@@ -2,6 +2,7 @@ import { Link, useLocation, useOutletContext } from "react-router-dom";
 import { CheckCircle2, MessageCircle, Phone, ArrowLeft } from "lucide-react";
 import Seo from "../components/Seo.jsx";
 import Btn from "../components/ui/Btn.jsx";
+import Reveal from "../components/Reveal.jsx";
 import { whatsappUrl } from "../utils/whatsapp.js";
 
 export default function EnquiryThankYouPage() {
@@ -25,7 +26,8 @@ export default function EnquiryThankYouPage() {
         description="Your care enquiry was received. A coordinator from Mson Nursing Services will call you."
       />
       <section className="section enquiry-thanks">
-        <div className="container enquiry-thanks-card hover-lift">
+        <div className="container">
+          <Reveal variant="scale" className="enquiry-thanks-card hover-lift">
           <CheckCircle2 size={48} className="enquiry-thanks-icon" aria-hidden />
           <h1>{labels?.enquiryThanksTitle || "Thank you — enquiry received"}</h1>
           <p className="prose">{labels?.enquiryThanksLead || "Our care coordinator will call you shortly. You can also reach us instantly below."}</p>
@@ -106,6 +108,7 @@ export default function EnquiryThankYouPage() {
               {labels?.enquiryBack || "Back to page"}
             </Btn>
           </div>
+          </Reveal>
         </div>
       </section>
     </>

@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import ScrollToTop from "../components/ScrollToTop.jsx";
+import PageMotion from "../components/PageMotion.jsx";
 import FloatingCareBar from "../components/FloatingCareBar.jsx";
 import ThemeApplier from "../components/ThemeApplier.jsx";
 import VendorSiteMeta from "../components/VendorSiteMeta.jsx";
@@ -61,6 +62,7 @@ export default function MainLayout({ previewMode = false }) {
         </div>
       ) : null}
       <ScrollToTop />
+      <PageMotion />
       <Header content={content} />
       <main key={location.pathname} className={`page-enter ${previewMode ? "preview-mode" : ""}`}>
         <RouteErrorBoundary>

@@ -12,16 +12,16 @@ export default function Reveal({
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el) return undefined;
+
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setVisible(true);
-      return;
+      return undefined;
     }
 
     const show = () => setVisible(true);
-
     const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 0.98 && rect.bottom > 0) {
+    if (rect.top < window.innerHeight * 0.96 && rect.bottom > 0) {
       show();
     }
 
@@ -32,12 +32,11 @@ export default function Reveal({
           observer.disconnect();
         }
       },
-      { threshold: 0.05, rootMargin: "0px 0px 0px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -6% 0px" }
     );
     observer.observe(el);
 
-    const fallback = window.setTimeout(show, 2200);
-
+    const fallback = window.setTimeout(show, 2600);
     return () => {
       observer.disconnect();
       window.clearTimeout(fallback);

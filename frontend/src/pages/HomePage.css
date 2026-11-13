@@ -139,18 +139,21 @@
 
 .home-hero-media {
   position: relative;
-  border-radius: calc(var(--radius) + 2px);
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 12px 32px rgba(13, 58, 140, 0.12);
+  box-shadow:
+    0 4px 6px rgba(15, 23, 42, 0.04),
+    0 16px 40px rgba(13, 58, 140, 0.14);
 }
 
 .home-hero-media img {
   width: 100%;
-  aspect-ratio: 16 / 10;
-  max-height: 320px;
+  aspect-ratio: 4 / 3;
+  max-height: 420px;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center center;
   display: block;
+  background: #e2e8f0;
 }
 
 .hero-pill-badges {
@@ -418,8 +421,8 @@ section.home-services .home-services-grid .service-card {
   }
 
   .home-hero-media img {
-    max-height: 250px;
-    aspect-ratio: 16 / 10;
+    max-height: 300px;
+    aspect-ratio: 4 / 3;
   }
 
   .split,

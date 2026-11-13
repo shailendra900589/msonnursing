@@ -40,5 +40,13 @@ const tree = (
 );
 
 const rootEl = document.getElementById("root");
-if (initialContent && rootEl.childNodes.length) hydrateRoot(rootEl, tree);
-else createRoot(rootEl).render(tree);
+const canHydrate = Boolean(initialContent && rootEl?.childNodes?.length);
+if (canHydrate) {
+  hydrateRoot(rootEl, tree, {
+    onRecoverableError(error) {
+      if (import.meta.env.DEV) console.warn("[hydrate]", error);
+    },
+  });
+} else {
+  createRoot(rootEl).render(tree);
+}
