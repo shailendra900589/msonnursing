@@ -1,0 +1,66 @@
+/* Full-image media frame: soft blurred fill + contain (no crop, no letterbox bars) */
+.card-media {
+  --card-media-radius: 16px 16px 0 0;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  isolation: isolate;
+  background: #cbd5e1;
+  border-radius: var(--card-media-radius);
+}
+
+.card-media__fill {
+  position: absolute;
+  inset: -18%;
+  width: 136%;
+  height: 136%;
+  object-fit: cover;
+  object-position: center center;
+  filter: blur(24px) saturate(1.1);
+  transform: scale(1.12);
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.card-media__img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.post-card:hover .card-media__img,
+.event-card:hover .card-media__img,
+.service-card:hover .card-media__img {
+  transform: scale(1.04);
+}
+
+@media (max-width: 640px) {
+  .card-media {
+    aspect-ratio: 5 / 4;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card-media {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-media__img {
+    transition: none;
+  }
+
+  .post-card:hover .card-media__img,
+  .event-card:hover .card-media__img,
+  .service-card:hover .card-media__img {
+    transform: none;
+  }
+}

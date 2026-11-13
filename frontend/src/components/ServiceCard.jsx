@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import ServiceIcon from "./ServiceIcon.jsx";
-import { mediaUrl } from "../utils/mediaUrl.js";
 import { recordServiceEngagement } from "../utils/servicePopularity.js";
 import Reveal from "./Reveal.jsx";
+import CardMedia from "./CardMedia.jsx";
 import "./ServiceCard.css";
 
 export default function ServiceCard({ service, labels, delay = 0, compact = false }) {
@@ -16,13 +16,12 @@ export default function ServiceCard({ service, labels, delay = 0, compact = fals
   return (
     <Reveal delay={delay} className="service-card-wrap">
       <article className={cardClass}>
-        <div className="service-card-media">
-          <img src={mediaUrl(service.image)} alt={alt} title={alt} className="service-card-image" width={640} height={640} loading="lazy" />
+        <CardMedia src={service.image} alt={alt} title={alt}>
           <span className="service-card-icon">
             <ServiceIcon name={service.icon} size={compact ? 18 : 22} />
           </span>
           {compact && service.price ? <span className="service-card-price-badge">{service.price}</span> : null}
-        </div>
+        </CardMedia>
         <div className="service-card-body">
           <p className="service-card-title">
             <Link to={to} onClick={onOpen}>

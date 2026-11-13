@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Calendar, MapPin, Clock } from "lucide-react";
-import { mediaUrl } from "../utils/mediaUrl.js";
 import Reveal from "./Reveal.jsx";
+import CardMedia from "./CardMedia.jsx";
 import "./EventCard.css";
 
 const TYPE_LABEL = {
@@ -17,10 +17,9 @@ export default function EventCard({ event, labels, delay = 0 }) {
   return (
     <Reveal delay={delay} className="event-card-wrap">
       <article className="event-card hover-lift">
-        <div className="event-card-media">
-          <img src={mediaUrl(event.image)} alt={event.imageAlt || event.title} title={event.imageAlt || event.title} width={640} height={640} loading="lazy" />
+        <CardMedia src={event.image} alt={event.imageAlt || event.title} title={event.imageAlt || event.title}>
           {event.featured ? <span className="event-featured">{labels?.eventFeatured || "Featured"}</span> : null}
-        </div>
+        </CardMedia>
         <div className="event-card-body">
           <span className={`event-type-badge ${typeClass}`}>{TYPE_LABEL[event.type] || event.type}</span>
           <p className="event-card-title">{event.title}</p>

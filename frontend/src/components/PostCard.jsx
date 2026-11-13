@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Calendar, User } from "lucide-react";
-import { mediaUrl } from "../utils/mediaUrl.js";
 import Reveal from "./Reveal.jsx";
+import CardMedia from "./CardMedia.jsx";
 import "./PostCard.css";
 
 export default function PostCard({ post, delay = 0 }) {
@@ -9,17 +9,7 @@ export default function PostCard({ post, delay = 0 }) {
     <Reveal delay={delay} className="post-card-wrap">
       <article className="post-card hover-lift">
         {post.image ? (
-          <div className="post-card-media">
-            <img
-              src={mediaUrl(post.image)}
-              alt={post.imageAlt || post.title}
-              title={post.imageAlt || post.title}
-              className="post-card-image"
-              width={640}
-              height={640}
-              loading="lazy"
-            />
-          </div>
+          <CardMedia src={post.image} alt={post.imageAlt || post.title} title={post.imageAlt || post.title} />
         ) : null}
         <div className="post-card-body">
           {post.category ? <span className="post-card-category">{post.category}</span> : null}
