@@ -47,6 +47,8 @@
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid rgba(148, 163, 184, 0.35);
+  background: #f1f5f9;
+  line-height: 0;
   box-shadow:
     0 4px 6px rgba(15, 23, 42, 0.04),
     0 16px 40px rgba(13, 58, 140, 0.14);
@@ -54,11 +56,12 @@
 
 .blog-featured-image {
   width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  object-position: center center;
+  height: auto;
+  max-width: 100%;
   display: block;
-  background: #e2e8f0;
+  object-fit: contain;
+  object-position: center center;
+  background: #f1f5f9;
 }
 
 .blog-meta-chips {

@@ -45,11 +45,12 @@
 
 .event-hero-image {
   width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
   object-position: center center;
   display: block;
-  background: #e2e8f0;
+  background: #f1f5f9;
   transition: transform 0.5s ease;
 }
 

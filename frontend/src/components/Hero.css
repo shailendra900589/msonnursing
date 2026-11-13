@@ -83,10 +83,11 @@
 
 .hero-image-wrap img {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
   object-position: center center;
-  background: #e2e8f0;
+  background: #f1f5f9;
   display: block;
 }
 
@@ -138,7 +139,4 @@
     order: -1;
   }
 
-  .hero-image-wrap img {
-    aspect-ratio: 4 / 3;
-  }
 }

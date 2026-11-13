@@ -1,7 +1,7 @@
 import { mediaUrl } from "../utils/mediaUrl.js";
 import "./CardMedia.css";
 
-/** Edge-to-edge card image — cover fill, consistent frame on every device. */
+/** Full image, auto height — never crops; frame follows the photo. */
 export default function CardMedia({ src, alt, title, className = "", children, width = 800, height = 600 }) {
   const classes = className ? `card-media ${className}` : "card-media";
 
