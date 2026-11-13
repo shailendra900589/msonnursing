@@ -35,9 +35,16 @@
 
 .event-hero-visual {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid rgba(148, 163, 184, 0.35);
+  background: #f1f5f9;
+  min-height: 220px;
+  max-height: min(70vh, 560px);
   box-shadow:
     0 4px 6px rgba(15, 23, 42, 0.04),
     0 16px 40px rgba(13, 58, 140, 0.14);
@@ -47,17 +54,12 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  max-height: min(70vh, 520px);
+  max-height: min(calc(70vh - 1.5rem), 520px);
   margin: 0 auto;
   object-fit: contain;
   object-position: center center;
   display: block;
   background: transparent;
-  transition: transform 0.5s ease;
-}
-
-.event-hero-visual:hover .event-hero-image {
-  transform: scale(1.03);
 }
 
 .event-type-pill {
